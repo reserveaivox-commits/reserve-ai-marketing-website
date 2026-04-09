@@ -58,7 +58,7 @@ export default function ServicesCarousel({ services }: { services: CarouselCard[
 
           const cardContent = (
             <>
-              <div className="relative w-full h-[220px] md:h-[240px] overflow-hidden bg-zinc-100 border-b border-zinc-100/50">
+              <div className="relative w-full h-[220px] md:h-[240px] overflow-hidden bg-[#0c1424] border-b border-white/8">
                 <div className="absolute inset-0 animate-image-float" style={{ animationDelay: `${i * 0.5}s` }}>
                   <Image src={svc.image} alt={svc.title} fill className="service-card-image" />
                 </div>
@@ -66,10 +66,10 @@ export default function ServicesCarousel({ services }: { services: CarouselCard[
               </div>
               
               <div className="p-6 md:p-8 flex flex-col flex-1 pointer-events-none">
-                <h3 className="text-xl md:text-2xl font-bold text-brand-dark mb-2 md:mb-3">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3">
                   {svc.title}
                 </h3>
-                <p className="text-sm text-zinc-500 line-clamp-3 mb-6 md:mb-8 leading-relaxed">
+                <p className="text-sm text-zinc-400 line-clamp-3 mb-6 md:mb-8 leading-relaxed">
                   {svc.desc}
                 </p>
                 
@@ -78,7 +78,7 @@ export default function ServicesCarousel({ services }: { services: CarouselCard[
                     <span className="inline-block transition-transform duration-500 group-hover:-translate-y-[120%]">
                       {svc.learnMore}
                     </span>
-                    <span className="absolute top-full left-0 text-brand-dark transition-transform duration-500 group-hover:-translate-y-full">
+                    <span className="absolute top-full left-0 text-white transition-transform duration-500 group-hover:-translate-y-full">
                       {svc.learnMore}
                     </span>
                   </div>
@@ -91,8 +91,8 @@ export default function ServicesCarousel({ services }: { services: CarouselCard[
           return (
             <motion.div
               key={svc.key}
-              className={`absolute w-full max-w-[320px] md:max-w-sm h-full max-h-[460px] md:max-h-[500px] rounded-[24px] overflow-hidden bg-white 
-                          border border-zinc-100 shadow-2xl service-card-v2 ${svc.variant}
+              className={`absolute w-full max-w-[320px] md:max-w-sm h-full max-h-[460px] md:max-h-[500px] rounded-[24px] overflow-hidden bg-[#09111f] 
+                          border border-white/8 shadow-2xl service-card-v2 ${svc.variant}
                           ${isActive ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'}`}
               initial={false}
               animate={{ opacity, scale, x, y, rotateZ, zIndex }}
@@ -130,7 +130,7 @@ export default function ServicesCarousel({ services }: { services: CarouselCard[
             key={i} 
             onClick={() => setActiveIndex(i)}
             className={`transition-all duration-300 rounded-full ${
-              i === activeIndex ? 'w-8 h-2.5 bg-brand-dark' : 'w-2.5 h-2.5 bg-zinc-300 hover:bg-zinc-400'
+              i === activeIndex ? 'w-8 h-2.5 bg-[#8effa8]' : 'w-2.5 h-2.5 bg-zinc-600 hover:bg-zinc-400'
             }`}
             aria-label={`Go to slide ${i+1}`}
           />

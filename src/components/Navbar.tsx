@@ -129,16 +129,19 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md ${
+      className={`fixed top-0 left-0 right-0 z-50 pt-4 md:pt-5 ${
         scrolled ? "scrolled" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-18 rounded-full border border-white/8 bg-[#08101c]/78 px-5 md:px-7 shadow-[0_20px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-brand-dark">
-              Re<span className="text-accent-purple">.</span>Serve
+          <Link href="/" className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/30 text-sm font-bold text-[#8effa8]">
+              R
+            </span>
+            <span className="text-xl md:text-2xl font-bold text-white tracking-[-0.04em]">
+              Reserve<span className="text-[#8effa8]">AI</span>
             </span>
           </Link>
 
@@ -146,7 +149,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             <Link
               href="/"
-              className="text-sm font-medium text-zinc-600 hover:text-accent-purple transition-colors"
+              className="text-sm font-medium text-zinc-300 hover:text-white transition-colors"
             >
               {t("home")}
             </Link>
@@ -155,7 +158,7 @@ export default function Navbar() {
             <div className="services-dropdown-container relative">
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className="text-sm font-medium text-zinc-600 hover:text-accent-purple transition-colors flex items-center gap-1"
+                className="text-sm font-medium text-zinc-300 hover:text-white transition-colors flex items-center gap-1"
               >
                 {t("services")}
                 <svg
@@ -190,7 +193,7 @@ export default function Navbar() {
                   onClick={() => setServicesOpen(false)}
                   className="mega-menu-item col-span-2 border-t border-zinc-100 mt-2 pt-2"
                 >
-                  <div className="mega-menu-icon bg-accent-purple/10 text-accent-purple">
+                  <div className="mega-menu-icon bg-[#8effa8]/10 text-[#8effa8]">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/>
                     </svg>
@@ -207,7 +210,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-zinc-600 hover:text-accent-purple transition-colors"
+                className={`text-sm font-medium transition-colors ${link.href === "/contact" ? "rounded-full bg-[#8effa8] px-4 py-2 text-[#04101b] hover:bg-[#76f494]" : "text-zinc-300 hover:text-white"}`}
               >
                 {link.label}
               </Link>
@@ -217,7 +220,7 @@ export default function Navbar() {
             <div className="language-switcher">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-zinc-100 transition-colors text-sm font-medium"
+                className="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-white/6 transition-colors text-sm font-medium text-zinc-300"
               >
                 {locale === "de" ? "🇩🇪 DE" : "🇬🇧 EN"}
                 <svg
@@ -260,7 +263,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-zinc-100"
+            className="md:hidden p-2 rounded-full hover:bg-white/6 text-white"
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -276,19 +279,19 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-surface border-t border-zinc-100 shadow-lg max-h-[80vh] overflow-y-auto">
+        <div className="md:hidden mt-3 mx-4 rounded-[2rem] bg-[#08101c] border border-white/8 shadow-[0_24px_70px_rgba(0,0,0,0.35)] max-h-[80vh] overflow-y-auto">
           <div className="px-4 py-4 space-y-2">
             <Link
               href="/"
               onClick={() => setMobileOpen(false)}
-              className="block px-4 py-3 rounded-lg text-zinc-600 hover:bg-accent-purple/5 hover:text-accent-purple font-medium transition-colors"
+              className="block px-4 py-3 rounded-lg text-zinc-300 hover:bg-white/6 hover:text-white font-medium transition-colors"
             >
               {t("home")}
             </Link>
 
             {/* Services section in mobile */}
             <div className="px-4 py-2">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">
                 {t("services")}
               </p>
               <div className="space-y-1 pl-2">
@@ -297,7 +300,7 @@ export default function Navbar() {
                     key={item.key}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-600 hover:bg-accent-purple/5 hover:text-accent-purple transition-colors"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-white/6 hover:text-white transition-colors"
                   >
                     <div className={`w-8 h-8 rounded-lg ${item.color} flex items-center justify-center flex-shrink-0`}>
                       {item.icon}
@@ -313,12 +316,12 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-4 py-3 rounded-lg text-zinc-600 hover:bg-accent-purple/5 hover:text-accent-purple font-medium transition-colors"
+                className={`block px-4 py-3 rounded-lg font-medium transition-colors ${link.href === "/contact" ? "bg-[#8effa8] text-[#04101b]" : "text-zinc-300 hover:bg-white/6 hover:text-white"}`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="flex gap-2 pt-2 border-t border-zinc-100 mt-2">
+            <div className="flex gap-2 pt-2 border-t border-white/8 mt-2">
               <button
                 onClick={() => {
                   switchLocale("de");
@@ -326,8 +329,8 @@ export default function Navbar() {
                 }}
                 className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
                   locale === "de"
-                    ? "bg-accent-purple/10 text-accent-purple"
-                    : "bg-zinc-100 text-zinc-600"
+                    ? "bg-white/10 text-white"
+                    : "bg-white/4 text-zinc-300"
                 }`}
               >
                 🇩🇪 Deutsch
@@ -339,8 +342,8 @@ export default function Navbar() {
                 }}
                 className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
                   locale === "en"
-                    ? "bg-accent-purple/10 text-accent-purple"
-                    : "bg-zinc-100 text-zinc-600"
+                    ? "bg-white/10 text-white"
+                    : "bg-white/4 text-zinc-300"
                 }`}
               >
                 🇬🇧 English

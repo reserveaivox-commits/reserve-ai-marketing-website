@@ -17,8 +17,8 @@ export default function FaqAccordion() {
       {items.map((item, idx) => (
         <div
           key={idx}
-          className={`faq-item bg-white rounded-xl overflow-hidden transition-shadow hover:shadow-md ${
-            openIndex === idx ? "open shadow-md" : ""
+          className={`faq-item rounded-xl overflow-hidden border border-white/8 bg-white/4 transition-shadow ${
+            openIndex === idx ? "open shadow-[0_18px_40px_rgba(0,0,0,0.2)]" : ""
           }`}
         >
           <button
@@ -26,11 +26,11 @@ export default function FaqAccordion() {
             className="w-full flex items-center justify-between px-6 py-5 text-left"
             aria-expanded={openIndex === idx}
           >
-            <span className="font-semibold text-brand-dark pr-4">
+            <span className="font-semibold text-white pr-4">
               {item.question}
             </span>
             <svg
-              className="faq-icon w-5 h-5 text-accent-purple flex-shrink-0"
+              className="faq-icon w-5 h-5 text-[#8effa8] flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -44,7 +44,7 @@ export default function FaqAccordion() {
             </svg>
           </button>
           <div className="faq-answer">
-            <div className="px-6 pb-5 text-zinc-600 leading-relaxed">
+            <div className="px-6 pb-5 text-zinc-300 leading-relaxed">
               {item.answer}
             </div>
           </div>
