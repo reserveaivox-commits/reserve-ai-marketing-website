@@ -38,7 +38,7 @@ export default function ServicesCarousel({ services }: { services: CarouselCard[
   };
 
   return (
-    <div className="relative w-full h-[600px] md:h-[650px] flex items-center justify-center overflow-x-clip px-4">
+    <div className="relative flex h-[500px] w-full items-center justify-center overflow-x-clip px-2 sm:px-4 md:h-[650px]">
       <AnimatePresence initial={false}>
         {services.map((svc, i) => {
           const relativeIndex = i - activeIndex;
@@ -47,7 +47,7 @@ export default function ServicesCarousel({ services }: { services: CarouselCard[
           const zIndex = 20 - Math.abs(relativeIndex);
           const scale = i === activeIndex ? 1.05 : 1 - Math.abs(relativeIndex) * 0.15;
           const rotateZ = relativeIndex * (isMobile ? 5 : 8); // Spread degrees
-          const xOffset = isMobile ? 80 : 180;
+          const xOffset = isMobile ? 66 : 180;
           const x = relativeIndex * xOffset;
           const y = Math.abs(relativeIndex) * (isMobile ? 15 : 25); // Arc drop
           
@@ -58,18 +58,18 @@ export default function ServicesCarousel({ services }: { services: CarouselCard[
 
           const cardContent = (
             <>
-              <div className="relative w-full h-[220px] md:h-[240px] overflow-hidden bg-[#0c1424] border-b border-white/8">
+              <div className="relative h-[180px] w-full overflow-hidden border-b border-white/8 bg-[#0c1424] sm:h-[220px] md:h-[240px]">
                 <div className="absolute inset-0 animate-image-float" style={{ animationDelay: `${i * 0.5}s` }}>
                   <Image src={svc.image} alt={svc.title} fill className="service-card-image" />
                 </div>
                 <div className="service-card-overlay" />
               </div>
               
-              <div className="p-6 md:p-8 flex flex-col flex-1 pointer-events-none">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3">
+              <div className="pointer-events-none flex flex-1 flex-col p-5 sm:p-6 md:p-8">
+                <h3 className="mb-2 text-lg font-bold text-white sm:text-xl md:mb-3 md:text-2xl">
                   {svc.title}
                 </h3>
-                <p className="text-sm text-zinc-400 line-clamp-3 mb-6 md:mb-8 leading-relaxed">
+                <p className="mb-5 line-clamp-4 text-sm leading-relaxed text-zinc-400 sm:mb-6 md:mb-8">
                   {svc.desc}
                 </p>
                 
@@ -91,7 +91,7 @@ export default function ServicesCarousel({ services }: { services: CarouselCard[
           return (
             <motion.div
               key={svc.key}
-              className={`absolute w-full max-w-[320px] md:max-w-sm h-full max-h-[460px] md:max-h-[500px] rounded-[24px] overflow-hidden bg-[#09111f] 
+              className={`absolute h-full max-h-[420px] w-full max-w-[272px] overflow-hidden rounded-[24px] bg-[#09111f] sm:max-h-[460px] sm:max-w-[320px] md:max-h-[500px] md:max-w-sm
                           border border-white/8 shadow-2xl service-card-v2 ${svc.variant}
                           ${isActive ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'}`}
               initial={false}

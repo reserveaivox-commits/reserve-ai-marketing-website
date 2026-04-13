@@ -65,8 +65,8 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
             className="absolute inset-0 cursor-default"
             aria-label="Close live demo overlay"
           />
-          <div className="relative z-10 w-full max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-[#050914] shadow-[0_28px_90px_rgba(0,0,0,0.45)]">
-            <div className="flex items-center justify-between border-b border-white/10 bg-[linear-gradient(180deg,rgba(12,20,35,0.96),rgba(8,13,24,0.98))] px-5 py-4">
+          <div className="relative z-10 w-full max-w-6xl overflow-hidden rounded-[1.5rem] md:rounded-[2rem] border border-white/10 bg-[#050914] shadow-[0_28px_90px_rgba(0,0,0,0.45)]">
+            <div className="flex items-center justify-between gap-4 border-b border-white/10 bg-[linear-gradient(180deg,rgba(12,20,35,0.96),rgba(8,13,24,0.98))] px-4 py-3 md:px-5 md:py-4">
               <div>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
                   {t("demo_center_label")}
@@ -84,7 +84,7 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
                 x
               </button>
             </div>
-            <div className="h-[78vh] min-h-[560px] w-full bg-[#06050c]">
+            <div className="h-[72vh] min-h-[420px] sm:min-h-[480px] md:h-[78vh] md:min-h-[560px] w-full bg-[#06050c]">
               <iframe
                 src="https://voiceui-production.up.railway.app/"
                 title="Re.Serve live demo"
@@ -97,7 +97,7 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
           </div>
         </div>
       ) : null}
-      <div className={`relative isolate overflow-hidden border border-white/10 bg-[#050914] shadow-[0_28px_70px_rgba(0,0,0,0.32)] ${compact ? "rounded-[2rem]" : "rounded-[2.4rem]"}`}>
+      <div className={`relative isolate overflow-hidden border border-white/10 bg-[#050914] shadow-[0_28px_70px_rgba(0,0,0,0.32)] ${compact ? "rounded-[1.5rem] md:rounded-[2rem]" : "rounded-[1.6rem] md:rounded-[2.4rem]"}`}>
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(142,255,168,0.12),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(77,180,255,0.12),_transparent_26%)]" />
       {
         <div className={`relative bg-[linear-gradient(180deg,_rgba(11,17,31,0.98),_rgba(5,9,20,1))] ${compact ? "p-3 md:p-4" : "p-4 md:p-5 lg:p-6"}`}>
@@ -121,13 +121,13 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
                   </p>
                 </div>
 
-                <div className={`relative mt-8 ${compact ? "min-h-[26rem]" : "min-h-[32rem] md:min-h-[38rem]"}`}>
+                <div className={`relative mt-6 md:mt-8 ${compact ? "min-h-[22rem] sm:min-h-[24rem] md:min-h-[26rem]" : "min-h-[26rem] sm:min-h-[30rem] md:min-h-[38rem]"}`}>
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(142,255,168,0.12),_transparent_12%)] opacity-90" />
 
-                  <div className="absolute left-1/2 top-[43%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8effa8]/10 blur-3xl md:h-40 md:w-40" />
-                  <div className="absolute left-1/2 top-[43%] h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/18 md:h-[18rem] md:w-[18rem]" />
-                  <div className="absolute left-1/2 top-[43%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8effa8]/16 md:h-[24rem] md:w-[24rem]" />
-                  <div className="absolute left-1/2 top-[43%] h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 md:h-[30rem] md:w-[30rem]" />
+                  <div className="absolute left-1/2 top-[43%] h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8effa8]/10 blur-3xl sm:h-24 sm:w-24 md:h-40 md:w-40" />
+                  <div className="absolute left-1/2 top-[43%] h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/18 sm:h-48 sm:w-48 md:h-[18rem] md:w-[18rem]" />
+                  <div className="absolute left-1/2 top-[43%] h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8effa8]/16 sm:h-72 sm:w-72 md:h-[24rem] md:w-[24rem]" />
+                  <div className="absolute left-1/2 top-[43%] h-[19rem] w-[19rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 sm:h-[24rem] sm:w-[24rem] md:h-[30rem] md:w-[30rem]" />
 
                   {featurePlanets.map((planet) => {
                     const isSelected = selectedFeature === planet.key;
@@ -144,7 +144,7 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
                           aria-label={planet.title}
                         >
                           <span className={`pointer-events-none absolute ${planet.label}`}>
-                            <span className={`block whitespace-nowrap rounded-full border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] shadow-[0_18px_40px_rgba(0,0,0,0.22)] transition-all duration-500 ${planet.labelInner} ${isSelected ? "border-white/18 bg-[#0d1829]/96 text-white" : "border-white/10 bg-[#0b1422]/88 text-white/78"}`}>
+                            <span className={`block max-w-[8rem] whitespace-normal text-center sm:max-w-none sm:whitespace-nowrap rounded-full border px-3 py-1.5 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.18em] shadow-[0_18px_40px_rgba(0,0,0,0.22)] transition-all duration-500 ${planet.labelInner} ${isSelected ? "border-white/18 bg-[#0d1829]/96 text-white" : "border-white/10 bg-[#0b1422]/88 text-white/78"}`}>
                               {planet.title}
                             </span>
                           </span>
@@ -157,17 +157,17 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
                     <button
                       type="button"
                       onClick={() => setUnlocked(true)}
-                      className={`group relative isolate overflow-hidden rounded-full border border-[#8effa8]/24 bg-[radial-gradient(circle_at_30%_24%,rgba(31,47,72,0.98),rgba(12,18,31,0.99)_58%,rgba(5,9,18,1))] text-center shadow-[0_30px_120px_rgba(0,0,0,0.5),0_0_60px_rgba(142,255,168,0.10)] transition duration-300 hover:scale-[1.02] hover:border-[#8effa8]/45 ${compact ? "h-44 w-44 p-5" : "h-56 w-56 p-6 md:h-64 md:w-64 md:p-7"}`}
+                      className={`group relative isolate overflow-hidden rounded-full border border-[#8effa8]/24 bg-[radial-gradient(circle_at_30%_24%,rgba(31,47,72,0.98),rgba(12,18,31,0.99)_58%,rgba(5,9,18,1))] text-center shadow-[0_30px_120px_rgba(0,0,0,0.5),0_0_60px_rgba(142,255,168,0.10)] transition duration-300 hover:scale-[1.02] hover:border-[#8effa8]/45 ${compact ? "h-32 w-32 p-4 sm:h-40 sm:w-40 sm:p-5 md:h-44 md:w-44" : "h-40 w-40 p-4 sm:h-48 sm:w-48 sm:p-5 md:h-64 md:w-64 md:p-7"}`}
                     >
                       <div className="absolute inset-[8%] rounded-full border border-white/10 bg-[radial-gradient(circle_at_center,rgba(17,27,44,0.95),rgba(9,14,24,0.98)_72%)]" />
                       <div className="absolute inset-[16%] rounded-full border border-white/7" />
                       <div className="absolute inset-[18%] rounded-full bg-[radial-gradient(circle,_rgba(142,255,168,0.12),_transparent_70%)] blur-xl transition duration-300 group-hover:scale-110" />
                       <div className={`relative z-10 flex h-full flex-col items-center justify-center ${compact ? "gap-3" : "gap-4"}`}>
-                        <div className="mx-auto max-w-[8.5rem] text-center md:max-w-[10rem]">
+                        <div className="mx-auto max-w-[6.75rem] text-center sm:max-w-[8rem] md:max-w-[10rem]">
                           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50 md:text-[11px]">
                             {t("demo_center_label")}
                           </p>
-                          <p className="mt-2 text-base leading-tight font-semibold text-white md:text-[1.15rem]">
+                          <p className="mt-2 text-sm leading-tight font-semibold text-white sm:text-base md:text-[1.15rem]">
                             {t("demo_center_cta")}
                           </p>
                         </div>

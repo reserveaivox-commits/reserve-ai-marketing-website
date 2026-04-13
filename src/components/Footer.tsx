@@ -8,11 +8,11 @@ export default function Footer() {
     <footer className="section-flow-dark text-white">
       {/* CTA strip */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-        <div className="reserve-panel px-6 py-8 md:px-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <h2 className="heading-serif text-2xl md:text-3xl text-white">{t("ready")}</h2>
+        <div className="reserve-panel flex flex-col items-start justify-between gap-6 px-5 py-7 sm:px-6 md:flex-row md:items-center md:px-8 md:py-10">
+          <h2 className="heading-serif text-2xl text-white md:text-3xl">{t("ready")}</h2>
           <Link
             href="/contact"
-            className="inline-block bg-[#8effa8] text-[#05101b] font-semibold px-8 py-3 rounded-lg hover:bg-[#79f69c] transition-colors"
+            className="inline-flex w-full items-center justify-center rounded-lg bg-[#8effa8] px-6 py-3 font-semibold text-[#05101b] transition-colors hover:bg-[#79f69c] sm:w-auto sm:px-8"
           >
             {t("btn")}
           </Link>

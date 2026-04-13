@@ -24,31 +24,31 @@ function BookingHero() {
   const t = useTranslations("svc_booking");
 
   return (
-    <section className="section-flow-light relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+    <section className="section-flow-light relative overflow-hidden pt-24 pb-12 md:pt-36 md:pb-24">
       <div className="absolute top-20 right-10 w-72 h-72 bg-service-booking/5 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-10 left-20 w-56 h-56 bg-service-booking/3 rounded-full blur-3xl animate-blob" style={{ animationDelay: "4s" }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="reserve-panel max-w-4xl px-8 py-10 md:px-10 md:py-12">
+        <div className="reserve-panel max-w-4xl px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12">
           <p className="section-label mb-6" style={{ color: "var(--color-service-booking)" }}>
             {t("badge")}
           </p>
-          <h1 className="heading-serif text-4xl md:text-6xl text-white mb-6">
+          <h1 className="heading-serif mb-6 text-3xl text-white sm:text-4xl md:text-6xl">
             {t("title")}
           </h1>
-          <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl mb-10">
+          <p className="mb-8 max-w-2xl text-base leading-relaxed text-zinc-300 sm:mb-10 sm:text-lg">
             {t("subtitle")}
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <Link
               href="/contact"
-              className="btn-primary bg-service-booking text-white font-semibold px-8 py-3.5 rounded-lg"
+              className="btn-primary rounded-lg bg-service-booking px-6 py-3.5 text-center font-semibold text-white sm:px-8"
             >
               {t("cta")}
             </Link>
             <a
               href="#sub-services"
-              className="border border-white/12 text-zinc-200 font-semibold px-8 py-3.5 rounded-lg hover:bg-white/6 transition-colors"
+              className="rounded-lg border border-white/12 px-6 py-3.5 text-center font-semibold text-zinc-200 transition-colors hover:bg-white/6 sm:px-8"
             >
               {t("learn_more")}
             </a>
@@ -104,22 +104,22 @@ function BookingSubServices() {
   ];
 
   return (
-    <section id="sub-services" className="section-flow-dark py-20 md:py-28">
+    <section id="sub-services" className="section-flow-dark py-16 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reserve-panel-dark px-6 py-10 md:px-10 md:py-12">
+        <div className="reserve-panel-dark px-5 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12">
         <ScrollAnimator>
-          <div className="text-center mb-16">
+          <div className="mb-12 text-center md:mb-16">
             <p className="section-label mb-4" style={{ color: "var(--color-service-booking)" }}>
               {t("sub_badge")}
             </p>
-            <h2 className="heading-serif text-3xl md:text-5xl text-white mb-4">
+            <h2 className="heading-serif mb-4 text-3xl text-white md:text-5xl">
               3 powerful booking integrations
             </h2>
             <p className="text-zinc-300 max-w-2xl mx-auto">{t("sub_subtitle")}</p>
           </div>
         </ScrollAnimator>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid gap-5 md:grid-cols-3 md:gap-6">
           {subServices.map((svc, idx) => (
             <ScrollAnimator key={idx} delay={idx * 0.1}>
               <div className="sub-service-card hover:border-service-booking/30 h-full">
@@ -146,22 +146,22 @@ function BookingIntegrations() {
   const t = useTranslations("svc_booking");
 
   return (
-    <section className="section-flow-dark py-20 md:py-28">
+    <section className="section-flow-dark py-16 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reserve-panel-dark px-6 py-10 md:px-10 md:py-12">
+        <div className="reserve-panel-dark px-5 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12">
         <ScrollAnimator>
-          <div className="text-center mb-16">
-            <h2 className="heading-serif text-3xl md:text-4xl text-white mb-4">
+          <div className="mb-12 text-center md:mb-16">
+            <h2 className="heading-serif mb-4 text-3xl text-white md:text-4xl">
               {t("integrations_title")}
             </h2>
             <p className="text-zinc-300 max-w-2xl mx-auto">{t("integrations_subtitle")}</p>
           </div>
         </ScrollAnimator>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4 md:gap-4">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((i, idx) => (
             <ScrollAnimator key={i} delay={idx * 0.06}>
-              <div className="rounded-xl border border-white/8 bg-white/4 p-6 text-center hover-lift">
+              <div className="rounded-xl border border-white/8 bg-white/4 p-4 text-center hover-lift sm:p-6">
                 <p className="text-sm font-medium text-zinc-200">{t(`integration${i}`)}</p>
               </div>
             </ScrollAnimator>

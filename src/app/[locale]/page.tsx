@@ -43,16 +43,16 @@ function HeroSection() {
   ];
 
   return (
-    <section className="section-flow-light relative overflow-hidden px-4 pt-28 pb-12 md:px-6 md:pt-36 md:pb-24">
+    <section className="section-flow-light relative overflow-hidden px-4 pt-24 pb-12 md:px-6 md:pt-36 md:pb-24">
       <div className="absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(79,253,142,0.16),_rgba(255,255,255,0)_55%)]" />
       <div className="absolute top-24 left-0 w-96 h-96 bg-emerald-400/8 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-12 right-10 w-80 h-80 bg-cyan-400/8 rounded-full blur-3xl animate-blob" style={{ animationDelay: "3s" }} />
 
-      <div className="reserve-panel max-w-7xl mx-auto relative z-10 w-full px-6 py-12 sm:px-8 md:px-10 md:py-14 lg:px-12 lg:py-16">
-        <div className="flex flex-col items-center text-center gap-10 lg:gap-12">
-          <div className="flex flex-wrap justify-center gap-3 mb-1">
+      <div className="reserve-panel max-w-7xl mx-auto relative z-10 w-full px-4 py-8 sm:px-6 sm:py-10 md:px-10 md:py-14 lg:px-12 lg:py-16">
+        <div className="flex flex-col items-center gap-8 text-center sm:gap-10 lg:gap-12">
+          <div className="mb-1 flex flex-wrap justify-center gap-2 sm:gap-3">
             {samplePrompts.map((item, idx) => (
-              <span key={item} className="reserve-chip">
+              <span key={item} className="reserve-chip text-[0.72rem] sm:text-[0.8rem]">
                 <span className={`h-2.5 w-2.5 rounded-full ${idx === 0 ? "bg-emerald-500" : idx === 1 ? "bg-cyan-400" : "bg-white"}`} />
                 {item}
               </span>
@@ -61,22 +61,22 @@ function HeroSection() {
 
           <div className="max-w-5xl">
             <p className="section-label mb-5">{t("badge")}</p>
-            <h1 className="heading-serif w-full text-[3rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.15rem] 2xl:text-[6.6rem] leading-[0.92] tracking-[-0.04em] text-white mb-6">
+            <h1 className="heading-serif mb-6 w-full text-[2.2rem] leading-[0.95] tracking-[-0.045em] text-white sm:text-[2.9rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.15rem] 2xl:text-[6.6rem]">
               {t("title")}
             </h1>
-            <p className="mx-auto text-lg md:text-xl text-zinc-300 mb-8 max-w-3xl leading-relaxed">
+            <p className="mx-auto mb-8 max-w-3xl text-base leading-relaxed text-zinc-300 sm:text-lg md:text-xl">
               {t("subtitle")}
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link
                 href="/contact"
-                className="btn-primary bg-[#8effa8] text-[#05101b] font-semibold px-8 py-3.5 rounded-full shadow-[0_18px_40px_rgba(81,255,154,0.16)]"
+                className="btn-primary w-full rounded-full bg-[#8effa8] px-6 py-3.5 font-semibold text-[#05101b] shadow-[0_18px_40px_rgba(81,255,154,0.16)] sm:w-auto sm:px-8"
               >
                 {t("cta_primary")}
               </Link>
               <a
                 href="#demo"
-                className="border border-white/12 text-zinc-200 font-semibold px-8 py-3.5 rounded-full hover:bg-white/6 transition-colors"
+                className="w-full rounded-full border border-white/12 px-6 py-3.5 font-semibold text-zinc-200 transition-colors hover:bg-white/6 sm:w-auto sm:px-8"
               >
                 {t("cta_secondary")}
               </a>
@@ -91,9 +91,9 @@ function HeroSection() {
           <div className="grid w-full max-w-4xl gap-4 sm:grid-cols-3">
             {[1, 2, 3].map((i) => (
               <div key={i} className="reserve-stat-card px-5 py-5 text-center">
-                <div className="text-2xl md:text-3xl font-bold text-white">
-                  {t(`stat${i}_num`)}
-                </div>
+                    <div className="text-xl font-bold text-white sm:text-2xl md:text-3xl">
+                      {t(`stat${i}_num`)}
+                    </div>
                 <div className="text-sm text-zinc-400 mt-2">
                   {t(`stat${i}_text`)}
                 </div>
@@ -261,8 +261,8 @@ function ProblemSection() {
           </div>
 
           <ScrollAnimator>
-            <div className="border border-accent-gold/30 rounded-[1.75rem] px-8 py-5 text-center max-w-4xl mx-auto bg-accent-gold/5">
-              <p className="text-accent-gold font-semibold whitespace-nowrap">
+            <div className="mx-auto max-w-4xl rounded-[1.75rem] border border-accent-gold/30 bg-accent-gold/5 px-4 py-5 text-center sm:px-8">
+              <p className="font-semibold text-accent-gold">
                 ✓ {t("solution")}
               </p>
             </div>
@@ -314,8 +314,8 @@ function HowItWorksSection() {
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
                         Step {idx + 1}
                       </div>
-                      <div className="text-6xl font-bold text-white/8 mb-3 font-serif">{idx + 1}</div>
-                      <h3 className="text-lg font-bold text-white mb-3 min-h-[3.5rem] flex items-center justify-center">
+                      <div className="mb-3 font-serif text-5xl font-bold text-white/8 md:text-6xl">{idx + 1}</div>
+                      <h3 className="mb-3 flex min-h-[auto] items-center justify-center text-lg font-bold text-white md:min-h-[3.5rem]">
                         {step.title}
                       </h3>
                       <p className="text-sm text-zinc-400 leading-relaxed">{step.desc}</p>
@@ -424,11 +424,11 @@ function PricingSection() {
             </div>
           </ScrollAnimator>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
+          <div className="mb-10 grid gap-6 md:grid-cols-3">
             {plans.map((plan, idx) => (
               <ScrollAnimator key={idx} delay={idx * 0.12}>
                 <div
-                  className={`relative rounded-[2rem] p-8 h-full flex flex-col transition-shadow ${
+                  className={`relative flex h-full flex-col rounded-[2rem] p-6 sm:p-8 transition-shadow ${
                     plan.popular
                       ? "bg-[#8effa8] text-[#06101c] shadow-[0_24px_60px_rgba(81,255,154,0.12)]"
                       : "bg-white/3 border border-white/8 shadow-[0_18px_40px_rgba(0,0,0,0.18)]"
@@ -443,7 +443,7 @@ function PricingSection() {
                     {plan.name}
                   </div>
                   <div className="mb-1">
-                    <span className={`text-4xl font-bold ${plan.popular ? "text-[#04101b]" : "text-white"}`}>{plan.price}</span>
+                    <span className={`text-3xl font-bold sm:text-4xl ${plan.popular ? "text-[#04101b]" : "text-white"}`}>{plan.price}</span>
                     <span className={plan.popular ? "text-[#04101b]/60" : "text-zinc-500"}>{plan.period}</span>
                   </div>
                   <p className={`text-sm mb-6 ${plan.popular ? "text-[#04101b]/72" : "text-zinc-400"}`}>{plan.desc}</p>
@@ -457,7 +457,7 @@ function PricingSection() {
                   </ul>
                   <Link
                     href="/contact"
-                    className={`btn-primary block text-center font-semibold py-3 rounded-full transition-colors ${
+                    className={`btn-primary block rounded-full py-3 text-center font-semibold transition-colors ${
                       plan.popular
                         ? "bg-[#04101b] text-white hover:bg-black"
                         : "bg-[#8effa8] text-[#04101b] hover:bg-[#76f494]"
@@ -577,12 +577,12 @@ function FaqSection() {
           <FaqAccordion />
 
           <ScrollAnimator>
-            <div className="mt-12 bg-white/4 border border-white/8 rounded-[1.75rem] p-8">
+            <div className="mt-12 rounded-[1.75rem] border border-white/8 bg-white/4 p-5 sm:p-8">
               <h3 className="font-bold text-white mb-2">{t("still_questions")}</h3>
               <p className="text-sm text-zinc-300 mb-4">{t("contact_text")}</p>
               <Link
                 href="/contact"
-                className="btn-primary inline-block bg-[#8effa8] text-[#04101b] font-semibold px-6 py-2.5 rounded-full text-sm"
+                className="btn-primary inline-block rounded-full bg-[#8effa8] px-6 py-2.5 text-sm font-semibold text-[#04101b]"
               >
                 {t("cta_contact")}
               </Link>
@@ -604,17 +604,17 @@ function ClosingSection() {
     <section className="section-flow-dark py-20 md:py-28 px-4 md:px-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="reserve-panel-dark px-6 py-10 md:px-10 md:py-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
             <div>
-              <h2 className="heading-serif text-3xl md:text-5xl mb-6">{t("title")}</h2>
-              <p className="text-lg text-zinc-400 leading-relaxed">
+              <h2 className="heading-serif mb-6 text-3xl md:text-5xl">{t("title")}</h2>
+              <p className="text-base leading-relaxed text-zinc-400 sm:text-lg">
                 {t("text")}
               </p>
             </div>
             <div className="flex lg:justify-end">
               <Link
                 href="/contact"
-                className="btn-primary inline-block bg-[#8effa8] text-[#04101b] font-semibold px-10 py-4 rounded-full text-lg hover:bg-[#76f494] transition-colors"
+                className="btn-primary inline-flex w-full items-center justify-center rounded-full bg-[#8effa8] px-8 py-4 text-base font-semibold text-[#04101b] transition-colors hover:bg-[#76f494] sm:w-auto sm:px-10 sm:text-lg"
               >
                 {t("cta")}
               </Link>

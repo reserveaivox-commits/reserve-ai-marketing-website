@@ -23,10 +23,10 @@ export default function FaqAccordion() {
         >
           <button
             onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-            className="w-full flex items-center justify-between px-6 py-5 text-left"
+            className="flex w-full items-start justify-between gap-3 px-4 py-4 text-left sm:px-6 sm:py-5"
             aria-expanded={openIndex === idx}
           >
-            <span className="font-semibold text-white pr-4">
+            <span className="pr-2 font-semibold text-white sm:pr-4">
               {item.question}
             </span>
             <svg
@@ -44,7 +44,7 @@ export default function FaqAccordion() {
             </svg>
           </button>
           <div className="faq-answer">
-            <div className="px-6 pb-5 text-zinc-300 leading-relaxed">
+            <div className="px-4 pb-4 leading-relaxed text-zinc-300 sm:px-6 sm:pb-5">
               {item.answer}
             </div>
           </div>

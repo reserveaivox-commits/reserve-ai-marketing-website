@@ -134,10 +134,10 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 rounded-full border border-white/8 bg-[#08101c]/78 px-5 md:px-7 shadow-[0_20px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl">
+        <div className="flex items-center justify-between rounded-full border border-white/8 bg-[#08101c]/78 px-4 py-3 md:h-18 md:px-7 md:py-0 shadow-[0_20px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-xl md:text-2xl font-bold text-white tracking-[-0.04em]">
+            <span className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-[-0.04em]">
               Reserve<span className="text-[#8effa8]">AI</span>
             </span>
           </Link>
@@ -260,7 +260,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-full hover:bg-white/6 text-white"
+            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-white/6 text-white"
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -276,7 +276,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden mt-3 mx-4 rounded-[2rem] bg-[#08101c] border border-white/8 shadow-[0_24px_70px_rgba(0,0,0,0.35)] max-h-[80vh] overflow-y-auto">
+        <div className="md:hidden mt-3 mx-4 rounded-[2rem] bg-[#08101c] border border-white/8 shadow-[0_24px_70px_rgba(0,0,0,0.35)] max-h-[calc(100vh-7.5rem)] overflow-y-auto">
           <div className="px-4 py-4 space-y-2">
             <Link
               href="/"
