@@ -28,9 +28,13 @@ export default function RootLayout({
   return (
     <html>
       <body
-        className={`${montserrat.variable} ${playfair.variable} font-sans text-zinc-800 antialiased bg-surface`}
+        className={`${montserrat.variable} ${playfair.variable} site-body font-sans text-zinc-800 antialiased bg-surface`}
       >
-        {children}
+        <div className="site-background" aria-hidden="true">
+          <div className="site-aurora site-aurora--one" />
+          <div className="site-stars site-stars--near" />
+        </div>
+        <div className="site-content">{children}</div>
       </body>
     </html>
   );

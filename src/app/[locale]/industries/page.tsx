@@ -17,7 +17,6 @@ export default async function IndustriesHubPage({
     <>
       <HubHero />
       <IndustryGrid />
-      <HubCTA />
     </>
   );
 }
@@ -26,16 +25,16 @@ function HubHero() {
   const t = useTranslations("industries_hub");
 
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 bg-surface overflow-hidden">
+    <section className="section-flow-light relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden">
       <div className="absolute top-20 right-10 w-72 h-72 bg-accent-purple/5 rounded-full blur-3xl animate-blob" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl">
+        <div className="reserve-panel max-w-4xl px-8 py-10 md:px-10 md:py-12">
           <p className="section-label mb-6">{t("badge")}</p>
-          <h1 className="heading-serif text-4xl md:text-6xl text-brand-dark mb-6">
+          <h1 className="heading-serif text-4xl md:text-6xl text-white mb-6">
             {t("title")}
           </h1>
-          <p className="text-lg text-zinc-600 leading-relaxed max-w-2xl">
+          <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl">
             {t("subtitle")}
           </p>
         </div>
@@ -48,8 +47,9 @@ function IndustryGrid() {
   const t = useTranslations();
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="section-flow-dark py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="reserve-panel-dark px-6 py-8 md:px-8 md:py-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {industries.map((industry, idx) => (
             <ScrollAnimator key={industry.slug} delay={idx * 0.06}>
@@ -83,30 +83,6 @@ function IndustryGrid() {
             </ScrollAnimator>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function HubCTA() {
-  const t = useTranslations("closing");
-
-  return (
-    <section className="section-dark py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="heading-serif text-3xl md:text-4xl mb-6">{t("title")}</h2>
-            <p className="text-lg text-zinc-400">{t("text")}</p>
-          </div>
-          <div className="flex lg:justify-end">
-            <Link
-              href="/contact"
-              className="btn-primary inline-block bg-white text-brand-navy font-semibold px-10 py-4 rounded-lg text-lg hover:bg-zinc-100 transition-colors"
-            >
-              {t("cta")}
-            </Link>
-          </div>
         </div>
       </div>
     </section>

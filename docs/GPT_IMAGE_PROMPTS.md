@@ -1,5 +1,20 @@
 # GPT Image Generator Prompts - Re.Serve AI
 
+## Current Brand Direction
+
+- Prefer dark, cinematic SaaS visuals over light startup gradients
+- Match the website palette: deep navy backgrounds, soft green highlights, restrained cyan support
+- Keep illustrations premium and product-like, not generic AI art
+- Favor service-business contexts: restaurants, salons, barbershops, wellness, tattoo studios
+- Avoid purple-heavy defaults unless the asset is explicitly for the legacy logo treatment
+
+## Session Update - April 13, 2026
+
+- Homepage, services, industries, and contact pages were unified around a darker panel system
+- Contact and legal flows are now live, so future image work should assume a more polished B2B tone
+- The site uses a stronger green CTA language; image prompts should support that instead of warm gold accents when possible
+- If generating logo explorations, preserve the current simple wordmark-first header approach unless the user explicitly wants a new brand mark
+
 ## JSON Format Prompts for Better Results
 
 > **Instructions:** Copy the JSON object for each image into GPT Image Generator's API or advanced prompt interface. JSON format provides structured, consistent results. For the web UI, you can extract the "prompt" field.

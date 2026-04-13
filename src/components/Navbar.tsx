@@ -136,10 +136,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18 rounded-full border border-white/8 bg-[#08101c]/78 px-5 md:px-7 shadow-[0_20px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/30 text-sm font-bold text-[#8effa8]">
-              R
-            </span>
+          <Link href="/" className="flex items-center">
             <span className="text-xl md:text-2xl font-bold text-white tracking-[-0.04em]">
               Reserve<span className="text-[#8effa8]">AI</span>
             </span>

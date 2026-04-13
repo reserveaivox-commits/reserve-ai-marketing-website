@@ -6,6 +6,7 @@ import ScrollAnimator from "@/components/ScrollAnimator";
 import FaqAccordion from "@/components/FaqAccordion";
 import ServicesCarousel from "@/components/ServicesCarousel";
 import HeroDemoGate from "@/components/HeroDemoGate";
+import CaseStudyDashboard from "@/components/CaseStudyDashboard";
 
 export default async function HomePage({
   params,
@@ -18,9 +19,8 @@ export default async function HomePage({
   return (
     <div className="reserve-shell">
       <HeroSection />
-      <DemoSection />
-      <ServicesHubSection />
       <ProblemSection />
+      <ServicesHubSection />
       <HowItWorksSection />
       <CaseStudySection />
       <PricingSection />
@@ -106,37 +106,6 @@ function HeroSection() {
   );
 }
 
-function DemoSection() {
-  const t = useTranslations("hero");
-
-  return (
-    <section id="demo" className="section-flow-light py-20 md:py-28 px-4 md:px-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reserve-panel px-6 py-10 md:px-10 md:py-12">
-          <ScrollAnimator>
-            <div className="max-w-3xl mb-12 md:mb-14">
-              <p className="section-label mb-4">{t("embed_label")}</p>
-              <h2 className="heading-serif text-3xl md:text-5xl text-white mb-4">
-                Test our demo
-              </h2>
-              <p className="text-zinc-300 text-lg max-w-2xl">
-                {t("embed_title")}
-              </p>
-            </div>
-          </ScrollAnimator>
-
-          <ScrollAnimator delay={0.08}>
-            <div className="relative max-w-4xl">
-              <div className="absolute -inset-6 bg-gradient-to-br from-emerald-400/12 via-white/0 to-cyan-400/10 blur-3xl" />
-              <HeroDemoGate />
-            </div>
-          </ScrollAnimator>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ═══════════════════════════════════════════════
    SERVICES HUB — 5 Premium service cards
    ═══════════════════════════════════════════════ */
@@ -144,16 +113,6 @@ function ServicesHubSection() {
   const t = useTranslations("services_hub");
 
   const services = [
-    {
-      key: "agents",
-      href: "/services/ai-agents",
-      image: "/images/services/ai-agents.png",
-      variant: "service-card--agents",
-      textColor: "text-service-agents",
-      title: t("agents_title"),
-      desc: t("agents_desc"),
-      learnMore: t("learn_more"),
-    },
     {
       key: "websites",
       href: "/services/websites",
@@ -172,6 +131,16 @@ function ServicesHubSection() {
       textColor: "text-service-booking",
       title: t("booking_title"),
       desc: t("booking_desc"),
+      learnMore: t("learn_more"),
+    },
+    {
+      key: "agents",
+      href: "/services/ai-agents",
+      image: "/images/services/ai-agents.png",
+      variant: "service-card--agents",
+      textColor: "text-service-agents",
+      title: t("agents_title"),
+      desc: t("agents_desc"),
       learnMore: t("learn_more"),
     },
     {
@@ -230,9 +199,27 @@ function ProblemSection() {
   const t = useTranslations("problem");
 
   const points = [
-    { title: t("point1_title"), desc: t("point1_desc"), icon: "/icons/icon-missed-calls.png" },
-    { title: t("point2_title"), desc: t("point2_desc"), icon: "/icons/icon-wasted-time.png" },
-    { title: t("point3_title"), desc: t("point3_desc"), icon: "/icons/icon-lost-revenue.png" },
+    {
+      title: t("point1_title"),
+      desc: t("point1_desc"),
+      icon: "/icons/icon-phone.png",
+      accent: "from-emerald-400/18 to-emerald-400/0",
+      tint: "bg-emerald-400/10",
+    },
+    {
+      title: t("point2_title"),
+      desc: t("point2_desc"),
+      icon: "/icons/icon-instant.png",
+      accent: "from-cyan-400/18 to-cyan-400/0",
+      tint: "bg-cyan-400/10",
+    },
+    {
+      title: t("point3_title"),
+      desc: t("point3_desc"),
+      icon: "/icons/icon-lost-revenue.png",
+      accent: "from-amber-300/18 to-amber-300/0",
+      tint: "bg-amber-300/10",
+    },
   ];
 
   return (
@@ -253,21 +240,29 @@ function ProblemSection() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {points.map((point, idx) => (
-              <ScrollAnimator key={idx} delay={idx * 0.12}>
-                <div className="text-center rounded-[2rem] border border-white/8 bg-white/4 px-6 py-8">
-                  <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mx-auto mb-5">
-                    <Image src={point.icon} alt={point.title} width={32} height={32} className="brightness-0 invert opacity-80" />
+              <ScrollAnimator key={idx} delay={idx * 0.24}>
+                <div className="group relative h-full overflow-hidden rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.02))] px-6 py-8 text-center shadow-[0_18px_50px_rgba(0,0,0,0.16)]">
+                  <div className={`pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b ${point.accent} opacity-80`} />
+                  <div className="relative flex h-full flex-col items-center">
+                    <div className={`mb-5 flex h-16 w-16 items-center justify-center rounded-[1.25rem] border border-white/8 ${point.tint} shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]`}>
+                      <Image src={point.icon} alt={point.title} width={30} height={30} className="brightness-0 invert opacity-90" />
+                    </div>
+                    <div className="mb-4 h-px w-12 bg-white/10" />
+                    <h3 className="text-lg font-semibold text-white mb-2 min-h-[3.5rem] flex items-center justify-center">
+                      {point.title}
+                    </h3>
+                    <p className="text-sm text-zinc-400 leading-relaxed">
+                      {point.desc}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{point.title}</h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed">{point.desc}</p>
                 </div>
               </ScrollAnimator>
             ))}
           </div>
 
           <ScrollAnimator>
-            <div className="border border-accent-gold/30 rounded-[1.75rem] p-5 text-center max-w-xl mx-auto bg-accent-gold/5">
-              <p className="text-accent-gold font-semibold">
+            <div className="border border-accent-gold/30 rounded-[1.75rem] px-8 py-5 text-center max-w-4xl mx-auto bg-accent-gold/5">
+              <p className="text-accent-gold font-semibold whitespace-nowrap">
                 ✓ {t("solution")}
               </p>
             </div>
@@ -306,18 +301,25 @@ function HowItWorksSection() {
           </ScrollAnimator>
 
           <div className="relative">
-            <div className="hidden md:block absolute top-10 left-[16.666%] right-[16.666%] h-px bg-zinc-700" />
-
             <div className="grid md:grid-cols-3 gap-12">
               {steps.map((step, idx) => (
                 <ScrollAnimator key={idx} delay={idx * 0.15}>
-                  <div className="text-center relative rounded-[2rem] border border-white/8 bg-white/4 px-6 py-8">
-                    <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6 relative z-10">
-                      <Image src={stepIcons[idx]} alt={step.title} width={36} height={36} className="brightness-0 invert opacity-80" />
+                  <div className="group relative h-full overflow-hidden rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.02))] px-6 py-8 text-center shadow-[0_18px_50px_rgba(0,0,0,0.16)]">
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-emerald-400/14 to-emerald-400/0 opacity-80" />
+                    <div className="relative flex h-full flex-col items-center">
+                      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-[1.25rem] border border-white/8 bg-emerald-400/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                        <Image src={stepIcons[idx]} alt={step.title} width={30} height={30} className="brightness-0 invert opacity-90" />
+                      </div>
+                      <div className="mb-4 flex items-center gap-2 rounded-full border border-white/8 bg-white/4 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
+                        Step {idx + 1}
+                      </div>
+                      <div className="text-6xl font-bold text-white/8 mb-3 font-serif">{idx + 1}</div>
+                      <h3 className="text-lg font-bold text-white mb-3 min-h-[3.5rem] flex items-center justify-center">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-zinc-400 leading-relaxed">{step.desc}</p>
                     </div>
-                    <div className="text-6xl font-bold text-white/10 mb-2 font-serif">{idx + 1}</div>
-                    <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                    <p className="text-sm text-zinc-400 leading-relaxed">{step.desc}</p>
                   </div>
                 </ScrollAnimator>
               ))}
@@ -334,6 +336,14 @@ function HowItWorksSection() {
    ═══════════════════════════════════════════════ */
 function CaseStudySection() {
   const t = useTranslations("case");
+  const beforeMetrics = [1, 2, 3].map((i) => ({
+    label: t(`before_m${i}`),
+    value: t(`before_v${i}`),
+  }));
+  const afterMetrics = [1, 2, 3].map((i) => ({
+    label: t(`after_m${i}`),
+    value: t(`after_v${i}`),
+  }));
 
   return (
     <section className="section-flow-light py-20 md:py-28 px-4 md:px-6">
@@ -349,48 +359,14 @@ function CaseStudySection() {
             </div>
           </ScrollAnimator>
 
-          <div className="bg-brand-navy rounded-[2rem] overflow-hidden">
-            <div className="grid md:grid-cols-2">
-            {/* Before */}
-            <ScrollAnimator direction="left">
-              <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-zinc-800">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-red-400 mb-8">
-                  {t("before_title")}
-                </h3>
-                <div className="space-y-6">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="flex justify-between items-center">
-                      <span className="text-zinc-400 text-sm">{t(`before_m${i}`)}</span>
-                      <span className="text-2xl font-bold text-red-400">{t(`before_v${i}`)}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollAnimator>
-
-            {/* After */}
-            <ScrollAnimator direction="right">
-              <div className="p-8 md:p-12">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-400 mb-8">
-                  {t("after_title")}
-                </h3>
-                <div className="space-y-6">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="flex justify-between items-center">
-                      <span className="text-zinc-400 text-sm">{t(`after_m${i}`)}</span>
-                      <span className="text-2xl font-bold text-emerald-400">{t(`after_v${i}`)}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollAnimator>
-          </div>
-
-            <div className="border-t border-zinc-800 p-6 text-center">
-              <p className="text-zinc-400 text-sm">{t("value_line")}</p>
-              <p className="text-accent-gold font-semibold mt-1 italic">{t("tagline")}</p>
-            </div>
-          </div>
+          <ScrollAnimator>
+            <CaseStudyDashboard
+              beforeTitle={t("before_title")}
+              afterTitle={t("after_title")}
+              beforeMetrics={beforeMetrics}
+              afterMetrics={afterMetrics}
+            />
+          </ScrollAnimator>
         </div>
       </div>
     </section>
@@ -535,27 +511,32 @@ function IndustriesSection() {
             </div>
           </ScrollAnimator>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            {items.map((item, idx) => (
-              <ScrollAnimator key={idx} delay={idx * 0.06}>
-                <Link
-                  href={`/industries/${item.slug}`}
-                  className="group relative block rounded-[1.75rem] overflow-hidden hover-lift aspect-square"
-                >
-                  <Image
-                    src={item.img}
-                    alt={t(item.key)}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <div className="text-sm font-semibold text-white">{t(item.key)}</div>
-                  </div>
-                </Link>
-              </ScrollAnimator>
-            ))}
-          </div>
+          <ScrollAnimator>
+            <div className="industries-marquee mb-10">
+              <div className="industries-track">
+                {[...items, ...items].map((item, idx) => (
+                  <Link
+                    key={`${item.slug}-${idx}`}
+                    href={`/industries/${item.slug}`}
+                    className="industries-card group relative block overflow-hidden rounded-[1.75rem] hover-lift"
+                  >
+                    <div className="relative aspect-square">
+                      <Image
+                        src={item.img}
+                        alt={t(item.key)}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <div className="text-sm font-semibold text-white">{t(item.key)}</div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </ScrollAnimator>
 
           <ScrollAnimator>
             <div className="text-center">

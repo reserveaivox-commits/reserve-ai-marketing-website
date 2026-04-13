@@ -1,5 +1,20 @@
 # Nano Banana Prompts - Re.Serve AI
 
+## Current Brand Direction
+
+- Prefer dark premium SaaS imagery over bright template-like visuals
+- Match the live site: navy surfaces, subtle green accents, light atmospheric glow
+- Keep outputs clean and intentional for service-business buyers in Germany
+- Avoid noisy "AI generated" compositions, especially in dashboard or hero concepts
+- Use green accent guidance before gold unless the asset is intentionally matching older brand art
+
+## Session Update - April 13, 2026
+
+- The website was moved to a more cohesive dark design system across homepage, services, industries, and contact
+- Legal pages and contact conversion paths are now active, so supporting visuals should feel more production-ready
+- Homepage sections now favor motion, dashboard cues, and operational outcomes over generic illustrations
+- Future asset prompts should emphasize clarity, trust, and reservation/revenue outcomes
+
 ## JSON Format Prompts for Nano Banana Image Generator
 
 > **Instructions:** Copy the JSON object for each image into Nano Banana. For the simple prompt input, extract the `prompt` field. JSON format provides structured, consistent results.

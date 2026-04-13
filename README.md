@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Re.Serve AI Website
 
-## Getting Started
+Marketing website for Re.Serve AI built with Next.js 16, React 19, Tailwind CSS 4, and `next-intl`.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router
+- React 19
+- Tailwind CSS 4
+- `next-intl` for `de` and `en`
+- Framer Motion for motion
+- Nodemailer for contact form delivery
+
+## Main Areas
+
+- Homepage with animated hero demo and moving industry cards
+- Services hub and service detail pages
+- Industries hub and industry detail pages
+- Contact page with Gmail-backed contact form
+- Footer legal pages
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://127.0.0.1:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `.env.local` with:
 
-## Learn More
+```env
+GMAIL_USER=reserveaivox@gmail.com
+GMAIL_APP_PASSWORD=your_gmail_app_password
+```
 
-To learn more about Next.js, take a look at the following resources:
+The contact form posts to `src/app/api/contact/route.ts` and sends email to `reserveaivox@gmail.com`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Important Paths
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/app/[locale]/page.tsx` - homepage
+- `src/components/HeroDemoGate.tsx` - live demo/orbit section
+- `src/components/CaseStudyDashboard.tsx` - animated booking impact section
+- `src/app/[locale]/contact/page.tsx` - contact page
+- `src/components/ContactForm.tsx` - contact form UI
+- `src/app/api/contact/route.ts` - Gmail mail handler
+- `src/components/Footer.tsx` - footer and legal links
+- `messages/en.json`
+- `messages/de.json`
 
-## Deploy on Vercel
+## Notes From April 13, 2026
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Restyled the site toward a unified dark visual system
+- Added site-wide aurora/stars and then optimized them for smoother performance
+- Reworked the homepage demo to use a cleaner orbit system and live voice demo overlay
+- Added animated case-study charts
+- Updated pricing and package copy
+- Restyled service pages, industries pages, and contact page to match the homepage
+- Removed duplicate CTA sections and simplified footer flow
+- Added working legal pages: privacy, imprint, and terms
+- Wired the contact form to Gmail SMTP
+- Added a moving industries marquee on the homepage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Runtime Data
+
+- `.data/` stores local development inbox/demo submissions
+- `.data/` is ignored and should not be committed

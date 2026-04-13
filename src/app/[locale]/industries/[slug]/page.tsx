@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { industries, getIndustryBySlug } from "@/lib/industries";
 import ScrollAnimator from "@/components/ScrollAnimator";
+import HeroDemoGate from "@/components/HeroDemoGate";
 
 export function generateStaticParams() {
   return industries.map((industry) => ({ slug: industry.slug }));
@@ -26,9 +27,8 @@ export default async function IndustryDetailPage({
       <DetailHero translationKey={industry.translationKey} image={industry.image} />
       <ProblemSection translationKey={industry.translationKey} />
       <BenefitsSection translationKey={industry.translationKey} />
-      <ScenariosSection translationKey={industry.translationKey} />
+      <InteractiveDemoSection />
       <ROISection translationKey={industry.translationKey} />
-      <DetailCTA translationKey={industry.translationKey} />
     </>
   );
 }
@@ -43,17 +43,17 @@ function DetailHero({
   const t = useTranslations(`ind_detail.${translationKey}`);
 
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-surface overflow-hidden">
+    <section className="section-flow-light relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
       <div className="absolute top-20 left-10 w-72 h-72 bg-accent-purple/5 rounded-full blur-3xl animate-blob" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="reserve-panel px-8 py-10 md:px-10 md:py-12 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <p className="section-label mb-6">{t("name")}</p>
-            <h1 className="heading-serif text-4xl md:text-5xl text-brand-dark leading-tight mb-6">
+            <h1 className="heading-serif text-4xl md:text-5xl text-white leading-tight mb-6">
               {t("hero_title")}
             </h1>
-            <p className="text-lg text-zinc-600 mb-8 leading-relaxed">
+            <p className="text-lg text-zinc-300 mb-8 leading-relaxed">
               {t("hero_desc")}
             </p>
             <div className="flex flex-wrap gap-4">
@@ -65,7 +65,7 @@ function DetailHero({
               </Link>
               <a
                 href="#benefits"
-                className="border border-zinc-300 text-zinc-700 font-semibold px-8 py-3.5 rounded-lg hover:bg-zinc-50 transition-colors"
+                className="border border-white/12 text-zinc-200 font-semibold px-8 py-3.5 rounded-lg hover:bg-white/6 transition-colors"
               >
                 {t("learn_cta")}
               </a>
@@ -138,12 +138,13 @@ function BenefitsSection({ translationKey }: { translationKey: string }) {
   const icons = ["/icons/icon-verified.png", "/icons/icon-growth.png", "/icons/icon-partnership.png", "/icons/icon-efficiency.png"];
 
   return (
-    <section id="benefits" className="py-16 md:py-24 bg-surface">
+    <section id="benefits" className="section-flow-dark py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="reserve-panel-dark px-6 py-10 md:px-10 md:py-12">
         <ScrollAnimator>
           <div className="max-w-2xl mb-12">
             <p className="section-label mb-4">{t("benefits_title")}</p>
-            <h2 className="heading-serif text-3xl md:text-4xl text-brand-dark">
+            <h2 className="heading-serif text-3xl md:text-4xl text-white">
               {t("benefits_title")}
             </h2>
           </div>
@@ -152,70 +153,45 @@ function BenefitsSection({ translationKey }: { translationKey: string }) {
         <div className="grid md:grid-cols-2 gap-6">
           {benefits.map((b, idx) => (
             <ScrollAnimator key={idx} delay={idx * 0.1}>
-              <div className="bg-white rounded-xl p-6 shadow-sm hover-lift">
+              <div className="rounded-xl border border-white/8 bg-white/4 p-6 shadow-sm hover-lift">
                 <div className="flex items-center gap-3 mb-4">
                   <Image src={icons[idx]} alt={b.title} width={32} height={32} />
-                  <h3 className="text-lg font-bold text-brand-dark">{b.title}</h3>
+                  <h3 className="text-lg font-bold text-white">{b.title}</h3>
                 </div>
-                <p className="text-sm text-zinc-600 leading-relaxed">{b.desc}</p>
+                <p className="text-sm text-zinc-300 leading-relaxed">{b.desc}</p>
               </div>
             </ScrollAnimator>
           ))}
+        </div>
         </div>
       </div>
     </section>
   );
 }
 
-function ScenariosSection({ translationKey }: { translationKey: string }) {
-  const t = useTranslations(`ind_detail.${translationKey}`);
-  const tGlobal = useTranslations("real_calls");
-
-  const scenarios = [1, 2].map((i) => ({
-    title: t(`scenario_s${i}_title`),
-    caller: t(`scenario_s${i}_caller`),
-    response: t(`scenario_s${i}_response`),
-  }));
+function InteractiveDemoSection() {
+  const t = useTranslations("industry_demo");
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="section-flow-dark py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="reserve-panel-dark px-6 py-10 md:px-10 md:py-12">
         <ScrollAnimator>
           <div className="max-w-2xl mb-12">
-            <h2 className="heading-serif text-3xl md:text-4xl text-brand-dark">
-              {t("scenarios_title")}
+            <p className="section-label mb-4">{t("badge")}</p>
+            <h2 className="heading-serif text-3xl md:text-4xl text-white mb-4">
+              {t("title")}
             </h2>
+            <p className="text-zinc-300 max-w-2xl">{t("subtitle")}</p>
           </div>
         </ScrollAnimator>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {scenarios.map((s, idx) => (
-            <ScrollAnimator key={idx} delay={idx * 0.15}>
-              <div className="bg-surface rounded-xl p-6">
-                <h3 className="font-bold text-brand-dark text-sm mb-4 pb-3 border-b border-zinc-200">
-                  {s.title}
-                </h3>
-                <div className="space-y-3">
-                  <div>
-                    <div className="text-xs font-semibold text-zinc-400 mb-1">
-                      {tGlobal("caller_label")}
-                    </div>
-                    <div className="bg-white rounded-lg p-3 text-sm italic text-zinc-700">
-                      {s.caller}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-accent-purple mb-1">
-                      {tGlobal("response_label")}
-                    </div>
-                    <div className="bg-accent-purple/5 rounded-lg p-3 text-sm text-zinc-700">
-                      {s.response}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollAnimator>
-          ))}
+        <ScrollAnimator delay={0.08}>
+          <div className="relative max-w-5xl mx-auto">
+            <div className="absolute -inset-6 rounded-[2.2rem] bg-[radial-gradient(circle_at_center,_rgba(142,255,168,0.10),_transparent_42%)] blur-3xl" />
+            <HeroDemoGate compact />
+          </div>
+        </ScrollAnimator>
         </div>
       </div>
     </section>
@@ -226,10 +202,10 @@ function ROISection({ translationKey }: { translationKey: string }) {
   const t = useTranslations(`ind_detail.${translationKey}`);
 
   return (
-    <section className="py-16 md:py-24 bg-surface">
+    <section className="section-flow-dark py-16 md:py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollAnimator>
-          <div className="bg-brand-navy rounded-2xl p-8 md:p-12 text-center">
+          <div className="reserve-panel-dark rounded-2xl p-8 md:p-12 text-center">
             <h2 className="heading-serif text-2xl md:text-3xl text-white mb-4">
               {t("roi_title")}
             </h2>
@@ -246,31 +222,6 @@ function ROISection({ translationKey }: { translationKey: string }) {
             </div>
           </div>
         </ScrollAnimator>
-      </div>
-    </section>
-  );
-}
-
-function DetailCTA({ translationKey }: { translationKey: string }) {
-  const t = useTranslations(`ind_detail.${translationKey}`);
-
-  return (
-    <section className="section-dark py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="heading-serif text-3xl md:text-4xl mb-6">{t("cta_title")}</h2>
-            <p className="text-lg text-zinc-400">{t("cta_desc")}</p>
-          </div>
-          <div className="flex lg:justify-end">
-            <Link
-              href="/contact"
-              className="btn-primary inline-block bg-white text-brand-navy font-semibold px-10 py-4 rounded-lg text-lg hover:bg-zinc-100 transition-colors"
-            >
-              {t("cta")}
-            </Link>
-          </div>
-        </div>
       </div>
     </section>
   );

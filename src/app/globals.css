@@ -76,6 +76,14 @@
     from { transform: rotate(360deg); }
     to { transform: rotate(0deg); }
   }
+  @keyframes demoOrbitSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes demoOrbitFast {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
   @keyframes demoPulse {
     0%, 100% { transform: scale(0.96); opacity: 0.42; }
     50% { transform: scale(1.04); opacity: 0.78; }
@@ -83,6 +91,23 @@
   @keyframes demoDrift {
     0%, 100% { transform: translate3d(0, 0, 0); }
     50% { transform: translate3d(0, -10px, 0); }
+  }
+  @keyframes auroraSweep {
+    0%, 100% { transform: translate3d(-6%, -1%, 0) rotate(-6deg) scaleX(1); opacity: 0.08; }
+    35% { transform: translate3d(4%, 0, 0) rotate(-3deg) scaleX(1.04); opacity: 0.14; }
+    65% { transform: translate3d(8%, 1%, 0) rotate(1deg) scaleX(1.08); opacity: 0.06; }
+  }
+  @keyframes starDrift {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-10px, 8px, 0); }
+  }
+  @keyframes starTwinkle {
+    0%, 100% { opacity: 0.18; }
+    50% { opacity: 0.34; }
+  }
+  @keyframes industriesMarquee {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(calc(-50% - 0.5rem), 0, 0); }
   }
 }
 
@@ -99,6 +124,63 @@ body {
     radial-gradient(circle at top, rgba(79, 253, 142, 0.12), transparent 24%),
     radial-gradient(circle at 20% 20%, rgba(77, 180, 255, 0.08), transparent 20%),
     linear-gradient(180deg, #050816 0%, #07101d 50%, #04070f 100%);
+}
+
+.site-body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.site-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-content {
+  position: relative;
+  z-index: 1;
+}
+
+.site-aurora {
+  position: absolute;
+  inset: -12%;
+  mix-blend-mode: screen;
+  filter: blur(52px);
+  opacity: 0.1;
+  will-change: transform, opacity;
+}
+
+.site-aurora--one {
+  background:
+    radial-gradient(40% 18% at 10% 8%, rgba(118, 255, 189, 0.18), transparent 72%),
+    radial-gradient(48% 20% at 48% 6%, rgba(109, 194, 255, 0.14), transparent 74%),
+    radial-gradient(36% 16% at 88% 12%, rgba(153, 255, 224, 0.12), transparent 74%);
+  animation: auroraSweep 18s ease-in-out infinite;
+}
+
+.site-stars {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.site-stars--near {
+  opacity: 0.2;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.95) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 24% 62%, rgba(203,232,255,0.78) 0 1.1px, transparent 1.8px),
+    radial-gradient(circle at 38% 28%, rgba(255,255,255,0.7) 0 0.9px, transparent 1.6px),
+    radial-gradient(circle at 52% 72%, rgba(171,229,255,0.72) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 66% 22%, rgba(255,255,255,0.88) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 78% 56%, rgba(196,246,255,0.7) 0 1.1px, transparent 1.8px),
+    radial-gradient(circle at 88% 18%, rgba(255,255,255,0.8) 0 1px, transparent 1.6px);
+  background-size: 320px 320px;
+  animation: starDrift 32s linear infinite, starTwinkle 10s ease-in-out infinite;
 }
 
 /* ─── Typography ─── */
@@ -132,12 +214,47 @@ body {
   animation: demoOrbitReverse 22s linear infinite;
 }
 
+.demo-orbit-slow {
+  animation: demoOrbitSlow 30s linear infinite;
+}
+
+.demo-orbit-fast {
+  animation: demoOrbitFast 12s linear infinite;
+}
+
+.demo-orbit-counter {
+  animation: demoOrbitReverse 18s linear infinite;
+}
+
+.demo-orbit-counter-reverse {
+  animation: demoOrbit 22s linear infinite;
+}
+
+.demo-orbit-counter-slow {
+  animation: demoOrbitReverse 30s linear infinite;
+}
+
 .demo-pulse {
   animation: demoPulse 4.2s ease-in-out infinite;
 }
 
 .demo-drift {
   animation: demoDrift 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-aurora--one,
+  .site-stars--near,
+  .demo-orbit,
+  .demo-orbit-reverse,
+  .demo-orbit-slow,
+  .demo-orbit-counter,
+  .demo-orbit-counter-reverse,
+  .demo-orbit-counter-slow,
+  .demo-pulse,
+  .demo-drift {
+    animation: none !important;
+  }
 }
 
 /* ─── Nav ─── */
@@ -301,15 +418,15 @@ nav.scrolled {
 
 /* ─── Service Hub Cards V2 (Dynamic Reveal) ─── */
 .service-card-v2 {
-  background: #09111f;
+  background: #0d1728;
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.11);
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 @media (hover: hover) {
   .service-card-v2:hover {
-    background: #0d182b;
+    background: #132036;
     transform: translateY(-4px);
     box-shadow: 0 25px 50px -12px rgba(0,0,0,0.32);
     border-color: transparent;
@@ -321,8 +438,8 @@ nav.scrolled {
   width: 100%;
   height: 240px;
   overflow: hidden;
-  background: #0c1424;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: #111b2e;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 @keyframes imageFloat {
@@ -445,16 +562,16 @@ nav.scrolled {
 
 /* ─── Sub-service Cards ─── */
 .sub-service-card {
-  background: white;
+  background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.025));
   border-radius: 16px;
   padding: 1.5rem;
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 @media (hover: hover) {
   .sub-service-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px -4px rgba(0,0,0,0.1);
+    box-shadow: 0 18px 36px -8px rgba(0,0,0,0.26);
   }
 }
 
@@ -491,8 +608,8 @@ nav.scrolled {
 /* ─── Dark sections ─── */
 .section-dark {
   background:
-    radial-gradient(circle at top, rgba(79, 253, 142, 0.14), transparent 24%),
-    linear-gradient(180deg, #0a111f 0%, #04070f 100%);
+    radial-gradient(circle at top, rgba(79, 253, 142, 0.16), transparent 24%),
+    linear-gradient(180deg, #0d1525 0%, #070c16 100%);
   color: #fafafa;
 }
 .section-dark h2,
@@ -518,27 +635,27 @@ nav.scrolled {
 
 .reserve-panel {
   background:
-    linear-gradient(180deg, rgba(9, 16, 31, 0.92) 0%, rgba(6, 10, 20, 0.96) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+    linear-gradient(180deg, rgba(14, 24, 43, 0.94) 0%, rgba(9, 15, 28, 0.97) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 32px;
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(10px);
 }
 
 .reserve-panel-dark {
   background:
-    radial-gradient(circle at top, rgba(79, 253, 142, 0.12), transparent 28%),
-    linear-gradient(180deg, rgba(7, 12, 23, 0.98) 0%, rgba(4, 7, 15, 1) 100%);
-  border: 1px solid rgba(142, 255, 168, 0.09);
+    radial-gradient(circle at top, rgba(79, 253, 142, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(12, 20, 36, 0.98) 0%, rgba(7, 11, 21, 1) 100%);
+  border: 1px solid rgba(142, 255, 168, 0.12);
   border-radius: 32px;
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
 }
 
 .reserve-stat-card {
   border-radius: 24px;
-  border: 1px solid rgba(142, 255, 168, 0.12);
-  background: rgba(255, 255, 255, 0.03);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(142, 255, 168, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .reserve-chip {
@@ -546,13 +663,34 @@ nav.scrolled {
   align-items: center;
   gap: 0.5rem;
   border-radius: 999px;
-  border: 1px solid rgba(142, 255, 168, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(142, 255, 168, 0.15);
+  background: rgba(255, 255, 255, 0.06);
   padding: 0.55rem 0.9rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #d4dae6;
+  color: #e2e8f2;
   box-shadow: none;
+}
+
+.industries-marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.industries-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: industriesMarquee 26s linear infinite;
+}
+
+.industries-marquee:hover .industries-track {
+  animation-play-state: paused;
+}
+
+.industries-card {
+  width: 260px;
+  flex: 0 0 auto;
 }
 
 .section-flow-light,
@@ -602,6 +740,9 @@ nav.scrolled {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .industries-track {
+    animation: none !important;
+  }
 }
 
 /* ─── Mobile ─── */
@@ -618,5 +759,11 @@ nav.scrolled {
   }
   .services-mega-menu.active {
     grid-template-columns: 1fr;
+  }
+  .industries-card {
+    width: 220px;
+  }
+  .industries-track {
+    animation-duration: 22s;
   }
 }

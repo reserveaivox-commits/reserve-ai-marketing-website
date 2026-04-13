@@ -5,14 +5,14 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="bg-brand-dark text-white">
+    <footer className="section-flow-dark text-white">
       {/* CTA strip */}
-      <div className="bg-brand-navy">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <h2 className="heading-serif text-2xl md:text-3xl">{t("ready")}</h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+        <div className="reserve-panel px-6 py-8 md:px-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <h2 className="heading-serif text-2xl md:text-3xl text-white">{t("ready")}</h2>
           <Link
             href="/contact"
-            className="inline-block bg-white text-brand-navy font-semibold px-8 py-3 rounded-lg hover:bg-zinc-100 transition-colors"
+            className="inline-block bg-[#8effa8] text-[#05101b] font-semibold px-8 py-3 rounded-lg hover:bg-[#79f69c] transition-colors"
           >
             {t("btn")}
           </Link>
@@ -76,19 +76,19 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-zinc-300">Legal</h4>
             <ul className="space-y-2 text-sm text-zinc-400">
               <li>
-                <span className="hover:text-white transition-colors cursor-pointer">
+                <Link href="/privacy" className="hover:text-white transition-colors">
                   {t("privacy")}
-                </span>
+                </Link>
               </li>
               <li>
-                <span className="hover:text-white transition-colors cursor-pointer">
+                <Link href="/imprint" className="hover:text-white transition-colors">
                   {t("imprint")}
-                </span>
+                </Link>
               </li>
               <li>
-                <span className="hover:text-white transition-colors cursor-pointer">
+                <Link href="/terms" className="hover:text-white transition-colors">
                   {t("terms")}
-                </span>
+                </Link>
               </li>
             </ul>
           </div>

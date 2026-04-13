@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import ServicesCarousel from "@/components/ServicesCarousel";
 
 export default async function ServicesPage({
@@ -15,7 +14,6 @@ export default async function ServicesPage({
     <>
       <ServicesHero />
       <ServicesGrid />
-      <ServicesCTA />
     </>
   );
 }
@@ -24,16 +22,16 @@ function ServicesHero() {
   const t = useTranslations("services_hub");
 
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 bg-surface overflow-hidden">
-      <div className="absolute top-20 right-10 w-72 h-72 bg-accent-purple/5 rounded-full blur-3xl animate-blob" />
+    <section className="section-flow-light relative overflow-hidden px-4 pt-28 pb-16 md:px-6 md:pt-36 md:pb-20">
+      <div className="absolute top-20 right-10 h-72 w-72 rounded-full bg-accent-purple/5 blur-3xl animate-blob" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl">
+        <div className="reserve-panel max-w-4xl px-8 py-10 md:px-10 md:py-12">
           <p className="section-label mb-6">{t("page_badge")}</p>
-          <h1 className="heading-serif text-4xl md:text-6xl text-brand-dark mb-6">
+          <h1 className="heading-serif text-4xl md:text-6xl text-white mb-6">
             {t("page_title")}
           </h1>
-          <p className="text-lg text-zinc-600 leading-relaxed max-w-2xl">
+          <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl">
             {t("page_subtitle")}
           </p>
         </div>
@@ -99,35 +97,10 @@ function ServicesGrid() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="section-flow-dark py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="w-full relative mt-4">
+        <div className="reserve-panel-dark px-6 py-8 md:px-8 md:py-10">
           <ServicesCarousel services={services} />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ServicesCTA() {
-  const t = useTranslations("services_hub");
-
-  return (
-    <section className="section-dark py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="heading-serif text-3xl md:text-4xl mb-4">{t("cta_title")}</h2>
-            <p className="text-lg text-zinc-400">{t("cta_subtitle")}</p>
-          </div>
-          <div className="flex lg:justify-end">
-            <Link
-              href="/contact"
-              className="btn-primary inline-block bg-white text-brand-navy font-semibold px-10 py-4 rounded-lg text-lg hover:bg-zinc-100 transition-colors"
-            >
-              {t("cta_btn")}
-            </Link>
-          </div>
         </div>
       </div>
     </section>
