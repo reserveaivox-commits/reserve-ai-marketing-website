@@ -121,13 +121,13 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
                   </p>
                 </div>
 
-                <div className={`relative mt-6 md:mt-8 ${compact ? "min-h-[22rem] sm:min-h-[24rem] md:min-h-[26rem]" : "min-h-[26rem] sm:min-h-[30rem] md:min-h-[38rem]"}`}>
+                <div className={`relative mt-5 md:mt-8 ${compact ? "min-h-[18.5rem] sm:min-h-[24rem] md:min-h-[26rem]" : "min-h-[24rem] sm:min-h-[30rem] md:min-h-[38rem]"}`}>
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(142,255,168,0.12),_transparent_12%)] opacity-90" />
 
-                  <div className="absolute left-1/2 top-[43%] h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8effa8]/10 blur-3xl sm:h-24 sm:w-24 md:h-40 md:w-40" />
-                  <div className="absolute left-1/2 top-[43%] h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/18 sm:h-48 sm:w-48 md:h-[18rem] md:w-[18rem]" />
-                  <div className="absolute left-1/2 top-[43%] h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8effa8]/16 sm:h-72 sm:w-72 md:h-[24rem] md:w-[24rem]" />
-                  <div className="absolute left-1/2 top-[43%] h-[19rem] w-[19rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 sm:h-[24rem] sm:w-[24rem] md:h-[30rem] md:w-[30rem]" />
+                  <div className="absolute left-1/2 top-[44%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8effa8]/10 blur-3xl sm:h-24 sm:w-24 md:h-40 md:w-40" />
+                  <div className="absolute left-1/2 top-[44%] h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/18 sm:h-48 sm:w-48 md:h-[18rem] md:w-[18rem]" />
+                  <div className="absolute left-1/2 top-[44%] h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8effa8]/16 sm:h-72 sm:w-72 md:h-[24rem] md:w-[24rem]" />
+                  <div className="absolute left-1/2 top-[44%] h-[16.5rem] w-[16.5rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 sm:h-[24rem] sm:w-[24rem] md:h-[30rem] md:w-[30rem]" />
 
                   {featurePlanets.map((planet) => {
                     const isSelected = selectedFeature === planet.key;
@@ -135,7 +135,7 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
                     return (
                       <div
                         key={planet.key}
-                        className={`pointer-events-none absolute left-1/2 top-[43%] z-40 -translate-x-1/2 -translate-y-1/2 ${planet.orbit} ${planet.size}`}
+                        className={`pointer-events-none absolute left-1/2 top-[44%] z-40 -translate-x-1/2 -translate-y-1/2 ${planet.orbit} ${planet.size}`}
                       >
                         <button
                           type="button"
@@ -153,21 +153,21 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
                     );
                   })}
 
-                  <div className="absolute left-1/2 top-[43%] z-20 -translate-x-1/2 -translate-y-1/2">
+                  <div className="absolute left-1/2 top-[44%] z-20 -translate-x-1/2 -translate-y-1/2">
                     <button
                       type="button"
                       onClick={() => setUnlocked(true)}
-                      className={`group relative isolate overflow-hidden rounded-full border border-[#8effa8]/24 bg-[radial-gradient(circle_at_30%_24%,rgba(31,47,72,0.98),rgba(12,18,31,0.99)_58%,rgba(5,9,18,1))] text-center shadow-[0_30px_120px_rgba(0,0,0,0.5),0_0_60px_rgba(142,255,168,0.10)] transition duration-300 hover:scale-[1.02] hover:border-[#8effa8]/45 ${compact ? "h-32 w-32 p-4 sm:h-40 sm:w-40 sm:p-5 md:h-44 md:w-44" : "h-40 w-40 p-4 sm:h-48 sm:w-48 sm:p-5 md:h-64 md:w-64 md:p-7"}`}
+                      className={`group relative isolate overflow-hidden rounded-full border border-[#8effa8]/24 bg-[radial-gradient(circle_at_30%_24%,rgba(31,47,72,0.98),rgba(12,18,31,0.99)_58%,rgba(5,9,18,1))] text-center shadow-[0_30px_120px_rgba(0,0,0,0.5),0_0_60px_rgba(142,255,168,0.10)] transition duration-300 hover:scale-[1.02] hover:border-[#8effa8]/45 ${compact ? "h-28 w-28 p-3 sm:h-40 sm:w-40 sm:p-5 md:h-44 md:w-44" : "h-36 w-36 p-4 sm:h-48 sm:w-48 sm:p-5 md:h-64 md:w-64 md:p-7"}`}
                     >
                       <div className="absolute inset-[8%] rounded-full border border-white/10 bg-[radial-gradient(circle_at_center,rgba(17,27,44,0.95),rgba(9,14,24,0.98)_72%)]" />
                       <div className="absolute inset-[16%] rounded-full border border-white/7" />
                       <div className="absolute inset-[18%] rounded-full bg-[radial-gradient(circle,_rgba(142,255,168,0.12),_transparent_70%)] blur-xl transition duration-300 group-hover:scale-110" />
                       <div className={`relative z-10 flex h-full flex-col items-center justify-center ${compact ? "gap-3" : "gap-4"}`}>
-                        <div className="mx-auto max-w-[6.75rem] text-center sm:max-w-[8rem] md:max-w-[10rem]">
-                          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50 md:text-[11px]">
+                        <div className="mx-auto max-w-[5.5rem] text-center sm:max-w-[8rem] md:max-w-[10rem]">
+                          <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/50 md:text-[11px]">
                             {t("demo_center_label")}
                           </p>
-                          <p className="mt-2 text-sm leading-tight font-semibold text-white sm:text-base md:text-[1.15rem]">
+                          <p className="mt-1.5 text-[0.92rem] leading-tight font-semibold text-white sm:text-base md:text-[1.15rem]">
                             {t("demo_center_cta")}
                           </p>
                         </div>
@@ -175,7 +175,7 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
                     </button>
                   </div>
 
-                  <div className={`pointer-events-none absolute left-1/2 top-[69%] z-30 w-full max-w-[18rem] -translate-x-1/2 -translate-y-1/2 px-3 transition-all duration-500 md:max-w-[20rem] ${activeFeature ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
+                  <div className={`pointer-events-none absolute left-1/2 top-[76%] sm:top-[69%] z-30 w-full max-w-[18rem] -translate-x-1/2 -translate-y-1/2 px-3 transition-all duration-500 md:max-w-[20rem] ${activeFeature ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
                     {activeFeature ? (
                       <div className="pointer-events-auto relative rounded-[1.35rem] border border-white/12 bg-[linear-gradient(180deg,rgba(12,20,35,0.92),rgba(8,13,24,0.97))] px-4 py-4 text-center shadow-[0_24px_60px_rgba(0,0,0,0.32)] backdrop-blur-md">
                         <button

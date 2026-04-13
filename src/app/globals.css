@@ -747,6 +747,10 @@ nav.scrolled {
 
 /* ─── Mobile ─── */
 @media (max-width: 768px) {
+  .reserve-panel,
+  .reserve-panel-dark {
+    border-radius: 24px;
+  }
   .form-input:focus {
     transform: none;
     box-shadow: 0 0 0 3px rgba(79,40,160,0.15);
@@ -765,5 +769,10 @@ nav.scrolled {
   }
   .industries-track {
     animation-duration: 22s;
+  }
+  .reserve-chip {
+    gap: 0.4rem;
+    padding: 0.48rem 0.72rem;
+    font-size: 0.72rem;
   }
 }

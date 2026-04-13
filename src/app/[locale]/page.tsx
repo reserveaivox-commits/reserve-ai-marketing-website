@@ -43,12 +43,12 @@ function HeroSection() {
   ];
 
   return (
-    <section className="section-flow-light relative overflow-hidden px-4 pt-24 pb-12 md:px-6 md:pt-36 md:pb-24">
+    <section className="section-flow-light relative overflow-hidden px-3 pt-22 pb-10 md:px-6 md:pt-36 md:pb-24">
       <div className="absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(79,253,142,0.16),_rgba(255,255,255,0)_55%)]" />
       <div className="absolute top-24 left-0 w-96 h-96 bg-emerald-400/8 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-12 right-10 w-80 h-80 bg-cyan-400/8 rounded-full blur-3xl animate-blob" style={{ animationDelay: "3s" }} />
 
-      <div className="reserve-panel max-w-7xl mx-auto relative z-10 w-full px-4 py-8 sm:px-6 sm:py-10 md:px-10 md:py-14 lg:px-12 lg:py-16">
+      <div className="reserve-panel max-w-7xl mx-auto relative z-10 w-full px-4 py-6 sm:px-6 sm:py-10 md:px-10 md:py-14 lg:px-12 lg:py-16">
         <div className="flex flex-col items-center gap-8 text-center sm:gap-10 lg:gap-12">
           <div className="mb-1 flex flex-wrap justify-center gap-2 sm:gap-3">
             {samplePrompts.map((item, idx) => (
@@ -61,10 +61,10 @@ function HeroSection() {
 
           <div className="max-w-5xl">
             <p className="section-label mb-5">{t("badge")}</p>
-            <h1 className="heading-serif mb-6 w-full text-[2.2rem] leading-[0.95] tracking-[-0.045em] text-white sm:text-[2.9rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.15rem] 2xl:text-[6.6rem]">
+            <h1 className="heading-serif mb-5 w-full text-[1.95rem] leading-[0.95] tracking-[-0.05em] text-white sm:text-[2.7rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.15rem] 2xl:text-[6.6rem]">
               {t("title")}
             </h1>
-            <p className="mx-auto mb-8 max-w-3xl text-base leading-relaxed text-zinc-300 sm:text-lg md:text-xl">
+            <p className="mx-auto mb-6 max-w-3xl text-[0.95rem] leading-relaxed text-zinc-300 sm:mb-8 sm:text-lg md:text-xl">
               {t("subtitle")}
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
@@ -501,9 +501,9 @@ function IndustriesSection() {
   return (
     <section className="section-flow-light py-20 md:py-28 px-4 md:px-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reserve-panel px-6 py-10 md:px-10 md:py-12">
+        <div className="reserve-panel px-4 py-8 sm:px-6 md:px-10 md:py-12">
           <ScrollAnimator>
-            <div className="max-w-2xl mb-14">
+            <div className="max-w-2xl mb-10 sm:mb-14">
               <p className="section-label mb-4">{t("title")}</p>
               <h2 className="heading-serif text-3xl md:text-5xl text-white mb-4">
                 {t("subtitle")}
@@ -512,7 +512,32 @@ function IndustriesSection() {
           </ScrollAnimator>
 
           <ScrollAnimator>
-            <div className="industries-marquee mb-10">
+            <div className="mb-8 grid grid-cols-2 gap-3 sm:hidden">
+              {items.slice(0, 4).map((item) => (
+                <Link
+                  key={item.slug}
+                  href={`/industries/${item.slug}`}
+                  className="group relative block overflow-hidden rounded-[1.25rem] hover-lift"
+                >
+                  <div className="relative aspect-[0.88]">
+                    <Image
+                      src={item.img}
+                      alt={t(item.key)}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-3">
+                      <div className="text-xs font-semibold leading-tight text-white">{t(item.key)}</div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </ScrollAnimator>
+
+          <ScrollAnimator>
+            <div className="industries-marquee mb-10 hidden sm:block">
               <div className="industries-track">
                 {[...items, ...items].map((item, idx) => (
                   <Link
