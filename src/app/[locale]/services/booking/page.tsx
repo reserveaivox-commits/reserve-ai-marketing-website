@@ -127,10 +127,10 @@ function BookingSubServices() {
                   {svc.icon}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">
-                  {"titleKey" in svc ? t(svc.titleKey) : svc.title}
+                  {svc.titleKey ? t(svc.titleKey) : (svc.title ?? "")}
                 </h3>
                 <p className="text-sm text-zinc-300 leading-relaxed">
-                  {"descKey" in svc ? t(svc.descKey) : svc.desc}
+                  {svc.descKey ? t(svc.descKey) : (svc.desc ?? "")}
                 </p>
               </div>
             </ScrollAnimator>
