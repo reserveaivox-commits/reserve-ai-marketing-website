@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -24,9 +25,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <h3 className="text-xl font-bold mb-2">
-              Re<span className="text-accent-purple">.</span>Serve
-            </h3>
+            <BrandLogo className="mb-2" />
             <p className="text-zinc-400 text-sm">{t("tagline")}</p>
           </div>
 

@@ -87,7 +87,7 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
             <div className="h-[72vh] min-h-[420px] sm:min-h-[480px] md:h-[78vh] md:min-h-[560px] w-full bg-[#06050c]">
               <iframe
                 src="https://voiceui-production.up.railway.app/"
-                title="Re.Serve live demo"
+                title="Reserve AI live demo"
                 className="h-full w-full border-0 bg-[#06050c]"
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"

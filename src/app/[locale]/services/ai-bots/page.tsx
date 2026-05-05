@@ -24,7 +24,7 @@ function BotsHero() {
   const t = useTranslations("svc_bots");
 
   return (
-    <section className="section-flow-light relative overflow-hidden pt-24 pb-12 md:pt-36 md:pb-24">
+    <section className="section-flow-light relative pt-24 pb-12 md:pt-36 md:pb-24">
       <div className="absolute top-20 right-10 w-72 h-72 bg-service-bots/5 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-10 left-20 w-56 h-56 bg-service-bots/3 rounded-full blur-3xl animate-blob" style={{ animationDelay: "4s" }} />
 

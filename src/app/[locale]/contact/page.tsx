@@ -25,7 +25,7 @@ function ContactHero() {
   const t = useTranslations("contact_page");
 
   return (
-    <section className="section-flow-light relative overflow-hidden px-4 pt-28 pb-10 md:px-6 md:pt-36 md:pb-14 lg:px-8">
+    <section className="section-flow-light relative px-4 pt-28 pb-10 md:px-6 md:pt-36 md:pb-14 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="reserve-panel-dark relative overflow-hidden px-8 py-12 md:px-12 md:py-16">
           <div className="pointer-events-none absolute inset-x-0 top-0 h-52 bg-[radial-gradient(circle_at_top,rgba(142,255,168,0.14),transparent_58%)]" />

@@ -43,7 +43,7 @@ function DetailHero({
   const t = useTranslations(`ind_detail.${translationKey}`);
 
   return (
-    <section className="section-flow-light relative overflow-hidden pt-24 pb-12 md:pt-36 md:pb-24">
+    <section className="section-flow-light relative pt-24 pb-12 md:pt-36 md:pb-24">
       <div className="absolute top-20 left-10 w-72 h-72 bg-accent-purple/5 rounded-full blur-3xl animate-blob" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

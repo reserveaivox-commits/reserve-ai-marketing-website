@@ -25,7 +25,7 @@ function HubHero() {
   const t = useTranslations("industries_hub");
 
   return (
-    <section className="section-flow-light relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden">
+    <section className="section-flow-light relative pt-28 pb-16 md:pt-36 md:pb-20">
       <div className="absolute top-20 right-10 w-72 h-72 bg-accent-purple/5 rounded-full blur-3xl animate-blob" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

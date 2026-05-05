@@ -18,7 +18,7 @@ export default async function ImprintPage({
             {isDe ? "Impressum" : "Imprint"}
           </h1>
           <div className="space-y-5 text-sm leading-7 text-zinc-300 md:text-base">
-            <p><strong className="text-white">Re.Serve</strong></p>
+            <p><strong className="text-white">Reserve AI</strong></p>
             <p>
               {isDe ? "Digitale Buchungs- und Automatisierungslösungen" : "Digital booking and automation solutions"}
             </p>
@@ -29,8 +29,8 @@ export default async function ImprintPage({
             </p>
             <p>
               {isDe
-                ? "Verantwortlich für den Inhalt dieser Website ist der Betreiber von Re.Serve."
-                : "The operator of Re.Serve is responsible for the content of this website."}
+                ? "Verantwortlich für den Inhalt dieser Website ist der Betreiber von Reserve AI."
+                : "The operator of Reserve AI is responsible for the content of this website."}
             </p>
           </div>
         </div>

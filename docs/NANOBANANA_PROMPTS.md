@@ -1,12 +1,12 @@
-# Nano Banana Prompts - Re.Serve AI
+# Nano Banana Prompts - Reserve AI
 
 ## Current Brand Direction
 
 - Prefer dark premium SaaS imagery over bright template-like visuals
-- Match the live site: navy surfaces, subtle green accents, light atmospheric glow
+- Match the live site: orbit black surfaces, subtle green accents, light atmospheric glow
 - Keep outputs clean and intentional for service-business buyers in Germany
 - Avoid noisy "AI generated" compositions, especially in dashboard or hero concepts
-- Use green accent guidance before gold unless the asset is intentionally matching older brand art
+- Use green accent guidance before signal green unless the asset is intentionally matching older brand art
 
 ## Session Update - April 13, 2026
 
@@ -25,11 +25,12 @@
 
 ```json
 {
-  "style": "Re.Serve AI",
+  "style": "Reserve AI",
   "aesthetic": "clean flat SaaS illustration, modern, semi-flat with subtle depth",
   "brand_colors": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843",
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3",
     "light_bg": "#f8f9fa"
   },
   "mood": "professional, trustworthy, modern, approachable",
@@ -52,7 +53,7 @@
   "aspect_ratio": "4:3",
   "dimensions": "640x480",
   "style_preset": "illustration",
-  "color_hints": ["#FFA500", "#FFDAB9", "#1a1a2e", "#d4a843"]
+  "color_hints": ["#FFA500", "#FFDAB9", "#050806", "#32E875"]
 }
 ```
 
@@ -67,7 +68,7 @@
   "aspect_ratio": "4:3",
   "dimensions": "640x480",
   "style_preset": "illustration",
-  "color_hints": ["#4169E1", "#4B0082", "#1a1a2e", "#d4a843"]
+  "color_hints": ["#1BAA55", "#4B0082", "#050806", "#32E875"]
 }
 ```
 
@@ -82,7 +83,7 @@
   "aspect_ratio": "4:3",
   "dimensions": "640x480",
   "style_preset": "illustration",
-  "color_hints": ["#9370DB", "#8A2BE2", "#1a1a2e", "#d4a843"]
+  "color_hints": ["#0E7A3B", "#8A2BE2", "#050806", "#32E875"]
 }
 ```
 
@@ -101,7 +102,7 @@
   "aspect_ratio": "2:1",
   "dimensions": "1200x600",
   "style_preset": "illustration",
-  "color_hints": ["#FF6B35", "#E8451E", "#FFA07A", "#d4a843"]
+  "color_hints": ["#FF6B35", "#E8451E", "#FFA07A", "#32E875"]
 }
 ```
 
@@ -116,7 +117,7 @@
   "aspect_ratio": "2:1",
   "dimensions": "1200x600",
   "style_preset": "illustration",
-  "color_hints": ["#FFB6C1", "#DDA0DD", "#E6E6FA", "#d4a843"]
+  "color_hints": ["#FFB6C1", "#DDA0DD", "#E6E6FA", "#32E875"]
 }
 ```
 
@@ -131,7 +132,7 @@
   "aspect_ratio": "2:1",
   "dimensions": "1200x600",
   "style_preset": "illustration",
-  "color_hints": ["#4682B4", "#3F51B5", "#2C3E50", "#d4a843"]
+  "color_hints": ["#4682B4", "#3F51B5", "#2C3E50", "#32E875"]
 }
 ```
 
@@ -146,7 +147,7 @@
   "aspect_ratio": "2:1",
   "dimensions": "1200x600",
   "style_preset": "illustration",
-  "color_hints": ["#708090", "#2F4F4F", "#FF4444", "#4444FF", "#d4a843"]
+  "color_hints": ["#708090", "#2F4F4F", "#FF4444", "#4444FF", "#32E875"]
 }
 ```
 
@@ -161,7 +162,7 @@
   "aspect_ratio": "2:1",
   "dimensions": "1200x600",
   "style_preset": "illustration",
-  "color_hints": ["#FFB6C1", "#FF69B4", "#FFC0CB", "#d4a843"]
+  "color_hints": ["#FFB6C1", "#FF69B4", "#FFC0CB", "#32E875"]
 }
 ```
 
@@ -176,7 +177,7 @@
   "aspect_ratio": "2:1",
   "dimensions": "1200x600",
   "style_preset": "illustration",
-  "color_hints": ["#8FBC8F", "#3CB371", "#2E8B57", "#d4a843"]
+  "color_hints": ["#8FBC8F", "#3CB371", "#2E8B57", "#32E875"]
 }
 ```
 
@@ -191,7 +192,7 @@
   "aspect_ratio": "2:1",
   "dimensions": "1200x600",
   "style_preset": "illustration",
-  "color_hints": ["#008B8B", "#20B2AA", "#5F9EA0", "#d4a843"]
+  "color_hints": ["#008B8B", "#20B2AA", "#5F9EA0", "#32E875"]
 }
 ```
 
@@ -271,21 +272,21 @@
   {
     "id": "icon-missed-calls",
     "file": "public/icons/icon-missed-calls.png",
-    "prompt": "flat minimal icon, phone handset with red X missed call badge, navy (#1a1a2e) and red (#EF4444) colors, transparent background, clean geometric minimal style, crisp edges, 128x128",
+    "prompt": "flat minimal icon, phone handset with red X missed call badge, orbit black (#050806) and red (#EF4444) colors, transparent background, clean geometric minimal style, crisp edges, 128x128",
     "negative_prompt": "text, gradients, shadows, photorealistic, blurry, complex details",
     "dimensions": "128x128"
   },
   {
     "id": "icon-wasted-time",
     "file": "public/icons/icon-wasted-time.png",
-    "prompt": "flat minimal icon, hourglass with sand running out and small warning triangle, navy (#1a1a2e) and amber (#F59E0B) colors, transparent background, clean geometric minimal style, crisp edges, 128x128",
+    "prompt": "flat minimal icon, hourglass with sand running out and small warning triangle, orbit black (#050806) and amber (#F59E0B) colors, transparent background, clean geometric minimal style, crisp edges, 128x128",
     "negative_prompt": "text, gradients, shadows, photorealistic, blurry, complex details",
     "dimensions": "128x128"
   },
   {
     "id": "icon-lost-revenue",
     "file": "public/icons/icon-lost-revenue.png",
-    "prompt": "flat minimal icon, euro coin with downward pointing arrow, navy (#1a1a2e) and red (#EF4444) colors, transparent background, clean geometric minimal style, crisp edges, 128x128",
+    "prompt": "flat minimal icon, euro coin with downward pointing arrow, orbit black (#050806) and red (#EF4444) colors, transparent background, clean geometric minimal style, crisp edges, 128x128",
     "negative_prompt": "text, gradients, shadows, photorealistic, blurry, complex details",
     "dimensions": "128x128"
   }
@@ -299,42 +300,42 @@
   {
     "id": "icon-ai-phone",
     "file": "public/icons/icon-ai-phone.png",
-    "prompt": "flat minimal icon, phone handset with AI circuit pattern lines and small sound waves, gold (#d4a843) and navy (#1a1a2e), transparent background, clean geometric, crisp, 128x128",
+    "prompt": "flat minimal icon, phone handset with AI circuit pattern lines and small sound waves, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric, crisp, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   },
   {
     "id": "icon-analytics",
     "file": "public/icons/icon-analytics.png",
-    "prompt": "flat minimal icon, line chart with upward trend and data point dots, gold (#d4a843) and navy (#1a1a2e), transparent background, clean geometric, crisp, 128x128",
+    "prompt": "flat minimal icon, line chart with upward trend and data point dots, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric, crisp, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   },
   {
     "id": "icon-customer-care",
     "file": "public/icons/icon-customer-care.png",
-    "prompt": "flat minimal icon, two hands shaking handshake with small heart above, gold (#d4a843) and navy (#1a1a2e), transparent background, clean geometric, crisp, 128x128",
+    "prompt": "flat minimal icon, two hands shaking handshake with small heart above, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric, crisp, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   },
   {
     "id": "icon-scheduling",
     "file": "public/icons/icon-scheduling.png",
-    "prompt": "flat minimal icon, calendar page with checkmark on a date, gold (#d4a843) and navy (#1a1a2e), transparent background, clean geometric, crisp, 128x128",
+    "prompt": "flat minimal icon, calendar page with checkmark on a date, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric, crisp, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   },
   {
     "id": "icon-dashboard",
     "file": "public/icons/icon-dashboard.png",
-    "prompt": "flat minimal icon, dashboard frame with bar chart and small KPI indicators inside, gold (#d4a843) and navy (#1a1a2e), transparent background, clean geometric, crisp, 128x128",
+    "prompt": "flat minimal icon, dashboard frame with bar chart and small KPI indicators inside, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric, crisp, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   },
   {
     "id": "icon-instant",
     "file": "public/icons/icon-instant.png",
-    "prompt": "flat minimal icon, bold lightning bolt with small speed lines, gold (#d4a843) and navy (#1a1a2e), transparent background, clean geometric, crisp, energetic, 128x128",
+    "prompt": "flat minimal icon, bold lightning bolt with small speed lines, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric, crisp, energetic, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   }
@@ -348,21 +349,21 @@
   {
     "id": "icon-connect",
     "file": "public/icons/icon-connect.png",
-    "prompt": "flat minimal icon, plug connecting into socket or interlocking chain links, integration concept, gold (#d4a843) and navy (#1a1a2e), transparent background, clean geometric, crisp, 128x128",
+    "prompt": "flat minimal icon, plug connecting into socket or interlocking chain links, integration concept, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric, crisp, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   },
   {
     "id": "icon-configure",
     "file": "public/icons/icon-configure.png",
-    "prompt": "flat minimal icon, central gear cog with adjustment slider bars, customization concept, gold (#d4a843) and navy (#1a1a2e), transparent background, clean geometric, crisp, 128x128",
+    "prompt": "flat minimal icon, central gear cog with adjustment slider bars, customization concept, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric, crisp, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   },
   {
     "id": "icon-launch",
     "file": "public/icons/icon-launch.png",
-    "prompt": "flat minimal icon, simple rocket shape launching upward with small exhaust trail, go-live concept, gold (#d4a843) and navy (#1a1a2e), transparent background, clean geometric, crisp, dynamic, 128x128",
+    "prompt": "flat minimal icon, simple rocket shape launching upward with small exhaust trail, go-live concept, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric, crisp, dynamic, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   }
@@ -376,28 +377,28 @@
   {
     "id": "icon-verified",
     "file": "public/icons/icon-verified.png",
-    "prompt": "flat minimal icon, shield shape with checkmark inside, trust reliability, green (#22C55E) and navy (#1a1a2e), transparent background, clean geometric, solid, 128x128",
+    "prompt": "flat minimal icon, shield shape with checkmark inside, trust reliability, green (#22C55E) and orbit black (#050806), transparent background, clean geometric, solid, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   },
   {
     "id": "icon-growth",
     "file": "public/icons/icon-growth.png",
-    "prompt": "flat minimal icon, coin base with small plant leaves sprouting upward, revenue growth metaphor, green (#22C55E) and gold (#d4a843), transparent background, clean geometric, 128x128",
+    "prompt": "flat minimal icon, coin base with small plant leaves sprouting upward, revenue growth metaphor, green (#22C55E) and signal green (#32E875), transparent background, clean geometric, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   },
   {
     "id": "icon-partnership",
     "file": "public/icons/icon-partnership.png",
-    "prompt": "flat minimal icon, two hands clasped in professional handshake, navy (#1a1a2e) and gold (#d4a843), transparent background, clean geometric, 128x128",
+    "prompt": "flat minimal icon, two hands clasped in professional handshake, orbit black (#050806) and signal green (#32E875), transparent background, clean geometric, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   },
   {
     "id": "icon-efficiency",
     "file": "public/icons/icon-efficiency.png",
-    "prompt": "flat minimal icon, speedometer gauge at maximum with small lightning bolt, performance concept, navy (#1a1a2e) and gold (#d4a843), transparent background, clean geometric, 128x128",
+    "prompt": "flat minimal icon, speedometer gauge at maximum with small lightning bolt, performance concept, orbit black (#050806) and signal green (#32E875), transparent background, clean geometric, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry",
     "dimensions": "128x128"
   }
@@ -411,21 +412,21 @@
   {
     "id": "icon-phone",
     "file": "public/icons/icon-phone.png",
-    "prompt": "flat minimal icon, classic telephone handset shape, solid gold (#d4a843) fill, transparent background, clean geometric, recognizable, 128x128",
+    "prompt": "flat minimal icon, classic telephone handset shape, solid signal green (#32E875) fill, transparent background, clean geometric, recognizable, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry, complex",
     "dimensions": "128x128"
   },
   {
     "id": "icon-email",
     "file": "public/icons/icon-email.png",
-    "prompt": "flat minimal icon, closed envelope with flap, solid gold (#d4a843) fill, transparent background, clean geometric, recognizable, 128x128",
+    "prompt": "flat minimal icon, closed envelope with flap, solid signal green (#32E875) fill, transparent background, clean geometric, recognizable, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry, complex",
     "dimensions": "128x128"
   },
   {
     "id": "icon-location",
     "file": "public/icons/icon-location.png",
-    "prompt": "flat minimal icon, teardrop shaped map pin location marker with circle center, solid gold (#d4a843) fill, transparent background, clean geometric, recognizable, 128x128",
+    "prompt": "flat minimal icon, teardrop shaped map pin location marker with circle center, solid signal green (#32E875) fill, transparent background, clean geometric, recognizable, 128x128",
     "negative_prompt": "text, gradients, photorealistic, blurry, complex",
     "dimensions": "128x128"
   }
@@ -442,10 +443,10 @@
 
 ```json
 {
-  "prompt": "professional social media share card, Re.Serve text in elegant serif font left aligned, gold dot accent between Re and Serve, stylized phone with sound waves on right side, AI circuit pattern accents, deep navy (#1a1a2e) solid background, white text, gold (#d4a843) accents, corporate trustworthy premium clean design, wide format, high resolution",
+  "prompt": "professional social media share card, Reserve AI text in elegant serif font left aligned, signal green dot accent between Re and Serve, stylized phone with sound waves on right side, AI circuit pattern accents, deep orbit black (#050806) solid background, white text, signal green (#32E875) accents, corporate trustworthy premium clean design, wide format, high resolution",
   "negative_prompt": "watermarks, blurry, low quality, busy, cluttered",
   "dimensions": "1200x630",
-  "color_hints": ["#1a1a2e", "#ffffff", "#d4a843"]
+  "color_hints": ["#050806", "#ffffff", "#32E875"]
 }
 ```
 
@@ -465,10 +466,10 @@
 
 ```json
 {
-  "prompt": "minimal app icon, stylized letter R centered in circle, gold (#d4a843) dot accent, white letter on deep navy (#1a1a2e) circular background, ultra clean, flat design, no gradients, recognizable at very small sizes like 16px, pixel perfect, 512x512",
+  "prompt": "minimal app icon, stylized letter R centered in circle, signal green (#32E875) dot accent, white letter on deep orbit black (#050806) circular background, ultra clean, flat design, no gradients, recognizable at very small sizes like 16px, pixel perfect, 512x512",
   "negative_prompt": "text other than R, gradients, shadows, complex details, photorealistic, fine details",
   "dimensions": "512x512",
-  "color_hints": ["#1a1a2e", "#ffffff", "#d4a843"]
+  "color_hints": ["#050806", "#ffffff", "#32E875"]
 }
 ```
 
@@ -485,7 +486,7 @@
   "prompt": "flat illustration, online booking calendar, large calendar with highlighted available time slots, cursor clicking to book, confirmation checkmark animation, small clock, light blue to soft purple gradient background, minimal SaaS style, clean friendly, high resolution",
   "negative_prompt": "text, watermarks, real screenshots, photorealistic, blurry",
   "dimensions": "480x360",
-  "color_hints": ["#4169E1", "#9370DB"]
+  "color_hints": ["#1BAA55", "#0E7A3B"]
 }
 ```
 
@@ -495,10 +496,10 @@
 
 ```json
 {
-  "prompt": "flat illustration, business success metrics dashboard, upward trending graph, 40 percent increase arrow indicator, happy customer satisfaction icons, revenue bar chart, navy (#1a1a2e) gold (#d4a843) green (#22C55E) color scheme, very light gray background, professional data-driven optimistic SaaS style, clean, high resolution",
+  "prompt": "flat illustration, business success metrics dashboard, upward trending graph, 40 percent increase arrow indicator, happy customer satisfaction icons, revenue bar chart, orbit black (#050806) signal green (#32E875) green (#22C55E) color scheme, very light gray background, professional data-driven optimistic SaaS style, clean, high resolution",
   "negative_prompt": "text, watermarks, real data, photorealistic, blurry",
   "dimensions": "640x400",
-  "color_hints": ["#1a1a2e", "#d4a843", "#22C55E", "#f8f9fa"]
+  "color_hints": ["#050806", "#32E875", "#22C55E", "#f8f9fa"]
 }
 ```
 
@@ -584,3 +585,79 @@ Use both `prompt` and `negative_prompt` fields if the interface supports it.
 3. `color_hints` help guide the palette — mention hex codes in the prompt
 4. Generate thumbnails last — use hero banners as style reference for consistency
 5. For icons, request transparent/white background and remove background in post-processing
+
+---
+
+## 8. BRAND LOGOS (NEW REBRAND)
+
+```json
+[
+  {
+    "id": "reserve-ai-mark",
+    "file": "public/brand/reserve-ai-mark.webp",
+    "prompt": "Clean geometric app logo mark, solar-system orbital structure, central glowing AI core with thin orbital rings and small data dots circling it, deep orbit black background (#050806), bright signal green lines (#32E875) and soft green glow (#9CFFB3), technical, precision software, premium B2B SaaS, vector style, flat design",
+    "negative_prompt": "text, typography, space cartoon, stars, planets, 3d render, messy, complex",
+    "dimensions": "512x512",
+    "color_hints": ["#050806", "#32E875", "#9CFFB3"]
+  },
+  {
+    "id": "reserve-ai-logo",
+    "file": "public/brand/reserve-ai-logo.webp",
+    "prompt": "Horizontal tech company logo, left side features a solar-system AI core mark with green orbital rings, right side features text 'Reserve AI' in clean modern bold sans-serif typography, deep orbit black background (#050806), bright signal green accent (#32E875), white text, vector style, premium B2B SaaS",
+    "negative_prompt": "cartoon, messy, complex, 3d render, purple, gold",
+    "dimensions": "1200x400",
+    "color_hints": ["#050806", "#32E875", "#FFFFFF"]
+  }
+]
+```
+
+---
+
+## 9. WEBSITE SHOWCASE ICONS
+
+```json
+[
+  {
+    "id": "icon-landing-pages",
+    "file": "public/icons/showcase/icon-landing-pages.png",
+    "prompt": "flat minimal icon, single scrolling webpage with hero banner and CTA button, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges, 128x128",
+    "dimensions": "128x128"
+  },
+  {
+    "id": "icon-business-corporate",
+    "file": "public/icons/showcase/icon-business-corporate.png",
+    "prompt": "flat minimal icon, modern office building or briefcase with subtle AI orbital rings, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges, 128x128",
+    "dimensions": "128x128"
+  },
+  {
+    "id": "icon-ecommerce",
+    "file": "public/icons/showcase/icon-ecommerce.png",
+    "prompt": "flat minimal icon, digital shopping cart or storefront with checkout checkmark, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges, 128x128",
+    "dimensions": "128x128"
+  },
+  {
+    "id": "icon-blogs-news",
+    "file": "public/icons/showcase/icon-blogs-news.png",
+    "prompt": "flat minimal icon, digital article layout or news feed grid, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges, 128x128",
+    "dimensions": "128x128"
+  },
+  {
+    "id": "icon-portfolio",
+    "file": "public/icons/showcase/icon-portfolio.png",
+    "prompt": "flat minimal icon, creative gallery grid or image carousel, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges, 128x128",
+    "dimensions": "128x128"
+  },
+  {
+    "id": "icon-web-apps",
+    "file": "public/icons/showcase/icon-web-apps.png",
+    "prompt": "flat minimal icon, complex software dashboard with sidebars and charts, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges, 128x128",
+    "dimensions": "128x128"
+  },
+  {
+    "id": "icon-3d-experiences",
+    "file": "public/icons/showcase/icon-3d-experiences.png",
+    "prompt": "flat minimal icon, isometric 3D cube or floating geometric mesh, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges, 128x128",
+    "dimensions": "128x128"
+  }
+]
+```

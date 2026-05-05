@@ -66,7 +66,7 @@ export async function POST(request: Request) {
     });
 
     await transporter.sendMail({
-      from: `"Re.Serve Contact Form" <${gmailUser}>`,
+      from: `"Reserve AI Contact Form" <${gmailUser}>`,
       to: INBOX_EMAIL,
       replyTo: email,
       subject: `New contact message from ${firstName} ${lastName}`,

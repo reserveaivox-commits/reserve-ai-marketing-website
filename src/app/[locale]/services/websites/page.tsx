@@ -1,7 +1,13 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import ScrollAnimator from "@/components/ScrollAnimator";
+import {
+  getFeaturedWebsiteShowcaseItems,
+  websiteShowcaseCategories,
+  websiteShowcaseItems,
+} from "@/lib/websiteShowcase";
 
 export default async function WebsitesPage({
   params,
@@ -15,6 +21,7 @@ export default async function WebsitesPage({
     <>
       <WebsitesHero />
       <WebsitesSubServices />
+      <WebsiteShowcasePreview />
       <WebsitesProcess />
     </>
   );
@@ -24,7 +31,7 @@ function WebsitesHero() {
   const t = useTranslations("svc_websites");
 
   return (
-    <section className="section-flow-light relative overflow-hidden pt-24 pb-12 md:pt-36 md:pb-24">
+    <section className="section-flow-light relative pt-24 pb-12 md:pt-36 md:pb-24">
       <div className="absolute top-20 right-10 w-72 h-72 bg-service-websites/5 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-10 left-20 w-56 h-56 bg-service-websites/3 rounded-full blur-3xl animate-blob" style={{ animationDelay: "4s" }} />
 
@@ -52,6 +59,12 @@ function WebsitesHero() {
             >
               {t("learn_more")}
             </a>
+            <Link
+              href="/services/websites/showcase"
+              className="rounded-lg border border-white/12 px-6 py-3.5 text-center font-semibold text-zinc-200 transition-colors hover:bg-white/6 sm:px-8"
+            >
+              {t("showcase_cta")}
+            </Link>
           </div>
         </div>
       </div>
@@ -124,6 +137,73 @@ function WebsitesSubServices() {
             </ScrollAnimator>
           ))}
         </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WebsiteShowcasePreview() {
+  const t = useTranslations("svc_websites");
+  const featuredItems = getFeaturedWebsiteShowcaseItems().slice(0, 4);
+
+  return (
+    <section className="section-flow-dark py-16 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <ScrollAnimator>
+          <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <p className="section-label mb-4" style={{ color: "var(--color-service-websites)" }}>
+                {t("showcase_badge")}
+              </p>
+              <h2 className="heading-serif max-w-3xl text-3xl text-white md:text-5xl">
+                {t("showcase_title")}
+              </h2>
+              <p className="mt-4 max-w-2xl text-zinc-300">{t("showcase_subtitle")}</p>
+            </div>
+            <Link
+              href="/services/websites/showcase"
+              className="inline-flex w-full items-center justify-center rounded-lg bg-[#8effa8] px-6 py-3.5 font-semibold text-[#04101b] transition-colors hover:bg-[#79f69c] sm:w-auto"
+            >
+              {t("showcase_link")}
+            </Link>
+          </div>
+        </ScrollAnimator>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {featuredItems.map((item, index) => (
+            <ScrollAnimator key={item.slug} delay={index * 0.08}>
+              <Link
+                href="/services/websites/showcase"
+                className="group block h-full overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.045] transition-colors hover:border-[#8effa8]/35"
+              >
+                <div className="relative aspect-[4/5] bg-black/40">
+                  <Image
+                    src={item.image}
+                    alt={t("showcase_image_alt", { name: item.name })}
+                    fill
+                    sizes="(min-width: 1024px) 24vw, (min-width: 640px) 48vw, 92vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="p-4">
+                  <p className="text-sm font-semibold text-white">{item.name}</p>
+                  <p className="mt-1 text-xs text-zinc-400">{item.tags.slice(0, 2).join(" / ")}</p>
+                </div>
+              </Link>
+            </ScrollAnimator>
+          ))}
+        </div>
+
+        <div className="mt-8 grid gap-3 sm:grid-cols-2">
+          <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.035] px-5 py-5">
+            <p className="text-3xl font-bold text-white">{websiteShowcaseItems.length}</p>
+            <p className="mt-2 text-sm text-zinc-400">{t("showcase_metric1_label")}</p>
+          </div>
+          <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.035] px-5 py-5">
+            <p className="text-3xl font-bold text-white">{websiteShowcaseCategories.length}</p>
+            <p className="mt-2 text-sm text-zinc-400">{t("showcase_metric2_label")}</p>
+          </div>
         </div>
       </div>
     </section>

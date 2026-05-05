@@ -15,9 +15,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Re.Serve – Your Digital Booking Assistant",
+  title: "Reserve AI - Your Digital Booking Assistant",
   description:
-    "Re.Serve answers booking calls automatically so your team can focus on customers.",
+    "Reserve AI answers booking calls automatically so your team can focus on customers.",
+  icons: {
+    icon: "/brand/reserve-ai-mark.svg",
+    shortcut: "/brand/reserve-ai-mark.svg",
+    apple: "/icons/icon-512.png",
+  },
 };
 
 export default function RootLayout({

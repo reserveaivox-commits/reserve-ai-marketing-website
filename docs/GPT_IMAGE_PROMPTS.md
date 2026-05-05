@@ -1,18 +1,18 @@
-# GPT Image Generator Prompts - Re.Serve AI
+# GPT Image Generator Prompts - Reserve AI
 
 ## Current Brand Direction
 
 - Prefer dark, cinematic SaaS visuals over light startup gradients
-- Match the website palette: deep navy backgrounds, soft green highlights, restrained cyan support
+- Match the website palette: deep orbit black backgrounds, soft green highlights, restrained cyan support
 - Keep illustrations premium and product-like, not generic AI art
 - Favor service-business contexts: restaurants, salons, barbershops, wellness, tattoo studios
-- Avoid purple-heavy defaults unless the asset is explicitly for the legacy logo treatment
+- Avoid purple or signal green defaults unless the asset is explicitly for the legacy logo treatment
 
 ## Session Update - April 13, 2026
 
 - Homepage, services, industries, and contact pages were unified around a darker panel system
 - Contact and legal flows are now live, so future image work should assume a more polished B2B tone
-- The site uses a stronger green CTA language; image prompts should support that instead of warm gold accents when possible
+- The site uses a stronger green CTA language; image prompts should support that instead of bright signal green accents when possible
 - If generating logo explorations, preserve the current simple wordmark-first header approach unless the user explicitly wants a new brand mark
 
 ## JSON Format Prompts for Better Results
@@ -25,11 +25,12 @@
 
 ```json
 {
-  "style": "Re.Serve AI",
+  "style": "Reserve AI",
   "aesthetic": "Clean SaaS product illustration, flat/semi-flat with subtle depth",
   "brand_colors": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843",
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3",
     "light_bg": "#f8f9fa"
   },
   "lighting": "Soft diffused studio, minimal shadows",
@@ -71,8 +72,9 @@
     "aesthetic": "flat with subtle shadows and depth, modern SaaS"
   },
   "color_palette": {
-    "primary_elements": "#1a1a2e",
-    "accent": "#d4a843",
+    "primary_elements": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3",
     "background": "warm orange to peach gradient"
   },
   "restrictions": ["no text", "no watermarks", "no real photography"],
@@ -108,8 +110,9 @@
     "aesthetic": "flat with subtle depth, modern SaaS"
   },
   "color_palette": {
-    "primary_elements": "#1a1a2e",
-    "accent": "#d4a843",
+    "primary_elements": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3",
     "background": "blue to indigo gradient"
   },
   "restrictions": ["no text", "no watermarks"],
@@ -145,8 +148,9 @@
     "aesthetic": "flat with subtle shadows, modern SaaS"
   },
   "color_palette": {
-    "primary_elements": "#1a1a2e",
-    "accent": "#d4a843",
+    "primary_elements": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3",
     "background": "purple to violet gradient"
   },
   "restrictions": ["no text", "no watermarks", "no real screenshots"],
@@ -172,7 +176,7 @@
   },
   "lighting": {
     "type": "warm ambient restaurant lighting",
-    "key_light": "golden warm overhead",
+    "key_light": "signal greenen warm overhead",
     "fill": "soft warm ambient",
     "mood": "inviting, warm"
   },
@@ -188,7 +192,8 @@
   },
   "color_palette": {
     "dominant": ["#FF6B35", "#E8451E", "#FFA07A"],
-    "accent": "#d4a843",
+    "accent": "#32E875",
+    "glow": "#9CFFB3",
     "mood": "warm, appetizing"
   },
   "restrictions": ["no text", "no watermarks", "no real photos"],
@@ -226,7 +231,8 @@
   },
   "color_palette": {
     "dominant": ["#FFB6C1", "#DDA0DD", "#E6E6FA"],
-    "accent": "#d4a843"
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "restrictions": ["no text", "no watermarks"],
   "dimensions": "1200x600"
@@ -262,7 +268,8 @@
   },
   "color_palette": {
     "dominant": ["#4682B4", "#3F51B5", "#2C3E50"],
-    "accent": "#d4a843"
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "restrictions": ["no text", "no watermarks"],
   "dimensions": "1200x600"
@@ -300,7 +307,8 @@
   "color_palette": {
     "dominant": ["#708090", "#2F4F4F", "#1C1C1C"],
     "accent_splashes": ["#FF4444", "#4444FF", "#44FF44"],
-    "accent": "#d4a843"
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "restrictions": ["no text", "no watermarks", "no offensive imagery"],
   "dimensions": "1200x600"
@@ -337,7 +345,8 @@
   },
   "color_palette": {
     "dominant": ["#FFB6C1", "#FF69B4", "#FFC0CB"],
-    "accent": "#d4a843"
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "restrictions": ["no text", "no watermarks"],
   "dimensions": "1200x600"
@@ -374,7 +383,8 @@
   },
   "color_palette": {
     "dominant": ["#8FBC8F", "#3CB371", "#2E8B57"],
-    "accent": "#d4a843"
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "restrictions": ["no text", "no watermarks"],
   "dimensions": "1200x600"
@@ -411,7 +421,8 @@
   },
   "color_palette": {
     "dominant": ["#008B8B", "#20B2AA", "#5F9EA0"],
-    "accent": "#d4a843"
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "restrictions": ["no text", "no watermarks"],
   "dimensions": "1200x600"
@@ -623,7 +634,7 @@
     "composition": "centered, symmetrical"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
+    "primary": "#050806",
     "alert": "#EF4444"
   },
   "background": {
@@ -653,7 +664,7 @@
     "composition": "centered, symmetrical"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
+    "primary": "#050806",
     "alert": "#F59E0B"
   },
   "background": {
@@ -682,7 +693,7 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
+    "primary": "#050806",
     "alert": "#EF4444"
   },
   "background": {
@@ -715,8 +726,9 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": {
@@ -741,8 +753,9 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": {
@@ -767,8 +780,9 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": {
@@ -793,8 +807,9 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": {
@@ -819,8 +834,9 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": {
@@ -845,8 +861,9 @@
     "composition": "centered, dynamic angle"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": {
@@ -875,8 +892,9 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": {
@@ -901,8 +919,9 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": {
@@ -927,8 +946,9 @@
     "composition": "centered, pointing up-right"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": {
@@ -957,7 +977,7 @@
     "composition": "centered, symmetrical"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
+    "primary": "#050806",
     "accent": "#22C55E"
   },
   "background": { "type": "transparent" },
@@ -981,7 +1001,8 @@
   },
   "color_scheme": {
     "primary": "#22C55E",
-    "accent": "#d4a843"
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": { "reference": "Heroicons outline", "aesthetic": "optimistic, growing" },
@@ -1003,8 +1024,9 @@
     "composition": "centered, horizontal"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": { "reference": "Heroicons outline", "aesthetic": "professional, collaborative" },
@@ -1026,8 +1048,9 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843"
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
   "background": { "type": "transparent" },
   "style": { "reference": "Heroicons solid", "aesthetic": "fast, powerful" },
@@ -1053,7 +1076,7 @@
     "composition": "centered, slight tilt"
   },
   "color_scheme": {
-    "fill": "#d4a843"
+    "fill": "#32E875"
   },
   "background": { "type": "transparent" },
   "style": { "reference": "Heroicons solid", "aesthetic": "clean, recognizable" },
@@ -1075,7 +1098,7 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "fill": "#d4a843"
+    "fill": "#32E875"
   },
   "background": { "type": "transparent" },
   "style": { "reference": "Heroicons solid", "aesthetic": "clean, recognizable" },
@@ -1097,7 +1120,7 @@
     "composition": "centered"
   },
   "color_scheme": {
-    "fill": "#d4a843"
+    "fill": "#32E875"
   },
   "background": { "type": "transparent" },
   "style": { "reference": "Heroicons solid", "aesthetic": "clean, recognizable" },
@@ -1116,10 +1139,10 @@
 
 ```json
 {
-  "prompt": "Professional social media share card for Re.Serve AI, an AI phone assistant for service businesses",
+  "prompt": "Professional social media share card for Reserve AI, an AI phone assistant for service businesses",
   "subject": {
     "type": "branded social card",
-    "elements": ["text 'Re.Serve' in elegant serif font", "gold dot accent between Re and Serve", "stylized phone with sound waves on right side", "AI circuit pattern accents"],
+    "elements": ["text 'Reserve AI' in elegant serif font", "signal green dot accent between Re and Serve", "stylized phone with sound waves on right side", "AI circuit pattern accents"],
     "composition": "text left-aligned, phone motif right, balanced"
   },
   "lighting": {
@@ -1127,8 +1150,8 @@
     "effect": "soft glow behind text"
   },
   "background": {
-    "color": "#1a1a2e",
-    "type": "deep navy, solid"
+    "color": "#050806",
+    "type": "deep orbit black, solid"
   },
   "style": {
     "reference": "Stripe or Linear OG images",
@@ -1136,11 +1159,12 @@
     "aesthetic": "corporate, trustworthy, premium"
   },
   "color_palette": {
-    "background": "#1a1a2e",
+    "background": "#050806",
     "text": "#ffffff",
-    "accent": "#d4a843"
+    "accent": "#32E875",
+    "glow": "#9CFFB3"
   },
-  "restrictions": ["no watermarks", "text 'Re.Serve' is intentional"],
+  "restrictions": ["no watermarks", "text 'Reserve AI' is intentional"],
   "dimensions": "1200x630"
 }
 ```
@@ -1162,15 +1186,15 @@
 
 ```json
 {
-  "prompt": "Minimal app icon for Re.Serve AI brand",
+  "prompt": "Minimal app icon for Reserve AI brand",
   "subject": {
     "type": "app icon / favicon",
-    "elements": ["stylized letter R", "gold dot accent"],
+    "elements": ["stylized letter R", "signal green dot accent"],
     "composition": "R centered in circular shape"
   },
   "background": {
     "shape": "circle",
-    "color": "#1a1a2e"
+    "color": "#050806"
   },
   "style": {
     "reference": "Apple app icon guidelines",
@@ -1178,9 +1202,9 @@
     "aesthetic": "ultra clean, recognizable at 16px"
   },
   "color_palette": {
-    "background": "#1a1a2e",
+    "background": "#050806",
     "letter": "#ffffff",
-    "dot": "#d4a843"
+    "dot": "#32E875"
   },
   "restrictions": ["no gradients", "no fine details", "must be legible at 16x16"],
   "dimensions": "512x512"
@@ -1246,8 +1270,9 @@
     "aesthetic": "professional, data-driven, optimistic"
   },
   "color_palette": {
-    "primary": "#1a1a2e",
-    "accent": "#d4a843",
+    "primary": "#050806",
+    "accent": "#32E875",
+    "glow": "#9CFFB3",
     "success": "#22C55E"
   },
   "restrictions": ["no text in the image", "no real data"],
@@ -1340,3 +1365,114 @@ Use the full JSON structure for maximum control and consistency.
 3. Restrictions array prevents unwanted elements
 4. Style references guide the overall aesthetic
 5. Generate the 512px favicon source first, then resize programmatically
+
+---
+
+## 8. BRAND LOGOS (NEW REBRAND)
+
+### 8.1 Primary Mark (Solar System AI Concept)
+**Filename:** `reserve-ai-mark.webp`
+**Folder:** `public/brand/`
+
+```json
+{
+  "prompt": "Clean geometric app logo mark, solar-system orbital structure, central glowing AI core with thin orbital rings and small data dots circling it, deep orbit black background (#050806), bright signal green lines (#32E875) and soft green glow (#9CFFB3), technical, precision software, premium B2B SaaS, vector style, flat design",
+  "negative_prompt": "text, typography, space cartoon, stars, planets, 3d render, messy, complex",
+  "dimensions": "512x512",
+  "color_hints": ["#050806", "#32E875", "#9CFFB3"]
+}
+```
+
+### 8.2 Full Horizontal Logo
+**Filename:** `reserve-ai-logo.webp`
+**Folder:** `public/brand/`
+
+```json
+{
+  "prompt": "Horizontal tech company logo, left side features a solar-system AI core mark with green orbital rings, right side features text 'Reserve AI' in clean modern bold sans-serif typography, deep orbit black background (#050806), bright signal green accent (#32E875), white text, vector style, premium B2B SaaS",
+  "negative_prompt": "cartoon, messy, complex, 3d render, purple, gold",
+  "dimensions": "1200x400",
+  "color_hints": ["#050806", "#32E875", "#FFFFFF"]
+}
+```
+
+---
+
+## 9. WEBSITE SHOWCASE ICONS
+
+### 9.1 Landing Pages
+**Filename:** `icon-landing-pages.png`
+**Folder:** `public/icons/showcase/`
+
+```json
+{
+  "prompt": "Flat minimal icon of a single scrolling webpage with a hero banner and CTA button, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges",
+  "dimensions": "128x128"
+}
+```
+
+### 9.2 Business & Corporate
+**Filename:** `icon-business-corporate.png`
+**Folder:** `public/icons/showcase/`
+
+```json
+{
+  "prompt": "Flat minimal icon of a modern office building or briefcase with subtle AI orbital rings, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges",
+  "dimensions": "128x128"
+}
+```
+
+### 9.3 E-Commerce
+**Filename:** `icon-ecommerce.png`
+**Folder:** `public/icons/showcase/`
+
+```json
+{
+  "prompt": "Flat minimal icon of a digital shopping cart or storefront with a checkout checkmark, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges",
+  "dimensions": "128x128"
+}
+```
+
+### 9.4 Blogs & News
+**Filename:** `icon-blogs-news.png`
+**Folder:** `public/icons/showcase/`
+
+```json
+{
+  "prompt": "Flat minimal icon of a digital article layout or news feed grid, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges",
+  "dimensions": "128x128"
+}
+```
+
+### 9.5 Portfolio
+**Filename:** `icon-portfolio.png`
+**Folder:** `public/icons/showcase/`
+
+```json
+{
+  "prompt": "Flat minimal icon of a creative gallery grid or image carousel, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges",
+  "dimensions": "128x128"
+}
+```
+
+### 9.6 Web Apps
+**Filename:** `icon-web-apps.png`
+**Folder:** `public/icons/showcase/`
+
+```json
+{
+  "prompt": "Flat minimal icon of a complex software dashboard with sidebars and charts, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges",
+  "dimensions": "128x128"
+}
+```
+
+### 9.7 3D Experiences
+**Filename:** `icon-3d-experiences.png`
+**Folder:** `public/icons/showcase/`
+
+```json
+{
+  "prompt": "Flat minimal icon of an isometric 3D cube or floating geometric mesh, signal green (#32E875) and orbit black (#050806), transparent background, clean geometric minimal style, crisp edges",
+  "dimensions": "128x128"
+}
+```

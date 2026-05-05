@@ -22,7 +22,7 @@ function ServicesHero() {
   const t = useTranslations("services_hub");
 
   return (
-    <section className="section-flow-light relative overflow-hidden px-4 pt-28 pb-16 md:px-6 md:pt-36 md:pb-20">
+    <section className="section-flow-light relative px-4 pt-28 pb-16 md:px-6 md:pt-36 md:pb-20">
       <div className="absolute top-20 right-10 h-72 w-72 rounded-full bg-accent-purple/5 blur-3xl animate-blob" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

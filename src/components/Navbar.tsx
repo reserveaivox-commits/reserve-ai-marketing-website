@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -136,10 +137,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between rounded-full border border-white/8 bg-[#08101c]/78 px-4 py-3 md:h-18 md:px-7 md:py-0 shadow-[0_20px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-[-0.04em]">
-              Reserve<span className="text-[#8effa8]">AI</span>
-            </span>
+          <Link href="/" className="flex items-center" aria-label="Reserve AI home">
+            <BrandLogo />
           </Link>
 
           {/* Desktop nav */}
