@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import ScrollAnimator from "@/components/ScrollAnimator";
+import AnimatedCustomization from "@/components/AnimatedCustomization";
 
 export default async function SaasAppsPage({
   params,
@@ -14,8 +15,12 @@ export default async function SaasAppsPage({
   return (
     <>
       <SaasHero />
+      <SaasTrust />
       <SaasSubServices />
+      <SaasCustomization />
       <SaasFeatures />
+      <SaasROI />
+      <SaasPricing />
     </>
   );
 }
@@ -122,6 +127,41 @@ function SaasSubServices() {
   );
 }
 
+function SaasTrust() {
+  return (
+    <section className="section-flow-dark py-10 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <ScrollAnimator delay={0}>
+            <div className="reserve-stat-card px-4 py-6 text-center border border-service-saas/20">
+              <div className="text-2xl md:text-3xl font-bold text-service-saas mb-2">50+</div>
+              <p className="text-xs md:text-sm text-zinc-300">Custom applications</p>
+            </div>
+          </ScrollAnimator>
+          <ScrollAnimator delay={0.05}>
+            <div className="reserve-stat-card px-4 py-6 text-center border border-service-saas/20">
+              <div className="text-2xl md:text-3xl font-bold text-service-saas mb-2">8-12w</div>
+              <p className="text-xs md:text-sm text-zinc-300">Typical deployment</p>
+            </div>
+          </ScrollAnimator>
+          <ScrollAnimator delay={0.1}>
+            <div className="reserve-stat-card px-4 py-6 text-center border border-service-saas/20">
+              <div className="text-2xl md:text-3xl font-bold text-service-saas mb-2">99.9%</div>
+              <p className="text-xs md:text-sm text-zinc-300">Platform uptime</p>
+            </div>
+          </ScrollAnimator>
+          <ScrollAnimator delay={0.15}>
+            <div className="reserve-stat-card px-4 py-6 text-center border border-service-saas/20">
+              <div className="text-2xl md:text-3xl font-bold text-service-saas mb-2">10+</div>
+              <p className="text-xs md:text-sm text-zinc-300">Tech integrations</p>
+            </div>
+          </ScrollAnimator>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function SaasFeatures() {
   const t = useTranslations("svc_saas");
 
@@ -152,5 +192,149 @@ function SaasFeatures() {
         </div>
       </div>
     </section>
+  );
+}
+
+function SaasROI() {
+  return (
+    <section className="section-flow-dark py-16 md:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollAnimator>
+          <div className="mb-12 text-center md:mb-16">
+            <p className="section-label mb-4" style={{ color: "var(--color-service-saas)" }}>
+              ROI & IMPACT
+            </p>
+            <h2 className="heading-serif mb-4 text-3xl text-white md:text-4xl">
+              Build faster, scale smarter
+            </h2>
+            <p className="text-zinc-300 max-w-2xl mx-auto">Reduce development cycles and operational costs with custom SaaS solutions</p>
+          </div>
+        </ScrollAnimator>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <ScrollAnimator delay={0}>
+            <div className="rounded-xl border border-service-saas/20 bg-gradient-to-br from-service-saas/10 to-transparent p-6 md:p-8">
+              <h3 className="text-lg font-bold text-white mb-2">60% faster development</h3>
+              <p className="text-sm text-zinc-300">Compared to traditional in-house development cycles</p>
+            </div>
+          </ScrollAnimator>
+          <ScrollAnimator delay={0.1}>
+            <div className="rounded-xl border border-service-saas/20 bg-gradient-to-br from-service-saas/10 to-transparent p-6 md:p-8">
+              <h3 className="text-lg font-bold text-white mb-2">50% cost reduction</h3>
+              <p className="text-sm text-zinc-300">Infrastructure and maintenance compared to scaled teams</p>
+            </div>
+          </ScrollAnimator>
+          <ScrollAnimator delay={0.2}>
+            <div className="rounded-xl border border-service-saas/20 bg-gradient-to-br from-service-saas/10 to-transparent p-6 md:p-8">
+              <h3 className="text-lg font-bold text-white mb-2">Infinite scalability</h3>
+              <p className="text-sm text-zinc-300">Grow from 100 to 100k users without architecture changes</p>
+            </div>
+          </ScrollAnimator>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SaasPricing() {
+  return (
+    <section className="section-flow-dark py-16 md:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollAnimator>
+          <div className="mb-12 text-center md:mb-16">
+            <p className="section-label mb-4" style={{ color: "var(--color-service-saas)" }}>
+              PRICING
+            </p>
+            <h2 className="heading-serif mb-4 text-3xl text-white md:text-4xl">
+              Flexible packages for every stage
+            </h2>
+            <p className="text-zinc-300 max-w-2xl mx-auto">Transparent pricing with no hidden costs</p>
+          </div>
+        </ScrollAnimator>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {[
+            { name: "Startup", price: "€3k-5k", time: "8-10 weeks", badge: "", features: ["Custom UI/UX", "Basic integrations", "Hosting setup", "3 months support"] },
+            { name: "Growth", price: "€8k-12k", time: "10-12 weeks", badge: "MOST POPULAR", features: ["Advanced features", "Multiple integrations", "Analytics dashboard", "Performance optimization", "6 months support"] },
+            { name: "Enterprise", price: "€15k+", time: "12-16 weeks", badge: "", features: ["White-label solution", "Advanced security", "Unlimited integrations", "Custom compliance", "12+ months support"] },
+          ].map((plan, idx) => (
+            <ScrollAnimator key={idx} delay={idx * 0.1}>
+              <div className={`rounded-2xl p-6 md:p-8 border transition-all ${
+                plan.badge
+                  ? "border-service-saas/50 bg-gradient-to-br from-service-saas/10 to-transparent ring-2 ring-service-saas/20"
+                  : "border-white/10 bg-white/4"
+              }`}>
+                {plan.badge && (
+                  <div className="inline-block px-3 py-1 rounded-full bg-service-saas/20 text-service-saas text-xs font-semibold mb-4">
+                    {plan.badge}
+                  </div>
+                )}
+                <h3 className="text-lg font-bold text-white mb-1">{plan.name}</h3>
+                <div className="mb-4">
+                  <div className="text-4xl font-bold text-service-saas">{plan.price}</div>
+                  <p className="text-sm text-zinc-400 mt-1">{plan.time}</p>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-service-saas mt-1">✓</span>
+                      <span className="text-sm text-zinc-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact"
+                  className={`w-full block py-2.5 px-4 rounded-lg font-semibold text-center transition ${
+                    plan.badge
+                      ? "bg-service-saas text-white hover:bg-service-saas/90"
+                      : "border border-service-saas/30 text-service-saas hover:bg-service-saas/10"
+                  }`}
+                >
+                  Get Started
+                </Link>
+              </div>
+            </ScrollAnimator>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SaasCustomization() {
+  const t = useTranslations("svc_saas");
+
+  const examples = [
+    {
+      industry: t("demo_industry1"),
+      example: t("demo_example1"),
+    },
+    {
+      industry: t("demo_industry2"),
+      example: t("demo_example2"),
+    },
+    {
+      industry: t("demo_industry3"),
+      example: t("demo_example3"),
+    },
+  ];
+
+  const points = [
+    t("custom_point1"),
+    t("custom_point2"),
+    t("custom_point3"),
+    t("custom_point4"),
+  ];
+
+  return (
+    <AnimatedCustomization
+      badge={t("custom_badge")}
+      title={t("custom_title")}
+      description={t("custom_desc")}
+      points={points}
+      examples={examples}
+      accentColor="var(--color-service-saas)"
+      borderColor="rgba(var(--color-service-saas-rgb), 0.2)"
+    />
   );
 }

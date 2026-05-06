@@ -4,7 +4,9 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { industries, getIndustryBySlug } from "@/lib/industries";
-import ScrollAnimator from "@/components/ScrollAnimator";
+import AnimatedCard from "@/components/AnimatedCard";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import BenefitShowcase from "@/components/BenefitShowcase";
 import HeroDemoGate from "@/components/HeroDemoGate";
 
 export function generateStaticParams() {
@@ -44,7 +46,7 @@ function DetailHero({
 
   return (
     <section className="section-flow-light relative pt-24 pb-12 md:pt-36 md:pb-24">
-      <div className="absolute top-20 left-10 w-72 h-72 bg-accent-purple/5 rounded-full blur-3xl animate-blob" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-accent-purple/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="reserve-panel grid items-center gap-8 px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 lg:grid-cols-2 lg:gap-20">
@@ -91,35 +93,33 @@ function ProblemSection({ translationKey }: { translationKey: string }) {
   const points = [1, 2, 3].map((i) => ({
     title: t(`problem_p${i}_title`),
     desc: t(`problem_p${i}_desc`),
+    emoji: ["📞", "⏳", "💰"][i - 1],
   }));
-
-  const icons = ["/icons/icon-missed-calls.png", "/icons/icon-wasted-time.png", "/icons/icon-lost-revenue.png"];
 
   return (
     <section className="section-dark py-14 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollAnimator>
-          <div className="mb-12 text-center">
-            <h2 className="heading-serif mb-4 text-3xl md:text-4xl">
-              {t("problem_title")}
-            </h2>
-            <p className="text-zinc-400 max-w-2xl mx-auto">
-              {t("problem_desc")}
-            </p>
-          </div>
-        </ScrollAnimator>
+        <div className="mb-12 text-center">
+          <h2 className="heading-serif mb-4 text-3xl md:text-4xl">
+            {t("problem_title")}
+          </h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto">
+            {t("problem_desc")}
+          </p>
+        </div>
 
         <div className="grid gap-8 md:grid-cols-3">
           {points.map((point, idx) => (
-            <ScrollAnimator key={idx} delay={idx * 0.12}>
-              <div className="text-center">
-                <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mx-auto mb-5">
-                  <Image src={icons[idx]} alt={point.title} width={32} height={32} className="brightness-0 invert opacity-80" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{point.title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">{point.desc}</p>
+            <div
+              key={idx}
+              className="text-center group cursor-default"
+            >
+              <div className="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300">
+                {point.emoji}
               </div>
-            </ScrollAnimator>
+              <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-400 transition-colors duration-300">{point.title}</h3>
+              <p className="text-sm text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">{point.desc}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -132,40 +132,18 @@ function BenefitsSection({ translationKey }: { translationKey: string }) {
 
   const benefits = [1, 2, 3, 4].map((i) => ({
     title: t(`benefit_b${i}_title`),
-    desc: t(`benefit_b${i}_desc`),
+    description: t(`benefit_b${i}_desc`),
+    icon: ["✅", "📈", "🤝", "⚡"][i - 1],
+    highlight: t(`benefit_b${i}_highlight`),
   }));
 
-  const icons = ["/icons/icon-verified.png", "/icons/icon-growth.png", "/icons/icon-partnership.png", "/icons/icon-efficiency.png"];
-
   return (
-    <section id="benefits" className="section-flow-dark py-14 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reserve-panel-dark px-5 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12">
-        <ScrollAnimator>
-          <div className="mb-12 max-w-2xl">
-            <p className="section-label mb-4">{t("benefits_title")}</p>
-            <h2 className="heading-serif text-3xl text-white md:text-4xl">
-              {t("benefits_title")}
-            </h2>
-          </div>
-        </ScrollAnimator>
-
-        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-          {benefits.map((b, idx) => (
-            <ScrollAnimator key={idx} delay={idx * 0.1}>
-              <div className="rounded-xl border border-white/8 bg-white/4 p-6 shadow-sm hover-lift">
-                <div className="flex items-center gap-3 mb-4">
-                  <Image src={icons[idx]} alt={b.title} width={32} height={32} />
-                  <h3 className="text-lg font-bold text-white">{b.title}</h3>
-                </div>
-                <p className="text-sm text-zinc-300 leading-relaxed">{b.desc}</p>
-              </div>
-            </ScrollAnimator>
-          ))}
-        </div>
-        </div>
-      </div>
-    </section>
+    <BenefitShowcase
+      title={t("benefits_title")}
+      benefits={benefits}
+      accentColor="#8effa8"
+      backgroundColor="from-white/5 to-white/2"
+    />
   );
 }
 
@@ -176,7 +154,6 @@ function InteractiveDemoSection() {
     <section className="section-flow-dark py-14 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="reserve-panel-dark px-5 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12">
-        <ScrollAnimator>
           <div className="mb-12 max-w-2xl">
             <p className="section-label mb-4">{t("badge")}</p>
             <h2 className="heading-serif mb-4 text-3xl text-white md:text-4xl">
@@ -184,14 +161,11 @@ function InteractiveDemoSection() {
             </h2>
             <p className="text-zinc-300 max-w-2xl">{t("subtitle")}</p>
           </div>
-        </ScrollAnimator>
 
-        <ScrollAnimator delay={0.08}>
           <div className="relative max-w-5xl mx-auto">
             <div className="absolute -inset-6 rounded-[2.2rem] bg-[radial-gradient(circle_at_center,_rgba(142,255,168,0.10),_transparent_42%)] blur-3xl" />
             <HeroDemoGate compact />
           </div>
-        </ScrollAnimator>
         </div>
       </div>
     </section>
@@ -201,27 +175,39 @@ function InteractiveDemoSection() {
 function ROISection({ translationKey }: { translationKey: string }) {
   const t = useTranslations(`ind_detail.${translationKey}`);
 
+  const roiData = [
+    { num: 85, suffix: "%", label: t("roi_s1_label") },
+    { num: 30, suffix: "+", label: t("roi_s2_label") },
+    { num: 95, suffix: "%+", label: t("roi_s3_label") },
+  ];
+
   return (
     <section className="section-flow-dark py-14 md:py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollAnimator>
-          <div className="reserve-panel-dark rounded-2xl p-5 text-center sm:p-8 md:p-12">
-            <h2 className="heading-serif mb-4 text-2xl text-white md:text-3xl">
-              {t("roi_title")}
-            </h2>
-            <p className="text-zinc-400 mb-8">{t("roi_desc")}</p>
-            <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white/10 rounded-xl p-4">
-                  <div className="text-2xl md:text-3xl font-bold text-accent-gold">
-                    {t(`roi_s${i}_num`)}
-                  </div>
-                  <div className="text-xs text-zinc-400 mt-1">{t(`roi_s${i}_label`)}</div>
+        <div className="reserve-panel-dark rounded-2xl p-5 text-center sm:p-8 md:p-12 border border-white/8 bg-gradient-to-br from-white/5 to-white/2">
+          <h2 className="heading-serif mb-4 text-2xl text-white md:text-3xl">
+            {t("roi_title")}
+          </h2>
+          <p className="text-zinc-400 mb-12">{t("roi_desc")}</p>
+          <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
+            {roiData.map((item, i) => (
+              <div
+                key={i}
+                className="bg-gradient-to-br from-white/8 to-white/4 rounded-xl p-4 md:p-6 border border-white/10 group hover:border-white/20 hover:from-white/12 hover:to-white/8 transition-all duration-500 cursor-default"
+              >
+                <div className="text-xl md:text-2xl font-bold text-accent-gold mb-2 group-hover:scale-110 transition-transform duration-300 inline-block">
+                  <AnimatedCounter
+                    value={item.num}
+                    suffix={item.suffix}
+                    duration={2}
+                    className="text-xl md:text-2xl font-bold"
+                  />
                 </div>
-              ))}
-            </div>
+                <div className="text-xs text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">{item.label}</div>
+              </div>
+            ))}
           </div>
-        </ScrollAnimator>
+        </div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { industries } from "@/lib/industries";
 import ScrollAnimator from "@/components/ScrollAnimator";
+import AnimatedCard from "@/components/AnimatedCard";
 
 export default async function IndustriesHubPage({
   params,
@@ -46,16 +47,24 @@ function HubHero() {
 function IndustryGrid() {
   const t = useTranslations();
 
+  const directions = ["up", "up", "up", "down", "down", "down"] as const;
+
   return (
     <section className="section-flow-dark py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="reserve-panel-dark px-6 py-8 md:px-8 md:py-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {industries.map((industry, idx) => (
-            <ScrollAnimator key={industry.slug} delay={idx * 0.06}>
+            <AnimatedCard
+              key={industry.slug}
+              delay={idx * 0.08}
+              direction={directions[idx]}
+              hoverScale={1.03}
+              className="h-full"
+            >
               <Link
                 href={`/industries/${industry.slug}`}
-                className="group relative block rounded-xl overflow-hidden hover-lift"
+                className="group relative block rounded-xl overflow-hidden hover-lift h-full"
               >
                 {/* Image-forward card with gradient vignette */}
                 <div className="relative aspect-[4/3]">
@@ -63,24 +72,42 @@ function IndustryGrid() {
                     src={industry.thumbnail}
                     alt={t(`ind_detail.${industry.translationKey}.name`)}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  {/* Enhanced vignette with animated overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/60 transition-all duration-500" />
+                  
+                  {/* Animated accent border */}
+                  <div 
+                    className="absolute inset-0 rounded-xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ borderColor: `var(--ind-${industry.slug}-color, #8effa8)` }}
+                  />
+
+                  {/* Animated glow effect */}
+                  <div className="absolute inset-0 bg-radial-gradient from-white/0 via-white/0 to-white/0 group-hover:from-white/5 group-hover:via-white/0 group-hover:to-white/0 transition-all duration-500 rounded-xl" />
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="text-lg font-bold text-white mb-1">
-                    {t(`ind_detail.${industry.translationKey}.name`)}
-                  </h3>
-                  <p className="text-sm text-white/70 mb-2 line-clamp-2">
-                    {t(`ind_detail.${industry.translationKey}.short_desc`)}
-                  </p>
-                  <span className="text-accent-gold text-sm font-semibold group-hover:underline">
-                    {t("industries.learn_more")} →
+                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black via-black/80 to-transparent group-hover:via-black/60 transition-all duration-500">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white mb-1 group-hover:translate-y-[-2px] transition-transform duration-300">
+                        {t(`ind_detail.${industry.translationKey}.name`)}
+                      </h3>
+                      <p className="text-sm text-white/70 mb-2 line-clamp-2 group-hover:text-white/80 transition-colors duration-300">
+                        {t(`ind_detail.${industry.translationKey}.short_desc`)}
+                      </p>
+                    </div>
+                    <div className="text-2xl animate-bounce" style={{ animationDelay: `${idx * 0.1}s` }}>
+                      {industry.icon}
+                    </div>
+                  </div>
+                  <span className="text-accent-gold text-sm font-semibold group-hover:underline group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">
+                    {t("industries.learn_more")} 
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                   </span>
                 </div>
               </Link>
-            </ScrollAnimator>
+            </AnimatedCard>
           ))}
         </div>
         </div>

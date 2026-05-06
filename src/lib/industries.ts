@@ -49,14 +49,6 @@ export const industries: Industry[] = [
     thumbnail: "/images/industry-thumb-nails.png",
   },
   {
-    slug: "wellness-zentren",
-    icon: "🧘",
-    color: "from-green-50 to-emerald-50",
-    translationKey: "wellness",
-    image: "/images/industry-wellness.png",
-    thumbnail: "/images/industry-thumb-wellness.png",
-  },
-  {
     slug: "spas",
     icon: "🧖",
     color: "from-cyan-50 to-teal-50",
