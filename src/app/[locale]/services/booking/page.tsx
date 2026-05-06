@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import ScrollAnimator from "@/components/ScrollAnimator";
@@ -104,40 +105,17 @@ function BookingSubServices() {
 
   const subServices = [
     {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-          <line x1="16" y1="2" x2="16" y2="6"/>
-          <line x1="8" y1="2" x2="8" y2="6"/>
-          <line x1="3" y1="10" x2="21" y2="10"/>
-          <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
-        </svg>
-      ),
+      icon: <Image src="/icons/icon-scheduling.png" alt="icon" width={48} height={48} className="w-8 h-8 object-contain brightness-0 invert opacity-90" />,
       titleKey: "sub1_title",
       descKey: "sub1_desc",
     },
     {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
-          <line x1="6" y1="1" x2="6" y2="4"/>
-          <line x1="10" y1="1" x2="10" y2="4"/>
-          <line x1="14" y1="1" x2="14" y2="4"/>
-        </svg>
-      ),
+      icon: <Image src="/icons/icon-verified.png" alt="icon" width={48} height={48} className="w-8 h-8 object-contain brightness-0 invert opacity-90" />,
       titleKey: "sub2_title",
       descKey: "sub2_desc",
     },
     {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M4 7h16v10H4z" />
-          <path d="M8 17v3" />
-          <path d="M16 17v3" />
-          <path d="M7 11h4" />
-          <path d="M14 11h3" />
-        </svg>
-      ),
+      icon: <Image src="/icons/icon-analytics.png" alt="icon" width={48} height={48} className="w-8 h-8 object-contain brightness-0 invert opacity-90" />,
       title: "POS System Integration",
       desc: "Sync in-store purchases, reservations, and customer data with your point-of-sale workflow.",
     },

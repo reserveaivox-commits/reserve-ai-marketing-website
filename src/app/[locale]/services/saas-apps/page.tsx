@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import ScrollAnimator from "@/components/ScrollAnimator";
@@ -69,24 +70,12 @@ function SaasSubServices() {
 
   const subServices = [
     {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-          <path d="M6 9h4v4H6z" opacity="0.7"/>
-          <path d="M14 9h4M14 13h4" opacity="0.5"/>
-          <line x1="6" y1="21" x2="18" y2="21"/>
-          <line x1="9" y1="17" x2="15" y2="17"/>
-        </svg>
-      ),
+      icon: <Image src="/icons/icon-dashboard.png" alt="icon" width={48} height={48} className="w-8 h-8 object-contain brightness-0 invert opacity-90" />,
       titleKey: "sub1_title",
       descKey: "sub1_desc",
     },
     {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 20V10M12 20V4M6 20v-6"/>
-        </svg>
-      ),
+      icon: <Image src="/icons/icon-analytics.png" alt="icon" width={48} height={48} className="w-8 h-8 object-contain brightness-0 invert opacity-90" />,
       titleKey: "sub2_title",
       descKey: "sub2_desc",
     },

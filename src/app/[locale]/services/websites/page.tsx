@@ -117,32 +117,17 @@ function WebsitesSubServices() {
 
   const subServices = [
     {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/>
-          <circle cx="11" cy="11" r="2"/>
-        </svg>
-      ),
+      icon: <Image src="/icons/icon-launch.png" alt="icon" width={48} height={48} className="w-8 h-8 object-contain brightness-0 invert opacity-90" />,
       titleKey: "sub1_title",
       descKey: "sub1_desc",
     },
     {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-          <line x1="3" y1="9" x2="21" y2="9"/>
-          <line x1="9" y1="21" x2="9" y2="9"/>
-        </svg>
-      ),
+      icon: <Image src="/icons/icon-growth.png" alt="icon" width={48} height={48} className="w-8 h-8 object-contain brightness-0 invert opacity-90" />,
       titleKey: "sub2_title",
       descKey: "sub2_desc",
     },
     {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-        </svg>
-      ),
+      icon: <Image src="/icons/icon-partnership.png" alt="icon" width={48} height={48} className="w-8 h-8 object-contain brightness-0 invert opacity-90" />,
       titleKey: "sub3_title",
       descKey: "sub3_desc",
     },

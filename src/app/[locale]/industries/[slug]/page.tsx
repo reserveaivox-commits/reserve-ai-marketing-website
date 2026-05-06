@@ -93,7 +93,7 @@ function ProblemSection({ translationKey }: { translationKey: string }) {
   const points = [1, 2, 3].map((i) => ({
     title: t(`problem_p${i}_title`),
     desc: t(`problem_p${i}_desc`),
-    emoji: ["📞", "⏳", "💰"][i - 1],
+    icon: ["/icons/icon-missed-calls.png", "/icons/icon-wasted-time.png", "/icons/icon-lost-revenue.png"][i - 1],
   }));
 
   return (
@@ -114,8 +114,14 @@ function ProblemSection({ translationKey }: { translationKey: string }) {
               key={idx}
               className="text-center group cursor-default"
             >
-              <div className="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300">
-                {point.emoji}
+              <div className="mb-5 inline-flex group-hover:scale-110 transition-transform duration-300">
+                <Image
+                  src={point.icon}
+                  alt={point.title}
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 object-contain brightness-0 invert opacity-90"
+                />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-400 transition-colors duration-300">{point.title}</h3>
               <p className="text-sm text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">{point.desc}</p>
@@ -133,7 +139,7 @@ function BenefitsSection({ translationKey }: { translationKey: string }) {
   const benefits = [1, 2, 3, 4].map((i) => ({
     title: t(`benefit_b${i}_title`),
     description: t(`benefit_b${i}_desc`),
-    icon: ["✅", "📈", "🤝", "⚡"][i - 1],
+    icon: ["/icons/icon-verified.png", "/icons/icon-growth.png", "/icons/icon-partnership.png", "/icons/icon-efficiency.png"][i - 1],
     highlight: t(`benefit_b${i}_highlight`),
   }));
 

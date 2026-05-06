@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import ScrollAnimator from "@/components/ScrollAnimator";
@@ -103,24 +104,12 @@ function BotsSubServices() {
 
   const subServices = [
     {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 8V4H8"/>
-          <rect x="4" y="8" width="16" height="12" rx="2"/>
-          <circle cx="9" cy="13" r="1"/>
-          <circle cx="15" cy="13" r="1"/>
-          <path d="M9 17h6"/>
-        </svg>
-      ),
+      icon: <Image src="/icons/icon-ai-phone.png" alt="icon" width={48} height={48} className="w-8 h-8 object-contain brightness-0 invert opacity-90" />,
       titleKey: "sub1_title",
       descKey: "sub1_desc",
     },
     {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-        </svg>
-      ),
+      icon: <Image src="/icons/icon-customer-care.png" alt="icon" width={48} height={48} className="w-8 h-8 object-contain brightness-0 invert opacity-90" />,
       titleKey: "sub2_title",
       descKey: "sub2_desc",
     },
