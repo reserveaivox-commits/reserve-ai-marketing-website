@@ -140,7 +140,7 @@ function BenefitsSection({ translationKey }: { translationKey: string }) {
     title: t(`benefit_b${i}_title`),
     description: t(`benefit_b${i}_desc`),
     icon: ["/icons/icon-verified.png", "/icons/icon-growth.png", "/icons/icon-partnership.png", "/icons/icon-efficiency.png"][i - 1],
-    highlight: t(`benefit_b${i}_highlight`),
+    highlight: t.has(`benefit_b${i}_highlight`) ? t(`benefit_b${i}_highlight`) : undefined,
   }));
 
   return (
