@@ -1,0 +1,223 @@
+Summary,Issue Type,Description,Original Estimate,Labels
+[T0.01] Create `pos-mvp` branch in Dashboard repo,Task,"*Dependencies:* -
+*Acceptance Criteria:* Branch exists, pushed.
+*Verification:* `git log`",0.25d,"POS-MVP, Phase-0-Foundations"
+[T0.02] Add feature flag `POS_OPERATIONAL_ENABLED` (env var),Task,"*Dependencies:* T0.01
+*Acceptance Criteria:* Reading the flag in a route returns the value.
+*Verification:* unit test",0.25d,"POS-MVP, Phase-0-Foundations"
+[T0.03] Add `pos_docs/` link in `apps/web/README.md`,Task,"*Dependencies:* T0.01
+*Acceptance Criteria:* Link present, points to this folder.
+*Verification:* manual",0.1d,"POS-MVP, Phase-0-Foundations"
+[T0.04] Confirm local Supabase runs (or shared dev project),Task,"*Dependencies:* T0.01
+*Acceptance Criteria:* `pnpm dev` against the project shows existing dashboard.
+*Verification:* manual",0.5d,"POS-MVP, Phase-0-Foundations"
+[T0.05] Add Vitest + Playwright skeleton scripts,Task,"*Dependencies:* T0.01
+*Acceptance Criteria:* `pnpm test` runs zero-test green.
+*Verification:* terminal",0.5d,"POS-MVP, Phase-0-Foundations"
+[T0.06] Add ESLint rule banning floats in `*-cents` columns,Task,"*Dependencies:* T0.05
+*Acceptance Criteria:* Test fixture demonstrates rule trip.
+*Verification:* unit test",0.25d,"POS-MVP, Phase-0-Foundations"
+[T0.07] Add `Idempotency-Key` middleware util,Task,"*Dependencies:* T0.05
+*Acceptance Criteria:* Util tested with two same-key requests, second returns cache.
+*Verification:* unit test",1.0d,"POS-MVP, Phase-0-Foundations"
+[T1.01] Migration: `categories` table + RLS,Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Insert/select via SQL works.
+*Verification:* psql / Supabase studio",0.5d,"POS-MVP, Phase-1-Schema-additions"
+[T1.02] Migration: `customers` table + RLS + dedupe indexes,Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Phone-uniqueness enforced per restaurant.
+*Verification:* unit test",0.75d,"POS-MVP, Phase-1-Schema-additions"
+[T1.03] Migration: `staff_members` + RLS,Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* CRUD via Supabase studio.
+*Verification:* manual",0.5d,"POS-MVP, Phase-1-Schema-additions"
+[T1.04] Migration: `resources` + RLS,Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Same as above.
+*Verification:* manual",0.4d,"POS-MVP, Phase-1-Schema-additions"
+[T1.05] Migration: `availability_rules` + RLS,Task,"*Dependencies:* T1.03, T1.04
+*Acceptance Criteria:* Recurring + holiday rules insertable.
+*Verification:* unit test",0.6d,"POS-MVP, Phase-1-Schema-additions"
+"[T1.06] Migration: extend `menu_items` (kind, barcode, sku, stock, etc.)",Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Existing menu rows still readable; new fields default sensible.
+*Verification:* regression run",0.75d,"POS-MVP, Phase-1-Schema-additions"
+"[T1.07] Migration: extend `reservations` (customer, status, source, call_log_id)",Task,"*Dependencies:* T1.02
+*Acceptance Criteria:* Existing reservation rows backfilled with sensible defaults.
+*Verification:* regression run",0.75d,"POS-MVP, Phase-1-Schema-additions"
+[T1.08] Migration: `orders` + receipt_number sequence + RLS,Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Sequence yields unique numbers per restaurant.
+*Verification:* unit test",1.0d,"POS-MVP, Phase-1-Schema-additions"
+[T1.09] Migration: `order_items` + RLS,Task,"*Dependencies:* T1.08
+*Acceptance Criteria:* FK cascades on order delete (only soft-delete used).
+*Verification:* unit test",0.5d,"POS-MVP, Phase-1-Schema-additions"
+[T1.10] Migration: `stock_movements` ledger + RLS,Task,"*Dependencies:* T1.06
+*Acceptance Criteria:* Sum-of-movements equals `menu_items.stock_quantity` after seed.
+*Verification:* unit test",0.75d,"POS-MVP, Phase-1-Schema-additions"
+[T1.11] Migration: `payments` + check constraint (order_id or reservation_id),Task,"*Dependencies:* T1.08
+*Acceptance Criteria:* Insert with neither id rejected.
+*Verification:* unit test",0.5d,"POS-MVP, Phase-1-Schema-additions"
+[T1.12] Migration: `refunds`,Task,"*Dependencies:* T1.11
+*Acceptance Criteria:* FK to payments enforced.
+*Verification:* unit test",0.4d,"POS-MVP, Phase-1-Schema-additions"
+[T1.13] Migration: `ai_actions` (idempotency-key unique),Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Same key twice rejected at DB level.
+*Verification:* unit test",0.5d,"POS-MVP, Phase-1-Schema-additions"
+[T1.14] Migration: `handoffs`,Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Status enum check.
+*Verification:* unit test",0.4d,"POS-MVP, Phase-1-Schema-additions"
+"[T1.15] Migration: `audit_log` (bigserial, indexes)",Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Insert/select with index hit confirmed in `EXPLAIN`.
+*Verification:* manual",0.5d,"POS-MVP, Phase-1-Schema-additions"
+[T1.16] Postgres function `pos_finalize_sale(payload jsonb)`,Task,"*Dependencies:* T1.08-T1.11
+*Acceptance Criteria:* Single-call atomic insert; rollback on negative stock.
+*Verification:* integration test",1.5d,"POS-MVP, Phase-1-Schema-additions"
+[T1.17] Postgres function `pos_next_receipt_number(restaurant_id uuid)`,Task,"*Dependencies:* T1.08
+*Acceptance Criteria:* Concurrent calls produce no duplicates.
+*Verification:* integration test",0.5d,"POS-MVP, Phase-1-Schema-additions"
+"[T1.18] Views: `v_daily_sales`, `v_low_stock`",Task,"*Dependencies:* T1.08, T1.06
+*Acceptance Criteria:* Query against seeded data returns expected rows.
+*Verification:* manual",0.4d,"POS-MVP, Phase-1-Schema-additions"
+[T1.19] Seed: demo restaurant + categories + 20 menu items,Task,"*Dependencies:* all above
+*Acceptance Criteria:* `pnpm db:seed:demo` populates a complete tenant.
+*Verification:* manual",0.75d,"POS-MVP, Phase-1-Schema-additions"
+[T2.01] `/catalog` page extending `/menu` with kind toggle,Task,"*Dependencies:* T1.06
+*Acceptance Criteria:* Owner can mark an item as service vs product, set stock.
+*Verification:* manual",1.5d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.02] Catalog import CSV (optional),Task,"*Dependencies:* T2.01
+*Acceptance Criteria:* CSV with name, price, barcode imports cleanly.
+*Verification:* manual",1.0d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+"[T2.03] `/sales` page shell (left: catalog grid, right: cart)",Task,"*Dependencies:* T1.08
+*Acceptance Criteria:* Layout renders, no actions yet.
+*Verification:* visual",0.75d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.04] Cart state + add/remove/qty change,Task,"*Dependencies:* T2.03
+*Acceptance Criteria:* Total math correct including tax.
+*Verification:* unit test",1.0d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.05] Discount input (line + order level),Task,"*Dependencies:* T2.04
+*Acceptance Criteria:* Negative discount rejected.
+*Verification:* unit test",0.5d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.06] Barcode scanner support (USB HID typing),Task,"*Dependencies:* T2.04
+*Acceptance Criteria:* Scanner adds item; missing barcode shows toast.
+*Verification:* manual",0.5d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+"[T2.07] Payment modal (cash, card_manual, transfer, mobile)",Task,"*Dependencies:* T2.04
+*Acceptance Criteria:* Required fields per method enforced.
+*Verification:* unit test",0.75d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.08] API: `POST /api/sales` calling `pos_finalize_sale`,Task,"*Dependencies:* T1.16
+*Acceptance Criteria:* Returns `{ order_id, receipt_url }`.
+*Verification:* integration",1.0d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.09] Stock decrement validated; out-of-stock rejection UX,Task,"*Dependencies:* T2.08
+*Acceptance Criteria:* Cashier sees ""Out of stock for X"" inline.
+*Verification:* manual",0.5d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.10] Receipt PDF route `/api/receipts/[id].pdf`,Task,"*Dependencies:* T2.08
+*Acceptance Criteria:* PDF renders with correct totals + business header.
+*Verification:* visual",1.0d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.11] Receipt on-screen preview component,Task,"*Dependencies:* T2.10
+*Acceptance Criteria:* Same component renders both PDF and HTML.
+*Verification:* visual",0.75d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.12] Receipt number generator + format,Task,"*Dependencies:* T1.17
+*Acceptance Criteria:* Per-restaurant monotonic, formatted `POS-YYYY-NNNNNN`.
+*Verification:* unit test",0.25d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.13] Cashier session: open day / close day with cash count,Task,"*Dependencies:* T2.08
+*Acceptance Criteria:* Z-report PDF lists sales totals by method for the session.
+*Verification:* manual",1.0d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.14] Quick refund flow (full refund of last sale),Task,"*Dependencies:* T1.12, T2.08
+*Acceptance Criteria:* Refund creates negative stock movement; payment marked refunded.
+*Verification:* integration",1.0d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T2.15] Low-stock badge in catalog using `v_low_stock`,Task,"*Dependencies:* T1.18
+*Acceptance Criteria:* Items at/below threshold show pill.
+*Verification:* visual",0.4d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+"[T2.16] Cashier role enforcement (no settings, no reports)",Task,"*Dependencies:* T2.08
+*Acceptance Criteria:* Cashier login cannot reach `/settings`.
+*Verification:* manual",0.5d,"POS-MVP, Phase-2-Operational-core-cashier-flow"
+[T3.01] API key model: rotate / scope per restaurant,Task,"*Dependencies:* T1.13
+*Acceptance Criteria:* Key has scope `agent:read,agent:write`.
+*Verification:* unit test",0.75d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.02] Middleware: API-key auth + rate limit + tenant resolve,Task,"*Dependencies:* T3.01
+*Acceptance Criteria:* Bad key rejected; rate limit returns 429.
+*Verification:* integration",1.0d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.03] `GET /api/agent/business-profile`,Task,"*Dependencies:* T3.02
+*Acceptance Criteria:* Returns name, hours, timezone, languages, deposit policy.
+*Verification:* contract test",0.5d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.04] `GET /api/agent/catalog` (active items only),Task,"*Dependencies:* T3.02
+*Acceptance Criteria:* Filterable by kind.
+*Verification:* contract test",0.75d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.05] `GET /api/agent/availability` (services + tables),Task,"*Dependencies:* T1.05
+*Acceptance Criteria:* Honors `availability_rules`, existing reservations, capacity.
+*Verification:* integration",2.0d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.06] `GET /api/agent/customer?phone=`,Task,"*Dependencies:* T3.02
+*Acceptance Criteria:* Returns null or customer summary.
+*Verification:* contract test",0.4d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.07] `POST /api/agent/bookings/draft` (idempotent),Task,"*Dependencies:* T3.02, T1.13
+*Acceptance Criteria:* Creates reservation in `draft_ai`, ai_actions row.
+*Verification:* integration",1.25d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.08] `POST /api/agent/bookings/confirm`,Task,"*Dependencies:* T3.07
+*Acceptance Criteria:* Honors `auto_confirm_voice_bookings` setting; SMS via existing flow.
+*Verification:* integration",1.0d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.09] `POST /api/agent/orders/draft` (takeaway),Task,"*Dependencies:* T3.02
+*Acceptance Criteria:* Creates order in `draft`, ai_actions row.
+*Verification:* integration",1.25d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.10] `POST /api/agent/handoffs`,Task,"*Dependencies:* T3.02
+*Acceptance Criteria:* Creates handoff row, broadcasts to AI inbox.
+*Verification:* integration",0.5d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.11] `POST /api/agent/call-events` (lifecycle),Task,"*Dependencies:* T3.02
+*Acceptance Criteria:* Updates `call_logs` with outcome flags.
+*Verification:* integration",0.5d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.12] AI Inbox page: handoffs list + detail with transcript + accept/edit/reject,Task,"*Dependencies:* T3.10
+*Acceptance Criteria:* Reject moves status to `rejected_by_staff`.
+*Verification:* manual",1.5d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+"[T3.13] AI Inbox: ""AI bookings awaiting review"" stream",Task,"*Dependencies:* T3.07
+*Acceptance Criteria:* Staff can confirm or reject draft_ai reservations.
+*Verification:* manual",1.0d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+"[T3.14] Realtime channels: `ai_actions`, `handoffs`, `reservations` for AI Inbox",Task,"*Dependencies:* T3.12
+*Acceptance Criteria:* New row appears within 1s.
+*Verification:* manual",0.5d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.15] Adapt LiveKit agent: replace `finalize_reservation` direct DB call with API client,Task,"*Dependencies:* T3.07, T3.08
+*Acceptance Criteria:* Smoke test call books via API.
+*Verification:* end-to-end",1.5d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+"[T3.16] Adapt LiveKit agent: add `lookup_customer`, `get_business_rules`, `check_availability` tools",Task,"*Dependencies:* T3.03-T3.06
+*Acceptance Criteria:* Integration test in agent repo passes.
+*Verification:* end-to-end",1.5d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T3.17] Update `AGENT_DASHBOARD_POS_INTEGRATION.md` to reflect actual endpoint URLs,Task,"*Dependencies:* T3.07-T3.11
+*Acceptance Criteria:* Doc and code agree.
+*Verification:* review",0.25d,"POS-MVP, Phase-3-Booking-AI-inbox-Agent-API"
+[T4.01] Reports page shell with date range picker,Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Range applied to all widgets.
+*Verification:* manual",0.5d,"POS-MVP, Phase-4-Reporting"
+[T4.02] Daily / weekly / monthly sales chart (recharts),Task,"*Dependencies:* T1.18
+*Acceptance Criteria:* Matches raw SQL totals.
+*Verification:* unit test",0.75d,"POS-MVP, Phase-4-Reporting"
+"[T4.03] ""AI revenue"" widget",Task,"*Dependencies:* T1.18
+*Acceptance Criteria:* `where source='voice'`.
+*Verification:* manual",0.4d,"POS-MVP, Phase-4-Reporting"
+[T4.04] Best-selling items + low-stock list,Task,"*Dependencies:* T1.18
+*Acceptance Criteria:* Top 10 sortable.
+*Verification:* manual",0.5d,"POS-MVP, Phase-4-Reporting"
+[T4.05] Cashier sales / payment-method split,Task,"*Dependencies:* T1.16
+*Acceptance Criteria:* Matches Z-report.
+*Verification:* unit test",0.75d,"POS-MVP, Phase-4-Reporting"
+[T4.06] Missed-call recovery estimate (AI bookings created from missed calls),Task,"*Dependencies:* T3.07
+*Acceptance Criteria:* Counts unique caller numbers with `draft_ai -> confirmed`.
+*Verification:* unit test",1.0d,"POS-MVP, Phase-4-Reporting"
+[T4.07] CSV export per widget,Task,"*Dependencies:* T4.02-T4.06
+*Acceptance Criteria:* Downloads tally with on-screen numbers.
+*Verification:* manual",0.5d,"POS-MVP, Phase-4-Reporting"
+[T4.08] Daily digest email (optional),Task,"*Dependencies:* T4.02
+*Acceptance Criteria:* Owner receives 8am summary.
+*Verification:* manual",1.0d,"POS-MVP, Phase-4-Reporting"
+[T5.01] Roles + invitations UI,Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Owner invites manager, cashier, accountant.
+*Verification:* manual",1.0d,"POS-MVP, Phase-5-Polish-onboarding"
+[T5.02] DE/EN copy for all new POS pages,Task,"*Dependencies:* all UI
+*Acceptance Criteria:* i18n keys all translated.
+*Verification:* manual",1.0d,"POS-MVP, Phase-5-Polish-onboarding"
+"[T5.03] Onboarding wizard: business profile, hours, services, deposit policy, voice tone",Task,"*Dependencies:* T1.05
+*Acceptance Criteria:* New tenant ready in under 30 min.
+*Verification:* manual",1.5d,"POS-MVP, Phase-5-Polish-onboarding"
+[T5.04] Test-call panel (LiveKit) wired to setup,Task,"*Dependencies:* T3.15
+*Acceptance Criteria:* Owner triggers a test call from the dashboard.
+*Verification:* manual",0.75d,"POS-MVP, Phase-5-Polish-onboarding"
+[T5.05] Backups documented + tested restore,Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Restore from yesterday on staging.
+*Verification:* manual",0.5d,"POS-MVP, Phase-5-Polish-onboarding"
+[T5.06] Sentry + structured logs in route handlers,Task,"*Dependencies:* T0.04
+*Acceptance Criteria:* Forced 500 produces alert.
+*Verification:* manual",0.5d,"POS-MVP, Phase-5-Polish-onboarding"
+[T5.07] Production deploy checklist + DNS + Twilio numbers,Task,"*Dependencies:* all
+*Acceptance Criteria:* First customer goes live.
+*Verification:* go-live",1.0d,"POS-MVP, Phase-5-Polish-onboarding"
