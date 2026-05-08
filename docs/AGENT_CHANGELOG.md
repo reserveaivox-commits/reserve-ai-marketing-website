@@ -314,3 +314,42 @@ Verification:
 Open risks / next steps:
 
 - Future agents must actually follow this file. If an agent framework has its own instruction file convention, mirror these rules there too.
+
+ # #   2 0 2 6 - 0 5 - 0 8   -   A n t i g r a v i t y 
+ 
+ R e q u e s t : 
+ 
+ -   M a k e   t h e   p a g e   S E O   r e a d y ,   a d d   s e a r c h   c o n s o l e   m e t a d a t a ,   s u b m i t   s i t e m a p ,   a d d   s t r u c t u r e d   d a t a ,   c r e a t e   s p e c i f i c   S E O   l a n d i n g   p a g e s   f o r   k e y w o r d s . 
+ 
+ F i l e s   c h a n g e d : 
+ 
+ -   \ s r c / a p p / l a y o u t . t s x \ 
+ -   \ s r c / a p p / s i t e m a p . t s \ 
+ -   \ s r c / a p p / r o b o t s . t s \ 
+ -   \ s r c / a p p / [ l o c a l e ] / r e s t a u r a n t s / p a g e . t s x \ 
+ -   \ s r c / a p p / [ l o c a l e ] / s a l o n s / p a g e . t s x \ 
+ -   \ s r c / a p p / [ l o c a l e ] / s p a s / p a g e . t s x \ 
+ -   \ s r c / a p p / [ l o c a l e ] / p r i c i n g / p a g e . t s x \ 
+ -   \ s r c / a p p / [ l o c a l e ] / m a u r i t i u s / p a g e . t s x \ 
+ -   \ s r c / a p p / [ l o c a l e ] / g e r m a n y / p a g e . t s x \ 
+ -   \ s r c / a p p / [ l o c a l e ] / c o n t a c t / p a g e . t s x \ 
+ -   \ m e s s a g e s / e n . j s o n \ 
+ -   \ m e s s a g e s / d e . j s o n \ 
+ 
+ W h a t   c h a n g e d : 
+ 
+ -   A d d e d   d y n a m i c   s i t e m a p   ( \ s i t e m a p . t s \ )   a n d   \  o b o t s . t s \ . 
+ -   U p d a t e d   g l o b a l   \ l a y o u t . t s x \   w i t h   n e w   \ 	 i t l e \   a n d   \ d e s c r i p t i o n \   t a g s   f o r   S E O ,   a n d   i n j e c t e d   J S O N - L D   O r g a n i z a t i o n   S t r u c t u r e d   D a t a   s c r i p t . 
+ -   C r e a t e d   e x p l i c i t   S E O - o p t i m i z e d   k e y w o r d   p a g e s   f o r   t a r g e t   s e a r c h e s   ( R e s t a u r a n t s ,   S a l o n s ,   S p a s ,   P r i c i n g ,   M a u r i t i u s ,   G e r m a n y )   w i t h   i n d i v i d u a l   l o c a l i z e d   c o n t e n t . 
+ -   U p d a t e d   \ m e s s a g e s / e n . j s o n \   a n d   \ d e . j s o n \   t o   f e a t u r e   t h e   e x a c t   r e q u e s t e d   S E O   k e y w o r d s   i n   t h e   h e r o   b a d g e   ( A I   p h o n e   a s s i s t a n t   f o r . . . ) . 
+ -   A d d e d   m e t a d a t a   d i r e c t l y   t o   t h e   e x i s t i n g   \ c o n t a c t \   p a g e . 
+ 
+ V e r i f i c a t i o n : 
+ 
+ -   S u c c e s s f u l l y   v e r i f i e d   c o m p o n e n t   s t r u c t u r e .   B u i l d   t e s t s   c a n   b e   r u n   n e x t . 
+ 
+ O p e n   r i s k s   /   n e x t   s t e p s : 
+ 
+ -   S i t e   o w n e r   m u s t   m a n u a l l y   a d d   t h e   d o m a i n   t o   G o o g l e   S e a r c h   C o n s o l e   v i a   C l o u d f l a r e   D N S   T X T   r e c o r d ,   s u b m i t   t h e   \ s i t e m a p . x m l \   e n d p o i n t ,   c r e a t e   t h e   G o o g l e   B u s i n e s s   P r o f i l e ,   a n d   s e e k   b a c k l i n k s   a s   o u t l i n e d   i n   i n s t r u c t i o n s . 
+  
+ 

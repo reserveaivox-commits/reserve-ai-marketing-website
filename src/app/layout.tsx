@@ -15,14 +15,23 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Reserve AI - Your Digital Booking Assistant",
+  title: "Reserve AI | AI Phone Assistant for Bookings",
   description:
-    "Reserve AI answers booking calls automatically so your team can focus on customers.",
+    "Reserve AI helps restaurants, salons, spas, and service businesses answer calls, manage bookings, and handle customer questions automatically.",
   icons: {
     icon: "/brand/reserve-ai-mark.svg",
     shortcut: "/brand/reserve-ai-mark.svg",
     apple: "/icons/icon-512.png",
   },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Reserve AI",
+  url: "https://re-serveai.com",
+  email: "contact@re-serveai.com",
+  description: "AI phone assistant for bookings, reservations, and customer enquiries."
 };
 
 export default function RootLayout({
@@ -31,7 +40,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
+    <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body
         className={`${montserrat.variable} ${playfair.variable} site-body font-sans text-zinc-800 antialiased bg-surface`}
       >

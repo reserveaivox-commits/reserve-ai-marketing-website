@@ -3,6 +3,12 @@ import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import ScrollAnimator from "@/components/ScrollAnimator";
 import ContactForm from "@/components/ContactForm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Reserve AI | Get Your AI Phone Assistant",
+  description: "Contact Reserve AI today to discuss your AI booking assistant. We help restaurants, salons, and spas capture missed calls and boost revenue.",
+};
 
 export default async function ContactPage({
   params,
