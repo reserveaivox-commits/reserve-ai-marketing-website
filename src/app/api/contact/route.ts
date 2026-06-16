@@ -1,9 +1,12 @@
 import { appendFile, mkdir } from "fs/promises";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { tmpdir } from "os";
 import path from "path";
 
-const STORAGE_DIR = path.join(process.cwd(), ".data");
+const STORAGE_DIR = process.env.VERCEL
+  ? path.join(tmpdir(), "reserve-ai")
+  : path.join(process.cwd(), ".data");
 const STORAGE_FILE = path.join(STORAGE_DIR, "contact-inbox.jsonl");
 const INBOX_EMAIL = "reserveaivox@gmail.com";
 
