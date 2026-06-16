@@ -350,7 +350,7 @@
     "svc_agents": {
         "badge": "AI AGENTS",
         "title": "Intelligent AI agents that work around the clock",
-        "subtitle": "From answering calls to taking orders and managing reservations — our AI agents become a seamless extension of your team, customized to your business.",
+        "subtitle": "The core of Reserve AI: a voice agent that answers calls, checks availability, and books customers in German and English, configured around your rules.",
         "cta": "Get Started",
         "learn_more": "See what's included",
         "sub_badge": "CAPABILITIES",
@@ -398,7 +398,7 @@
     "svc_websites": {
         "badge": "BUILD WEBSITE",
         "title": "Websites that turn visitors into customers",
-        "subtitle": "Whether you need a brand-new custom website, a stunning template, or a complete refresh of your existing site — we build digital experiences that drive results.",
+        "subtitle": "An optional add-on to your Reserve AI booking assistant: a fast, modern website that sends more callers and bookings your way.",
         "cta": "Request a Website",
         "learn_more": "See our approach",
         "showcase_cta": "View website examples",
@@ -468,7 +468,7 @@
     "svc_booking": {
         "badge": "BOOKING SYSTEM",
         "title": "Seamless booking for your business",
-        "subtitle": "Add professional calendar booking and social media booking integrations that let your customers schedule appointments effortlessly — anytime, anywhere.",
+        "subtitle": "An optional add-on to your Reserve AI booking assistant: connect your calendar and booking tools so confirmed appointments land automatically, with no double work.",
         "cta": "Set Up Booking",
         "learn_more": "See how it works",
         "sub_badge": "BOOKING SOLUTIONS",
@@ -509,7 +509,7 @@
     "svc_bots": {
         "badge": "AI BOTS",
         "title": "Smart chatbots that grow your business",
-        "subtitle": "Custom AI chatbots that engage visitors, answer questions, qualify leads, and drive conversions — right on your website, 24/7.",
+        "subtitle": "An optional add-on to your Reserve AI booking assistant: a website chatbot that answers questions and captures bookings from visitors who prefer to type.",
         "cta": "Build Your Bot",
         "learn_more": "See capabilities",
         "sub_badge": "BOT SOLUTIONS",
@@ -560,7 +560,7 @@
     "svc_saas": {
         "badge": "SAAS APPS & DASHBOARDS",
         "title": "Custom software built for your business",
-        "subtitle": "From internal dashboards to full SaaS applications — we design and develop custom software solutions that give you a competitive edge.",
+        "subtitle": "An optional add-on to your Reserve AI booking assistant: a custom dashboard that shows calls, outcomes, and the bookings you recovered.",
         "cta": "Start Your Project",
         "learn_more": "See what we build",
         "sub_badge": "WHAT WE BUILD",

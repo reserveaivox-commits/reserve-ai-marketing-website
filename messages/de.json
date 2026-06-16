@@ -350,7 +350,7 @@
     "svc_agents": {
         "badge": "KI-AGENTEN",
         "title": "Intelligente KI-Agenten, die rund um die Uhr arbeiten",
-        "subtitle": "Von Anrufannahme über Bestellungen bis hin zur Reservierungsverwaltung – unsere KI-Agenten werden zu einer nahtlosen Erweiterung Ihres Teams.",
+        "subtitle": "Das Herzstück von Reserve AI: ein Sprachagent, der Anrufe beantwortet, Verfügbarkeiten prüft und Kunden auf Deutsch und Englisch bucht – passend zu Ihren Regeln.",
         "cta": "Jetzt starten",
         "learn_more": "Was ist enthalten",
         "sub_badge": "FÄHIGKEITEN",
@@ -398,7 +398,7 @@
     "svc_websites": {
         "badge": "WEBSITE ERSTELLEN",
         "title": "Websites, die Besucher zu Kunden machen",
-        "subtitle": "Ob brandneue individuelle Website, ein beeindruckendes Template oder ein komplettes Redesign – wir bauen digitale Erlebnisse, die Ergebnisse liefern.",
+        "subtitle": "Ein optionales Add-on zu Ihrem Reserve AI Buchungsassistenten: eine schnelle, moderne Website, die Ihnen mehr Anrufer und Buchungen bringt.",
         "cta": "Website anfragen",
         "learn_more": "Unser Ansatz",
         "showcase_cta": "Website-Beispiele ansehen",
@@ -468,7 +468,7 @@
     "svc_booking": {
         "badge": "BUCHUNGSSYSTEM",
         "title": "Nahtlose Buchung für Ihr Unternehmen",
-        "subtitle": "Professionelle Kalender-Buchung und Social-Media-Buchungsintegration, damit Ihre Kunden mühelos Termine vereinbaren können – jederzeit und überall.",
+        "subtitle": "Ein optionales Add-on zu Ihrem Reserve AI Buchungsassistenten: Verbinden Sie Kalender und Buchungstools, damit bestätigte Termine automatisch und ohne doppelte Arbeit ankommen.",
         "cta": "Buchung einrichten",
         "learn_more": "So funktioniert's",
         "sub_badge": "BUCHUNGSLÖSUNGEN",
@@ -509,7 +509,7 @@
     "svc_bots": {
         "badge": "KI-BOTS",
         "title": "Intelligente Chatbots, die Ihr Geschäft wachsen lassen",
-        "subtitle": "Individuelle KI-Chatbots, die Besucher ansprechen, Fragen beantworten, Leads qualifizieren und Conversions steigern – direkt auf Ihrer Website, 24/7.",
+        "subtitle": "Ein optionales Add-on zu Ihrem Reserve AI Buchungsassistenten: ein Website-Chatbot, der Fragen beantwortet und Buchungen von Besuchern erfasst, die lieber schreiben.",
         "cta": "Bot erstellen",
         "learn_more": "Fähigkeiten ansehen",
         "sub_badge": "BOT-LÖSUNGEN",
@@ -560,7 +560,7 @@
     "svc_saas": {
         "badge": "SAAS-APPS & DASHBOARDS",
         "title": "Individuelle Software für Ihr Unternehmen",
-        "subtitle": "Von internen Dashboards bis hin zu vollständigen SaaS-Anwendungen – wir entwerfen und entwickeln maßgeschneiderte Softwarelösungen.",
+        "subtitle": "Ein optionales Add-on zu Ihrem Reserve AI Buchungsassistenten: ein individuelles Dashboard, das Anrufe, Ergebnisse und zurückgewonnene Buchungen zeigt.",
         "cta": "Projekt starten",
         "learn_more": "Was wir bauen",
         "sub_badge": "WAS WIR BAUEN",
