@@ -169,6 +169,19 @@
         "step3_title": "Let Reserve AI handle the rush",
         "step3_desc": "Calls are answered automatically, alternative times are suggested, and your team stays focused on customers."
     },
+    "why": {
+        "badge": "Why Reserve AI",
+        "title": "Why service businesses choose Reserve AI",
+        "subtitle": "Not just another chatbot — an assistant built around how your business actually books.",
+        "p1_title": "Always on",
+        "p1_desc": "Answers every call, even at peak hours, evenings, and weekends. No busy signal, no voicemail, no lost booking.",
+        "p2_title": "Speaks your customers' language",
+        "p2_desc": "Handles German and English callers by default, so every customer gets a clear answer in the language they expect.",
+        "p3_title": "Knows your business",
+        "p3_desc": "Works from your real opening hours, services, and availability, so it suggests times you can actually honour instead of guessing.",
+        "p4_title": "Live in 24 to 48 hours",
+        "p4_desc": "No IT team and no complex rollout. Connect your number, set your rules, and go live in a day or two."
+    },
     "case": {
         "badge": "Real-world example",
         "title": "From missed calls to confirmed bookings",

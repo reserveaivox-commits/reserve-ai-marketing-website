@@ -7,6 +7,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import ServicesCarousel from "@/components/ServicesCarousel";
 import HeroDemoGate from "@/components/HeroDemoGate";
 import CaseStudyDashboard from "@/components/CaseStudyDashboard";
+import WhyReserveSection from "@/components/WhyReserveSection";
 
 export default async function HomePage({
   params,
@@ -22,6 +23,7 @@ export default async function HomePage({
       <ProblemSection />
       <ServicesHubSection />
       <HowItWorksSection />
+      <WhyReserveSection />
       <CaseStudySection />
       <PricingSection />
       <IndustriesSection />

@@ -169,6 +169,19 @@
         "step3_title": "Reserve AI den Andrang übernehmen lassen",
         "step3_desc": "Anrufe werden automatisch beantwortet, Alternativzeiten vorgeschlagen und Ihr Team bleibt bei den Kunden."
     },
+    "why": {
+        "badge": "Warum Reserve AI",
+        "title": "Warum sich Dienstleister für Reserve AI entscheiden",
+        "subtitle": "Kein weiterer Chatbot – ein Assistent, der zu Ihrem echten Buchungsalltag passt.",
+        "p1_title": "Immer erreichbar",
+        "p1_desc": "Beantwortet jeden Anruf, auch in Stoßzeiten, abends und am Wochenende. Kein Besetztzeichen, keine Mailbox, keine verlorene Buchung.",
+        "p2_title": "Spricht die Sprache Ihrer Kunden",
+        "p2_desc": "Bearbeitet deutsche und englische Anrufer standardmäßig, damit jeder Kunde eine klare Antwort in der erwarteten Sprache erhält.",
+        "p3_title": "Kennt Ihr Geschäft",
+        "p3_desc": "Arbeitet mit Ihren echten Öffnungszeiten, Leistungen und Verfügbarkeiten und schlägt nur Zeiten vor, die Sie auch einhalten können.",
+        "p4_title": "In 24 bis 48 Stunden startklar",
+        "p4_desc": "Kein IT-Team und kein komplizierter Rollout. Nummer verbinden, Regeln festlegen und in ein bis zwei Tagen live gehen."
+    },
     "case": {
         "badge": "Praxisbeispiel",
         "title": "Von verpassten Anrufen zu bestätigten Terminen",
