@@ -206,7 +206,7 @@
     "pricing": {
         "badge": "Flexible Preise",
         "title": "Wählen Sie Ihr Paket",
-        "subtitle": "Monatliche Pakete für ernsthafte Buchungsautomatisierung. Die einmalige Einrichtung startet ab 500€.",
+        "subtitle": "Preise, gemessen an den Buchungen, die Sie zurückgewinnen. Schon wenige zurückgewonnene Anrufe pro Monat decken die Kosten.",
         "setup_fee": "Die einmalige Einrichtung startet ab 500€, je nach Workflow und Integrationen",
         "terms": "Keine Langzeitverträge • Jederzeit kündbar • 14-Tage-Geld-zurück-Garantie",
         "value_badge": "Wertcheck",
@@ -645,7 +645,7 @@
     "contact_page": {
         "badge": "Wir sind online & bereit zu helfen",
         "title": "Sprechen wir über Ihr Geschäft",
-        "subtitle": "Nehmen Sie Kontakt mit uns auf oder buchen Sie direkt ein Beratungsgespräch.",
+        "subtitle": "Buchen Sie eine kostenlose Demo und sehen Sie, wie Reserve AI Ihre Buchungsanrufe beantwortet. Wir antworten auf Deutsch oder Englisch, meist innerhalb eines Werktags.",
         "phone_title": "Telefon",
         "phone_subtitle": "Rufen Sie uns direkt an",
         "email_title": "E-Mail",

@@ -206,7 +206,7 @@
     "pricing": {
         "badge": "Flexible Pricing",
         "title": "Choose Your Package",
-        "subtitle": "Monthly plans built for serious booking automation. One-time setup starts at €500.",
+        "subtitle": "Plans priced against the bookings you recover. Recover a handful of missed calls a month and the plan pays for itself.",
         "setup_fee": "One-time setup starts at €500 depending on workflow complexity",
         "terms": "No long-term contracts • Cancel anytime • 14-day money-back guarantee",
         "value_badge": "Value check",
@@ -645,7 +645,7 @@
     "contact_page": {
         "badge": "We're Online & Ready to Help",
         "title": "Let's Talk About Your Business",
-        "subtitle": "Get in touch with us or book a consultation call directly.",
+        "subtitle": "Book a free demo and see how Reserve AI answers your booking calls. We reply in German or English, usually within one business day.",
         "phone_title": "Phone",
         "phone_subtitle": "Call us directly",
         "email_title": "Email",
