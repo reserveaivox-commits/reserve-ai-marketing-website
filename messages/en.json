@@ -20,7 +20,7 @@
         "svc_saas": "SaaS Apps",
         "svc_saas_desc": "Custom apps & dashboards",
         "view_all_services": "View All Services",
-        "view_all_services_desc": "Explore everything we offer"
+        "view_all_services_desc": "Optional add-ons around your booking assistant"
     },
     "hero": {
         "badge": "The AI booking assistant for restaurants, salons, and service businesses.",
@@ -299,7 +299,7 @@
         "ready": "Ready to start?",
         "btn": "Get in Touch",
         "company": "Reserve AI",
-        "tagline": "Your digital booking assistant",
+        "tagline": "The AI booking assistant that answers your calls 24/7 so you never lose a booking.",
         "nav_home": "Home",
         "nav_services": "Services",
         "nav_pricing": "Packages",

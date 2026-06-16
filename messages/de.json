@@ -20,7 +20,7 @@
         "svc_saas": "SaaS-Apps",
         "svc_saas_desc": "Individuelle Apps & Dashboards",
         "view_all_services": "Alle Leistungen",
-        "view_all_services_desc": "Entdecken Sie unser gesamtes Angebot"
+        "view_all_services_desc": "Optionale Add-ons rund um Ihren Buchungsassistenten"
     },
     "hero": {
         "badge": "Der KI-Buchungsassistent für Restaurants, Salons und Dienstleistungsunternehmen.",
@@ -299,7 +299,7 @@
         "ready": "Bereit zu starten?",
         "btn": "Kontakt aufnehmen",
         "company": "Reserve AI",
-        "tagline": "Ihr digitaler Assistent für Buchungen",
+        "tagline": "Der KI-Buchungsassistent, der Ihre Anrufe rund um die Uhr beantwortet, damit Sie keine Buchung verlieren.",
         "nav_home": "Startseite",
         "nav_services": "Leistungen",
         "nav_pricing": "Pakete",
