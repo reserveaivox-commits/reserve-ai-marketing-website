@@ -342,7 +342,7 @@
         "saas_point3": "Scalable & cloud-native",
         "page_badge": "Our Services",
         "page_title": "Solutions built for your business",
-        "page_subtitle": "Explore our full suite of AI-powered tools and custom development services designed to help your business grow.",
+        "page_subtitle": "Optional add-ons around your Reserve AI booking assistant — websites, booking integrations, chatbots, and dashboards.",
         "cta_title": "Not sure which service you need?",
         "cta_subtitle": "Let's talk about your business goals and find the perfect solution together.",
         "cta_btn": "Get in Touch"
@@ -611,7 +611,7 @@
     "services_page": {
         "badge": "For Service Businesses",
         "title": "How Reserve AI supports your business",
-        "subtitle": "From call answering to booking management and your professional website — everything in one place.",
+        "subtitle": "Reserve AI starts with one job: answering your booking calls. These services are optional add-ons that make the assistant fit your business even better.",
         "s1_badge": "CALL ANSWERING (24/7)",
         "s1_title": "No appointment lost to a missed call",
         "s1_desc": "Your digital assistant answers every call — even during peak hours. It handles booking requests, suggests alternatives, and confirms appointments automatically.",
