@@ -298,9 +298,9 @@
         "copyright": "© 2026 Reserve AI. All rights reserved."
     },
     "services_hub": {
-        "badge": "What we offer",
-        "title": "Everything your business needs to grow",
-        "subtitle": "From intelligent AI agents to custom-built websites and SaaS solutions — choose the services that fit your business.",
+        "badge": "Optional add-ons",
+        "title": "Extras that make your assistant work even better",
+        "subtitle": "Most businesses start with the booking assistant alone. When you need more, these plug right in — websites, booking integrations, chatbots, and dashboards.",
         "learn_more": "Learn more",
         "agents_title": "AI Agents",
         "agents_desc": "Intelligent voice agents that handle calls, bookings, reservations, and ordering — customized for your business demographics.",

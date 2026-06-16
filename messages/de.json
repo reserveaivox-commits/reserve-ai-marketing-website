@@ -298,9 +298,9 @@
         "copyright": "© 2026 Reserve AI. Alle Rechte vorbehalten."
     },
     "services_hub": {
-        "badge": "Unser Angebot",
-        "title": "Alles, was Ihr Unternehmen zum Wachsen braucht",
-        "subtitle": "Von intelligenten KI-Agenten bis hin zu maßgeschneiderten Websites und SaaS-Lösungen – wählen Sie die Dienste, die zu Ihrem Geschäft passen.",
+        "badge": "Optionale Add-ons",
+        "title": "Extras, mit denen Ihr Assistent noch besser arbeitet",
+        "subtitle": "Die meisten Unternehmen starten allein mit dem Buchungsassistenten. Wenn Sie mehr brauchen, lassen sich diese direkt anbinden – Websites, Buchungsintegrationen, Chatbots und Dashboards.",
         "learn_more": "Mehr erfahren",
         "agents_title": "KI-Agenten",
         "agents_desc": "Intelligente Sprachagenten, die Anrufe, Buchungen, Reservierungen und Bestellungen übernehmen – individuell auf Ihre Zielgruppe angepasst.",
