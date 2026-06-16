@@ -1,84 +1,152 @@
-# Reserve AI Website
+# Reserve AI Marketing Website
 
-Marketing website for Reserve AI built with Next.js 16, React 19, Tailwind CSS 4, and `next-intl`.
+Recommended repo name:
+
+```text
+reserve-ai-marketing-website
+```
+
+Git description:
+
+```text
+Public Reserve AI website for brand, services, industries, contact, legal pages, and customer education.
+```
+
+## Project Role
+
+This is the public-facing Reserve AI website. It explains the offer, supports English and German content, presents service and industry pages, and handles the contact flow.
+
+It is the sales and education layer of the Reserve AI system. It does not own bookings, reservations, calls, POS data, or tenant operations.
+
+## How It Connects
+
+```text
+Visitor
+  -> Marketing Website
+  -> Contact form / lead
+  -> Reserve AI team
+  -> Onboarding into Dashboard / POS / LiveKit setup
+```
+
+The website can reference demos, screenshots, and brand material from `assets`, but operational data belongs to Reserve POS, the Dashboard, Supabase, and the LiveKit agent.
+
+## Repository And Hosting
+
+Canonical target:
+
+```text
+Company GitHub repo: reserve-ai-marketing-website
+```
+
+Current local remote situation:
+
+```text
+origin:       https://github.com/reserveaivox-commits/reserve-ai-marketing-website.git
+rosee-origin: https://github.com/Rosee1001/LANDING-PAGE-RESERVE-AI-MAY-2026.git
+old-origin:   https://github.com/Rosee1001/NEW-RESERVE-WEBSITE.git
+```
+
+The `origin` URL is the intended company repo. It must be created from the `reserveaivox-commits` GitHub account before this local repo can push to it.
+
+Hosting:
+
+```text
+Temporary hosting custodian: Shail's Netlify account
+Target future hosting: company Netlify team when available
+Config file: netlify.toml
+Live URL: add after confirmation
+```
 
 ## Stack
 
-- Next.js App Router
+- Next.js 16 App Router
 - React 19
 - Tailwind CSS 4
-- `next-intl` for `de` and `en`
-- Framer Motion for motion
-- Nodemailer for contact form delivery
+- `next-intl`
+- Framer Motion
+- Nodemailer
+- npm
 
-## Main Areas
+## Local Setup
 
-- Homepage with animated hero demo and moving industry cards
-- Services hub and service detail pages
-- Industries hub and industry detail pages
-- Contact page with Gmail-backed contact form
-- Footer legal pages
-
-## Local Development
-
-```bash
+```powershell
 npm install
 npm run dev
 ```
 
-Open `http://127.0.0.1:3000`.
+Open:
+
+```text
+http://127.0.0.1:3000
+```
 
 ## Environment
 
-Create `.env.local` with:
+Create `.env.local`:
 
 ```env
 GMAIL_USER=reserveaivox@gmail.com
 GMAIL_APP_PASSWORD=your_gmail_app_password
 ```
 
-The contact form posts to `src/app/api/contact/route.ts` and sends email to `reserveaivox@gmail.com`.
+The contact form posts to:
+
+```text
+src/app/api/contact/route.ts
+```
+
+It sends mail to:
+
+```text
+reserveaivox@gmail.com
+```
+
+## Common Commands
+
+```powershell
+npm install
+npm run dev
+npm run build
+npm run lint
+```
 
 ## Important Paths
 
-- `src/app/[locale]/page.tsx` - homepage
-- `src/components/HeroDemoGate.tsx` - live demo/orbit section
-- `src/components/BrandLogo.tsx` - Reserve AI logo component
-- `public/brand/reserve-ai-mark.svg` - compact green/black orbital AI mark
-- `public/brand/reserve-ai-logo.svg` - full Reserve AI logo asset
-- `src/components/CaseStudyDashboard.tsx` - animated booking impact section
-- `src/app/[locale]/contact/page.tsx` - contact page
-- `src/app/[locale]/services/websites/showcase/page.tsx` - website showcase gallery
-- `src/lib/websiteShowcase.ts` - website showcase catalog data
-- `src/components/ContactForm.tsx` - contact form UI
-- `src/app/api/contact/route.ts` - Gmail mail handler
-- `public/images/website-showcase/` - optimized website showcase screenshots
-- `src/components/Footer.tsx` - footer and legal links
-- `messages/en.json`
-- `messages/de.json`
-- `AGENTS.md` - required instructions for future coding agents
-- `docs/AGENT_CHANGELOG.md` - mandatory log of agent changes
-- `docs/AGENT_START_PROMPT.md` - copy/paste prompt to give future agents before work
-- `docs/PRODUCT_STRATEGY.md` - partner-facing product strategy
-- `docs/REBRAND_BRIEF.md` - brand/logo direction and usage
-- `docs/POS_SYSTEM_STRATEGY.md` - POS system concept designed to work with the AI agent
-- `docs/AGENT_DASHBOARD_POS_INTEGRATION.md` - map of the existing agent/dashboard and how it becomes the POS
-- `docs/WEBSITE_SHOWCASE_GUIDE.md` - how to add and maintain website showcase examples
+```text
+src/app/[locale]/page.tsx
+src/app/[locale]/contact/page.tsx
+src/app/api/contact/route.ts
+src/components/ContactForm.tsx
+src/components/BrandLogo.tsx
+src/components/HeroDemoGate.tsx
+messages/en.json
+messages/de.json
+public/brand/
+public/images/
+docs/
+```
 
-## Notes From April 13, 2026
+## Deployment Notes
 
-- Restyled the site toward a unified dark visual system
-- Added site-wide aurora/stars and then optimized them for smoother performance
-- Reworked the homepage demo to use a cleaner orbit system and live voice demo overlay
-- Added animated case-study charts
-- Updated pricing and package copy
-- Restyled service pages, industries pages, and contact page to match the homepage
-- Removed duplicate CTA sections and simplified footer flow
-- Added working legal pages: privacy, imprint, and terms
-- Wired the contact form to Gmail SMTP
-- Added a moving industries marquee on the homepage
+Netlify uses:
 
-## Runtime Data
+```text
+Build command: npm run build
+Publish directory: .next
+Plugin: @netlify/plugin-nextjs
+```
 
-- `.data/` stores local development inbox/demo submissions
-- `.data/` is ignored and should not be committed
+When the company Netlify team is available, either transfer the existing Netlify project or recreate it from the company GitHub repo and repoint DNS.
+
+## Safety Rules
+
+- Do not commit `.env.local`.
+- Do not commit Gmail app passwords.
+- Keep brand name as `Reserve AI`.
+- Keep English and German content in sync when changing visible copy.
+
+## Related Projects
+
+- `../assets` provides logos, screenshots, videos, and diagrams.
+- `../02-PosSystem` owns operational POS and booking workflows.
+- `../04-livekit-agent` owns the voice agent referenced by the public offer.
