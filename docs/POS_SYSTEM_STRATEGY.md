@@ -1,6 +1,6 @@
 # Reserve AI POS System Strategy
 
-Last updated: April 29, 2026
+Last updated: 2026-06-17
 
 ## 1. Product Concept
 
@@ -76,41 +76,45 @@ Example takeaway order flow:
 5. Customer pays on pickup or through payment link.
 6. POS marks the order as paid and fulfilled.
 
-## 4. Current Agent And Dashboard Foundation
+## 4. Current Agent, Dashboard, And POS Foundation
 
-You already have the first pieces of this system in `D:\Work\Reserve_Ai\agent`.
+You already have the first pieces of this system in the active workspace.
 
 Current agent:
 
-- Path: `D:\Work\Reserve_Ai\agent\Livekit\Restaurantia_New`.
+- Path: `D:\Work\Reserve_Ai\new may 2026\04-livekit-agent`.
 - Python LiveKit voice agent.
 - Uses OpenAI for conversation.
 - Uses Twilio for SMS confirmation.
-- Saves reservations and call logs into Supabase.
-- Current tools include date validation, phone validation, reservation finalization, and menu recommendations.
+- Calls Reserve POS APIs for customer lookup, business rules, availability, and booking writes when POS integration is configured.
+- Current tools include date validation, phone validation, reservation finalization, customer lookup, business rules, availability, and menu recommendations.
 
 Current dashboard:
 
-- Path: `D:\Work\Reserve_Ai\agent\Dashboard`.
+- Path: `D:\Work\Reserve_Ai\new may 2026\03-dashboard`.
 - Next.js/Supabase multi-tenant dashboard.
-- Has auth, restaurants, restaurant settings, menu items, reservations, call logs, POS API keys, and realtime updates.
+- Has auth, restaurants, restaurant settings, menu items, reservations, call logs, and realtime updates.
 - Has pages for dashboard stats, AI calls, menu, reservations/orders, and settings.
-- Has a POS ingest endpoint for importing menu items and reservations from an external POS.
+- Remains the continuity dashboard while Reserve POS matures.
+
+Current Reserve POS:
+
+- Path: `D:\Work\Reserve_Ai\new may 2026\02-PosSystem`.
+- Fresh Next.js/Supabase POS and booking backend.
+- Owns the safe `/api/agent/*` endpoints used by the LiveKit agent.
+- Shares the existing Dashboard Supabase project during development.
 
 Strategic meaning:
 
-The dashboard should become the first version of the POS. The agent should become a voice input channel into the POS. Instead of building a separate POS from zero, expand the existing dashboard data model and add safer agent APIs.
+Reserve POS is now a separate fresh codebase, not a branch of the Dashboard. The Dashboard remains live for continuity, while Reserve POS extends the shared Supabase project additively and becomes the AI-native operating system.
 
 Current gaps to close:
 
-- No real `orders` table yet; reservations are currently used as the orders view.
-- Revenue is currently `0` because pricing, order totals, and payments are not connected.
-- No customers table yet.
-- No staff, services, resources, tables, or availability rules yet.
-- No AI handoff inbox yet.
-- The agent currently writes reservations directly instead of asking a POS availability engine first.
+- Persisted open table tickets/Bons should replace the current localStorage table-service prototype.
+- Fiskaly/TSE fiscal compliance remains a P0 before any German cash-handling go-live.
+- Confirm the LiveKit branch/merge state before deploying from `main`.
 
-See `docs/AGENT_DASHBOARD_POS_INTEGRATION.md` for the implementation map based on the existing code.
+See `..\..\02-PosSystem\pos_docs\AGENT_DASHBOARD_POS_INTEGRATION.md` for the current implementation map.
 
 ## 5. Basic System Structure
 

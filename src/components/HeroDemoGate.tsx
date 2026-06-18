@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
+const DEMO_FRONTEND_URL =
+  process.env.NEXT_PUBLIC_DEMO_FRONTEND_URL?.trim() ||
+  "https://new-reserve-website-production.up.railway.app/";
+
 export default function HeroDemoGate({ compact = false }: { compact?: boolean }) {
   const t = useTranslations("hero");
   const [unlocked, setUnlocked] = useState(false);
@@ -86,7 +90,7 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
             </div>
             <div className="h-[72vh] min-h-[420px] sm:min-h-[480px] md:h-[78vh] md:min-h-[560px] w-full bg-[#06050c]">
               <iframe
-                src="https://voiceui-production.up.railway.app/"
+                src={DEMO_FRONTEND_URL}
                 title="Reserve AI live demo"
                 className="h-full w-full border-0 bg-[#06050c]"
                 loading="lazy"

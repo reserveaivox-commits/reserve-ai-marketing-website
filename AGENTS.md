@@ -2,11 +2,17 @@
 
 This file is the first context file every coding agent must read before making changes in this repository.
 
+If this folder is opened directly, also read the workspace root briefing and project-local sync skill:
+
+- `..\AGENTS.md`
+- `..\agent-skills\reserve-ai-context-loader\SKILL.md`
+- `..\agent-skills\reserve-ai-sync\SKILL.md`
+
 ## 1. Project Identity
 
 This repository is the Reserve AI marketing website and strategy workspace.
 
-Reserve AI is an AI booking assistant for service businesses. The product answers booking and reservation calls, captures missed demand, creates bookings or handoffs, and connects to an online dashboard/POS direction.
+Reserve AI is an AI booking assistant and operations platform for service businesses. The product answers booking and reservation calls, captures missed demand, creates bookings or handoffs, and connects to Reserve POS plus the existing dashboard.
 
 The brand direction is green and black with an orbital solar-system AI logo concept.
 
@@ -45,18 +51,21 @@ If touching the website implementation, also inspect:
 
 If touching the AI agent, dashboard, POS, or integration strategy, also inspect the external project:
 
-- `D:\Work\Reserve_Ai\agent\Livekit\Restaurantia_New`
-- `D:\Work\Reserve_Ai\agent\Dashboard`
+- `D:\Work\Reserve_Ai\new may 2026\02-PosSystem`
+- `D:\Work\Reserve_Ai\new may 2026\03-dashboard`
+- `D:\Work\Reserve_Ai\new may 2026\04-livekit-agent`
 
 Key external files:
 
-- `D:\Work\Reserve_Ai\agent\Livekit\Restaurantia_New\src\restaurantia\agent.py`
-- `D:\Work\Reserve_Ai\agent\Livekit\Restaurantia_New\src\restaurantia\tools.py`
-- `D:\Work\Reserve_Ai\agent\Livekit\Restaurantia_New\src\restaurantia\db.py`
-- `D:\Work\Reserve_Ai\agent\Dashboard\README.md`
-- `D:\Work\Reserve_Ai\agent\Dashboard\docs\architecture\ai-agents.md`
-- `D:\Work\Reserve_Ai\agent\Dashboard\supabase\full_schema.sql`
-- `D:\Work\Reserve_Ai\agent\Dashboard\apps\web\app\api\pos\ingest\route.ts`
+- `D:\Work\Reserve_Ai\new may 2026\02-PosSystem\AGENTS.md`
+- `D:\Work\Reserve_Ai\new may 2026\02-PosSystem\PROGRESS.md`
+- `D:\Work\Reserve_Ai\new may 2026\02-PosSystem\pos_docs\AGENT_DASHBOARD_POS_INTEGRATION.md`
+- `D:\Work\Reserve_Ai\new may 2026\03-dashboard\README.md`
+- `D:\Work\Reserve_Ai\new may 2026\03-dashboard\docs\architecture\ai-agents.md`
+- `D:\Work\Reserve_Ai\new may 2026\03-dashboard\supabase\full_schema.sql`
+- `D:\Work\Reserve_Ai\new may 2026\04-livekit-agent\src\restaurantia\agent.py`
+- `D:\Work\Reserve_Ai\new may 2026\04-livekit-agent\src\restaurantia\tools.py`
+- `D:\Work\Reserve_Ai\new may 2026\04-livekit-agent\src\restaurantia\db.py`
 
 ## 3. Working Rule
 
@@ -97,8 +106,8 @@ The current strategy is:
 - Main customer: service businesses that depend on bookings, reservations, appointments, or phone orders.
 - Priority industries: restaurants, salons, barbershops, tattoo studios, nail studios, wellness centers, and spas.
 - Business promise: fewer missed calls, more confirmed bookings, calmer staff.
-- POS direction: evolve the existing online dashboard into Reserve POS.
-- Agent direction: keep the LiveKit voice agent focused on conversation and use dashboard/POS APIs for business rules.
+- POS direction: Reserve POS is a fresh codebase in `..\02-PosSystem` that shares the existing Dashboard Supabase project during development.
+- Agent direction: keep the LiveKit voice agent focused on conversation and use Reserve POS `/api/agent/*` APIs for business rules and writes.
 
 Important system model:
 
@@ -132,25 +141,31 @@ Brand assets:
 
 ## 7. POS And Agent Context
 
-The existing agent/dashboard system is not inside this repo, but it is part of the product context.
+The agent, dashboard, and POS systems are not inside this repo, but they are part of the product context.
 
 Current agent:
 
 - Python LiveKit agent.
 - Handles inbound calls.
 - Uses OpenAI GPT-4o.
-- Saves reservations and call logs to Supabase.
+- Calls Reserve POS APIs for business data and booking writes when POS integration is configured.
 - Sends SMS confirmations through Twilio.
 
 Current dashboard:
 
 - Next.js/Supabase multi-tenant dashboard.
-- Has restaurants, menu items, reservations, call logs, settings, POS API keys, and POS ingest.
-- Should become the first version of Reserve POS.
+- Has restaurants, menu items, reservations, call logs, settings, and tenant data.
+- Remains the continuity dashboard while Reserve POS matures.
+
+Current POS:
+
+- Next.js/Supabase AI-native POS and booking backend.
+- Owns `/api/agent/*` endpoints for agent-safe reads and writes.
+- Shares the Dashboard Supabase project during development.
 
 Main product gap:
 
-The AI currently writes reservations directly. The target architecture is for the AI to call POS-safe dashboard APIs that check availability, business rules, orders, customers, and handoffs before confirming actions.
+The AI must keep using POS-safe APIs that check availability, business rules, orders, customers, and handoffs before confirming actions.
 
 ## 8. Documentation Discipline
 
@@ -191,4 +206,3 @@ For JSON changes:
 - Do not delete or replace the old logo file unless confirming nothing depends on it.
 - Do not change dependency versions unless the task requires it.
 - Do not make destructive Git changes.
-

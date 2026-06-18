@@ -11,6 +11,5 @@ Do not edit from memory. Understand the project context first, then make the sma
 If the work involves the AI agent, dashboard, POS, or integrations, also include this:
 
 ```text
-Also inspect D:\Work\Reserve_Ai\agent\Livekit\Restaurantia_New and D:\Work\Reserve_Ai\agent\Dashboard before changing POS, dashboard, or agent-related plans.
+Also inspect D:\Work\Reserve_Ai\new may 2026\02-PosSystem, D:\Work\Reserve_Ai\new may 2026\03-dashboard, and D:\Work\Reserve_Ai\new may 2026\04-livekit-agent before changing POS, dashboard, or agent-related plans.
 ```
-

@@ -30,8 +30,8 @@ export default async function TermsPage({
             </p>
             <p>
               {isDe
-                ? "Bei Fragen zu Verträgen, Angeboten oder Laufzeiten kontaktieren Sie uns bitte direkt unter reserveaivox@gmail.com."
-                : "For questions about contracts, offers, or service terms, please contact us directly at reserveaivox@gmail.com."}
+                ? "Bei Fragen zu Verträgen, Angeboten oder Laufzeiten kontaktieren Sie uns bitte direkt unter contact@re-serveai.com."
+                : "For questions about contracts, offers, or service terms, please contact us directly at contact@re-serveai.com."}
             </p>
           </div>
         </div>

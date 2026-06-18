@@ -8,7 +8,7 @@ const STORAGE_DIR = process.env.VERCEL
   ? path.join(tmpdir(), "reserve-ai")
   : path.join(process.cwd(), ".data");
 const STORAGE_FILE = path.join(STORAGE_DIR, "contact-inbox.jsonl");
-const INBOX_EMAIL = "reserveaivox@gmail.com";
+const INBOX_EMAIL = "contact@re-serveai.com";
 
 export async function POST(request: Request) {
   try {

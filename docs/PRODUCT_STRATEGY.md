@@ -6,7 +6,7 @@ Last updated: April 29, 2026
 
 Reserve AI should be positioned as a booking recovery and automation product for service businesses. The sharpest product promise is simple: when a team is too busy to answer the phone, Reserve AI answers, qualifies the customer, suggests available options, books or captures the lead, and reports what revenue was recovered.
 
-The newest website already points in the right direction. It has a dark green AI visual system, a live orbital demo, booking-focused messaging, industry pages, and three subscription tiers. The remaining strategy work is to keep the product narrative focused. The website still offers websites, booking systems, chatbots, and SaaS apps, but those should support the core product instead of making the company look like a broad agency.
+The newest website already points in the right direction. It has a dark green AI visual system, a live orbital demo, booking-focused messaging, industry pages, and three subscription tiers. The remaining strategy work is to keep the product narrative focused. The website still offers Reserve POS, websites, and chatbots, but those should support the core booking assistant instead of making the company look like a broad agency.
 
 Recommended positioning:
 
@@ -38,11 +38,11 @@ The latest website communicates several strong points:
 
 Main risk:
 
-The service hub still presents the company as a full-service AI/web/SaaS agency. This is not wrong, but it can confuse the buyer. A small business owner should not need to decide whether they are buying AI agents, websites, booking systems, bots, or SaaS. They should feel that they are buying one outcome: more bookings captured automatically.
+The service hub still risks presenting the company as a broad AI/web agency. This is not wrong, but it can confuse the buyer. A small business owner should first understand the main outcome: more bookings captured automatically. Reserve POS should then be framed as the operational control layer that makes AI-created bookings, orders, staff review, and reporting safer.
 
 Strategic recommendation:
 
-Use "AI booking assistant" as the main product. Keep websites, booking setup, chatbots, and custom dashboards as add-ons or implementation services that make the assistant work better.
+Use "AI booking assistant" as the main product. Keep websites, booking setup, and chatbots as add-ons or implementation services that make the assistant work better.
 
 ## 4. Target Customer
 
@@ -176,10 +176,9 @@ Core product modules:
 Service add-ons:
 
 - Website build or modernization.
-- Booking system integration.
+- Reserve POS setup or booking-system integration.
 - Website chatbot.
 - Social media booking setup.
-- Custom dashboard or SaaS workflow.
 - CRM or POS integration.
 
 Strategic rule:
@@ -335,7 +334,7 @@ Improve next:
 - Add lead form fields for business type, phone number, booking system, and estimated calls/week.
 - Add a simple "what happens after you book a demo" section.
 - Add proof assets as soon as possible: testimonials, before/after numbers, call snippets, anonymized transcripts.
-- Reframe service pages so websites, bots, and dashboards are add-ons to the Reserve AI booking system.
+- Reframe service pages so Reserve POS, websites, and bots are add-ons to the Reserve AI booking assistant.
 
 ## 15. Operational Strategy
 
@@ -487,7 +486,7 @@ Use Reserve AI everywhere. Retire Re.Serve and Reserve-AI in active sales and we
 
 Priority 2: Product clarity.
 
-Rewrite service navigation so AI booking assistant is the hero offer, and websites/chatbots/SaaS are supporting add-ons.
+Rewrite service navigation so AI booking assistant is the hero offer, and websites, booking integrations, and chatbots are supporting add-ons.
 
 Priority 3: Sales readiness.
 
@@ -500,4 +499,3 @@ Add missed-call audit CTA and ROI calculator to the landing page.
 Priority 5: Proof.
 
 Capture first customer results, even if anonymized, and publish a case study with call volume, bookings recovered, and time saved.
-

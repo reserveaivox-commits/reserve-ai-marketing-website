@@ -84,16 +84,6 @@ function ServicesGrid() {
       desc: t("bots_desc"),
       learnMore: t("learn_more"),
     },
-    {
-      key: "saas",
-      href: "/services/saas-apps",
-      image: "/images/services/saas.png",
-      variant: "service-card--saas",
-      textColor: "text-service-saas",
-      title: t("saas_title"),
-      desc: t("saas_desc"),
-      learnMore: t("learn_more"),
-    },
   ];
 
   return (

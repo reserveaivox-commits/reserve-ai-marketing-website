@@ -28,6 +28,264 @@ Open risks / next steps:
 - Anything the next agent should know.
 ```
 
+## 2026-06-18 - Codex
+
+Request:
+
+- Fix the homepage live demo because the currently embedded Railway demo was not working, using the provided Railway frontend and backend URLs.
+
+Files changed:
+
+- `src/components/HeroDemoGate.tsx`
+- `README.md`
+- `docs/AGENT_CHANGELOG.md`
+- `../04-livekit-agent/ui/app/api/token/route.ts`
+- `../04-livekit-agent/ui/components/VoiceUI.tsx`
+- `../04-livekit-agent/CHANGELOG.md`
+- Root workspace `README.md`
+- Root workspace `PROJECT_OVERVIEW.md`
+- Root workspace `PROJECT_REGISTRY.md`
+- Root workspace `CHANGELOG.md`
+
+What changed:
+
+- Replaced the dead hardcoded demo iframe target with a `NEXT_PUBLIC_DEMO_FRONTEND_URL`-backed constant.
+- Set the fallback demo frontend to `https://new-reserve-website-production.up.railway.app/`.
+- Documented the current Railway demo frontend/backend URLs and the deployment variable that controls the marketing iframe.
+- Forced the LiveKit demo UI token route and client token request to bypass caching so the demo frontend can generate fresh LiveKit JWTs instead of serving expired cached tokens.
+
+Verification:
+
+- `npx eslint "src/components/HeroDemoGate.tsx"` -> passed.
+- `node -e "JSON.parse(require('fs').readFileSync('messages/en.json','utf8')); JSON.parse(require('fs').readFileSync('messages/de.json','utf8')); console.log('messages ok')"` -> passed.
+- `npm run build` -> passed.
+- `curl.exe -I -L https://new-reserve-website-production.up.railway.app/` -> 200 OK.
+- `curl.exe -i -L https://new-reserve-website-production.up.railway.app/api/token` -> 200 OK with a LiveKit token payload and `wss://restaurantia1-1qdtu6pc.livekit.cloud`, but the deployed response had `x-nextjs-cache: HIT` and an expired JWT dated 2026-06-12 before the no-store patch.
+- `curl.exe -i -L https://alert-creation-production-7799.up.railway.app/` -> 200 OK with body `OK`.
+- `curl.exe -i -L https://voiceui-production.up.railway.app/` -> 404 with Railway "Application not found", confirming the old iframe target was dead.
+- `rg -n "voiceui-production" src .next\static\chunks -g "*.js" -g "!*.map"` -> no runtime matches.
+- `curl.exe -I http://127.0.0.1:3000/en` -> 200 OK on the existing local dev server.
+- `cd ..\04-livekit-agent\ui; npm run lint` -> passed.
+- `cd ..\04-livekit-agent\ui; npm run build` -> passed and marked `/api/token` as dynamic.
+- `npm run lint` -> failed on pre-existing unrelated issues in `.parity-check.js`, existing SEO/industry/service pages, and unused imports/props outside the touched demo component.
+
+Open risks / next steps:
+
+- Deploy the marketing website with `NEXT_PUBLIC_DEMO_FRONTEND_URL=https://new-reserve-website-production.up.railway.app/` or rely on the committed fallback.
+- Redeploy the Railway demo frontend from `04-livekit-agent/ui` so the no-store token fix reaches production; until then the live `/api/token` endpoint may continue returning the cached expired token.
+- The main marketing-site live URL still needs confirmation separately from the Railway demo frontend.
+- Full lint still needs separate cleanup in unrelated files before it can be used as a deployment gate.
+
+## 2026-06-17 - Codex
+
+Request:
+
+- Remove the "No complex rollout. No technical expertise needed." line from the homepage setup section and change the first two setup steps.
+
+Files changed:
+
+- `src/app/[locale]/page.tsx`
+- `messages/en.json`
+- `messages/de.json`
+- `docs/AGENT_CHANGELOG.md`
+
+What changed:
+
+- Removed the visible setup-section subtitle under "Activate Reserve AI in 3 steps".
+- Changed step 1 to "Contact us" in English and "Kontakt aufnehmen" in German.
+- Changed step 2 to say Reserve AI connects the business phone number and sets availability/rules in English and German.
+- Left step 3 unchanged.
+
+Verification:
+
+- `node -e "JSON.parse(require('fs').readFileSync('messages/en.json','utf8')); JSON.parse(require('fs').readFileSync('messages/de.json','utf8')); console.log('messages ok')"` -> passed.
+- `npx eslint "src/app/[locale]/page.tsx"` -> passed.
+- `npm run build` -> passed.
+- Local dev checks at `http://127.0.0.1:3000/en` and `/de`: removed subtitle is absent; updated step 1 and step 2 text renders; step 3 still renders.
+- `npm run lint` -> failed on pre-existing unrelated issues in `.parity-check.js`, existing SEO/industry pages, and unused imports/props outside the touched files.
+
+Open risks / next steps:
+
+- Full lint still needs separate cleanup in unrelated files before it can be used as a deployment gate.
+
+## 2026-06-17 - Codex
+
+Request:
+
+- Update the marketing website contact details, make the "Get in Touch" footer CTA work reliably, and remove the added industry-card animation.
+
+Files changed:
+
+- `README.md`
+- `src/app/[locale]/contact/page.tsx`
+- `src/app/[locale]/industries/page.tsx`
+- `src/app/[locale]/imprint/page.tsx`
+- `src/app/[locale]/privacy/page.tsx`
+- `src/app/[locale]/terms/page.tsx`
+- `src/app/api/contact/route.ts`
+- `src/components/Footer.tsx`
+- `docs/AGENT_CHANGELOG.md`
+
+What changed:
+
+- Replaced the placeholder public phone number with `+491737293707`.
+- Replaced the old public Gmail address with `contact@re-serveai.com` on the contact, legal, API inbox, and README environment example references.
+- Changed the footer "Get in Touch" CTA to a locale-specific plain anchor so it renders directly as `/en/contact` or `/de/contact`.
+- Removed the bouncing emoji/icon overlay and the now-unused card animation wrapper from the industries hub grid.
+
+Verification:
+
+- `rg -n 'reserveaivox@gmail.com|\+49 176 123 456 78|\+4917612345678|animate-bounce|industry.icon' src messages README.md docs` -> no matches.
+- `git diff --check -- README.md src/app/[locale]/contact/page.tsx src/app/api/contact/route.ts src/app/[locale]/imprint/page.tsx src/app/[locale]/privacy/page.tsx src/app/[locale]/terms/page.tsx src/app/[locale]/industries/page.tsx src/components/Footer.tsx` -> clean, with only Git line-ending warnings.
+- `npx eslint "src/app/[locale]/contact/page.tsx" "src/app/[locale]/industries/page.tsx" "src/app/[locale]/privacy/page.tsx" "src/app/[locale]/terms/page.tsx" "src/app/[locale]/imprint/page.tsx" "src/app/api/contact/route.ts" "src/components/Footer.tsx"` -> passed.
+- `node -e "JSON.parse(require('fs').readFileSync('messages/en.json','utf8')); JSON.parse(require('fs').readFileSync('messages/de.json','utf8')); console.log('messages ok')"` -> passed.
+- `npm run build` -> passed.
+- Local dev checks at `http://127.0.0.1:3000`: `/en/contact` contains `contact@re-serveai.com` and `+491737293707`; `/en/industries` footer CTA renders `href="/en/contact"` and no longer includes `animate-bounce`.
+- `npm run lint` -> failed on pre-existing unrelated issues in `.parity-check.js`, existing SEO/industry pages, and unused imports/props outside the touched files.
+
+Open risks / next steps:
+
+- Confirm the production mail provider has credentials for `GMAIL_USER=contact@re-serveai.com` or another authenticated sender that can deliver to `contact@re-serveai.com`.
+- Full lint still needs separate cleanup in unrelated files before it can be used as a deployment gate.
+
+## 2026-06-17 - Codex
+
+Request:
+
+- Change the old Booking System service card/page to Reserve POS and improve the page to explain what Reserve POS does, how it differs from other POS systems, and what functions it includes.
+
+Files changed:
+
+- `src/app/[locale]/services/booking/page.tsx`
+- `messages/en.json`
+- `messages/de.json`
+- `docs/PRODUCT_STRATEGY.md`
+- `docs/AGENT_CHANGELOG.md`
+- Root workspace `CHANGELOG.md`
+
+What changed:
+
+- Renamed the visible service/navigation label from Booking System to Reserve POS in English and German.
+- Rewrote the homepage/services card description around Reserve POS as the AI-native operational layer for bookings, orders, staff review, and reporting.
+- Replaced the generic booking-integration service page with a Reserve POS product page covering the operating model, capabilities, differences from generic POS systems, AI-to-staff workflow, and CTA.
+- Updated product strategy language so Reserve POS is documented as the public operational add-on around the Reserve AI booking assistant.
+
+Verification:
+
+- `node -e "JSON.parse(require('fs').readFileSync('messages/en.json','utf8')); JSON.parse(require('fs').readFileSync('messages/de.json','utf8')); console.log('messages ok')"` -> passed.
+- `git diff --check -- src/app/[locale]/services/booking/page.tsx messages/en.json messages/de.json docs/PRODUCT_STRATEGY.md` -> clean, with only Git line-ending warnings.
+- `npm run build` -> passed.
+- `npx eslint "src/app/[locale]/services/booking/page.tsx"` -> passed.
+- `npm run lint` -> failed on pre-existing unrelated lint issues in `.parity-check.js`, existing route pages, and unused imports.
+- Local dev checks: `/en/services` -> 200 with Reserve POS in navigation/card area; `/en/services/booking` -> 200 with new Reserve POS page copy; `/de/services/booking` -> 200 without corrupted German replacement characters.
+
+Open risks / next steps:
+
+- The route remains `/services/booking` for now. Rename the URL only if SEO/navigation strategy explicitly changes.
+- Full lint still needs separate cleanup in unrelated files before it can be used as a deployment gate.
+
+## 2026-06-17 - Codex
+
+Request:
+
+- Remove the SaaS Apps & Dashboards service card from the marketing website.
+
+Files changed:
+
+- `src/app/[locale]/page.tsx`
+- `src/app/[locale]/services/page.tsx`
+- `src/app/[locale]/services/saas-apps/page.tsx`
+- `src/components/Navbar.tsx`
+- `messages/en.json`
+- `messages/de.json`
+- `docs/PRODUCT_STRATEGY.md`
+- `docs/AGENT_CHANGELOG.md`
+
+What changed:
+
+- Removed the SaaS Apps & Dashboards card from the homepage add-ons carousel and the `/services` carousel.
+- Removed the SaaS service item from the desktop and mobile services navigation.
+- Deleted the `/services/saas-apps` page route so it is no longer generated.
+- Removed obsolete SaaS/dashboard translation keys and updated service/meta copy to mention websites, booking integrations, and chatbots only.
+- Updated product strategy notes so future service navigation work does not reintroduce SaaS/dashboards as a public add-on.
+
+Verification:
+
+- `node -e "JSON.parse(require('fs').readFileSync('messages/en.json','utf8')); JSON.parse(require('fs').readFileSync('messages/de.json','utf8')); console.log('messages ok')"` -> passed.
+- `rg -n "saas-apps|svc_saas|saas_title|SaaS Apps|SaaS-Apps|Dashboards|dashboards" src messages/en.json messages/de.json` -> no matches.
+- `npm run build` -> passed after clearing stale generated `.next` types; `/services/saas-apps` no longer appears in the generated route list.
+- Started local dev server at `http://127.0.0.1:3000`; `/en` -> 200, `/en/services` -> 200 without removed SaaS/dashboard text, `/en/services/saas-apps` -> 404.
+- `npm run lint` -> failed on pre-existing unrelated lint issues in `.parity-check.js`, existing route pages, and unused imports.
+
+Open risks / next steps:
+
+- Existing lint errors should be cleaned up separately if lint is expected to gate deployment.
+- Product strategy docs still mention SaaS as a possible broader add-on; update those only if this is a permanent product-positioning change, not just a website-card removal.
+
+## 2026-06-17 - Codex
+
+Request:
+
+- Unify each project README so the workspace reads as one product while each project keeps its own description and workflow details.
+
+Files changed:
+
+- `README.md`
+- Root workspace `README.md`
+- Connected project READMEs outside this repo.
+
+What changed:
+
+- Reworked this README into the shared Reserve AI template: description, at-a-glance table, ownership boundaries, connection flow, repo/hosting notes, stack, commands, important paths, agent workflow, safety rules, and related projects.
+- Kept website-specific details for Netlify, localization, Gmail contact form, brand/copy ownership, and legacy remotes.
+
+Verification:
+
+- `git diff --check -- README.md docs/AGENT_CHANGELOG.md` -> clean, with only Git line-ending warnings.
+- Workspace stale-reference scan -> only known historical/current-follow-up path references remain.
+- Workspace conflict-marker scan -> clean.
+- `rg --text -n "[ \t]+$"` on edited README/changelog files -> clean.
+- No code tests run; documentation-only change.
+
+Open risks / next steps:
+
+- Confirm the live Netlify URL and whether legacy remotes should remain.
+
+## 2026-06-17 - Codex
+
+Request:
+
+- Unify workspace documentation so current paths, repo status, POS ownership, and integration docs agree.
+
+Files changed:
+
+- `AGENTS.md`
+- `README.md`
+- `docs/AGENT_START_PROMPT.md`
+- `docs/AGENT_DASHBOARD_POS_INTEGRATION.md`
+- `docs/POS_SYSTEM_STRATEGY.md`
+- `docs/pos_docs/*`
+- Root workspace docs outside this repo.
+- Root project-local agent skill under `agent-skills/reserve-ai-sync/`.
+- Root project-local context-loading skill under `agent-skills/reserve-ai-context-loader/`.
+
+What changed:
+
+- Updated website contributor instructions to point at `02-PosSystem`, `03-dashboard`, and `04-livekit-agent`.
+- Added a pointer from `AGENTS.md` to the root `AGENTS.md` and project-local sync skill so agents opening only this folder still follow the workspace rules.
+- Added the context-loader pointer so vague website tasks cause agents to read relevant files before editing.
+- Refreshed POS strategy language to describe Reserve POS as a fresh codebase that shares Dashboard Supabase during development.
+- Converted stale copied POS implementation docs under `docs/pos_docs/` into pointers to the canonical `02-PosSystem/pos_docs/` files.
+
+Verification:
+
+- Ran markdown stale-reference scans across the workspace.
+- No code tests run; documentation-only change.
+
+Open risks / next steps:
+
+- Confirm Dashboard GitHub repo name/access from the hosting or GitHub account owner.
+
 ## 2026-05-04 - Antigravity
 
 Request:

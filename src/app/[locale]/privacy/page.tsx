@@ -30,8 +30,8 @@ export default async function PrivacyPage({
             </p>
             <p>
               {isDe
-                ? "Sie können jederzeit Auskunft über Ihre gespeicherten Daten verlangen sowie deren Berichtigung oder Löschung anfragen. Für datenschutzbezogene Anliegen erreichen Sie uns unter reserveaivox@gmail.com."
-                : "You may request information about your stored data at any time and ask for correction or deletion. For privacy-related matters, contact us at reserveaivox@gmail.com."}
+                ? "Sie können jederzeit Auskunft über Ihre gespeicherten Daten verlangen sowie deren Berichtigung oder Löschung anfragen. Für datenschutzbezogene Anliegen erreichen Sie uns unter contact@re-serveai.com."
+                : "You may request information about your stored data at any time and ask for correction or deletion. For privacy-related matters, contact us at contact@re-serveai.com."}
             </p>
           </div>
         </div>

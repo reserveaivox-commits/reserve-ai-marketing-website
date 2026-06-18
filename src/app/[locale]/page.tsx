@@ -155,16 +155,6 @@ function ServicesHubSection() {
       desc: t("bots_desc"),
       learnMore: t("learn_more"),
     },
-    {
-      key: "saas",
-      href: "/services/saas-apps",
-      image: "/images/services/saas.png",
-      variant: "service-card--saas",
-      textColor: "text-service-saas",
-      title: t("saas_title"),
-      desc: t("saas_desc"),
-      learnMore: t("learn_more"),
-    },
   ];
 
   return (
@@ -298,7 +288,6 @@ function HowItWorksSection() {
               <h2 className="heading-serif text-3xl md:text-5xl mb-4">
                 {t("title")}
               </h2>
-              <p className="text-zinc-400 max-w-2xl mx-auto">{t("subtitle")}</p>
             </div>
           </ScrollAnimator>
 

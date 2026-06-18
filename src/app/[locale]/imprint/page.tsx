@@ -25,7 +25,7 @@ export default async function ImprintPage({
             <p>
               Berlin, Deutschland
               <br />
-              reserveaivox@gmail.com
+              contact@re-serveai.com
             </p>
             <p>
               {isDe

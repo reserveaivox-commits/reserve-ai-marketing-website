@@ -3,8 +3,6 @@ import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { industries } from "@/lib/industries";
-import ScrollAnimator from "@/components/ScrollAnimator";
-import AnimatedCard from "@/components/AnimatedCard";
 
 export default async function IndustriesHubPage({
   params,
@@ -47,21 +45,13 @@ function HubHero() {
 function IndustryGrid() {
   const t = useTranslations();
 
-  const directions = ["up", "up", "up", "down", "down", "down"] as const;
-
   return (
     <section className="section-flow-dark py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="reserve-panel-dark px-6 py-8 md:px-8 md:py-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {industries.map((industry, idx) => (
-            <AnimatedCard
-              key={industry.slug}
-              delay={idx * 0.08}
-              direction={directions[idx]}
-              hoverScale={1.03}
-              className="h-full"
-            >
+          {industries.map((industry) => (
+            <div key={industry.slug} className="h-full">
               <Link
                 href={`/industries/${industry.slug}`}
                 className="group relative block rounded-xl overflow-hidden hover-lift h-full"
@@ -97,9 +87,6 @@ function IndustryGrid() {
                         {t(`ind_detail.${industry.translationKey}.short_desc`)}
                       </p>
                     </div>
-                    <div className="text-2xl animate-bounce" style={{ animationDelay: `${idx * 0.1}s` }}>
-                      {industry.icon}
-                    </div>
                   </div>
                   <span className="text-accent-gold text-sm font-semibold group-hover:underline group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">
                     {t("industries.learn_more")} 
@@ -107,7 +94,7 @@ function IndustryGrid() {
                   </span>
                 </div>
               </Link>
-            </AnimatedCard>
+            </div>
           ))}
         </div>
         </div>
