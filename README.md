@@ -171,3 +171,4 @@ When the company Netlify team is available, either transfer the existing project
 | `../02-PosSystem` | Operational POS and booking workflows |
 | `../04-livekit-agent` | Voice agent referenced in the public offer |
 | `../03-dashboard` | Existing operations dashboard referenced in product context |
+TEST
