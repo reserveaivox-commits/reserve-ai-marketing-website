@@ -1,15 +1,34 @@
 @import "tailwindcss";
 
 @theme {
+  /* Palette follows the brand photography: deep navy ground, brass accents,
+     warm cream type. Replaces the near-black plus neon-green scheme. */
   --color-brand-blue: #dceeff;
   --color-brand-peach: #ffdec8;
   --color-brand-purple: #e8dfff;
   --color-brand-dark: #18181B;
-  --color-brand-navy: #0F0B1A;
+
+  /* Grounds */
+  --color-brand-navy: #101B31;
+  --color-navy-deep: #0B1424;
+  --color-navy-raised: #16233D;
+
+  /* Brass accents */
+  --color-accent-gold: #D4A843;
+  --color-accent-gold-soft: #E3C27A;
+  --color-accent-gold-dim: #8A6E2E;
+
+  /* Warm type on dark grounds */
+  --color-cream: #F4EFE5;
+  --color-cream-muted: #C9C0B1;
+
+  /* Semantic "lost" red. Deliberately not the gold accent - it marks a booking
+     that went elsewhere. Used only in the homepage problem log. */
+  --color-lost: #C0655A;
+
   --color-accent-purple: #4F28A0;
   --color-accent-purple-dark: #3D1F7C;
-  --color-accent-gold: #D4A843;
-  --color-surface: #FAFAF8;
+  --color-surface: #FAF7F1;
 
   /* Service accent colors */
   --color-service-agents: #4F28A0;
@@ -17,6 +36,7 @@
   --color-service-booking: #059669;
   --color-service-bots: #D97706;
   --color-service-saas: #E11D48;
+  --color-service-pos: #12B8A6;
 
   --font-sans: "Montserrat", sans-serif;
   --font-serif: "Playfair Display", serif;
@@ -97,14 +117,6 @@
     35% { transform: translate3d(4%, 0, 0) rotate(-3deg) scaleX(1.04); opacity: 0.14; }
     65% { transform: translate3d(8%, 1%, 0) rotate(1deg) scaleX(1.08); opacity: 0.06; }
   }
-  @keyframes starDrift {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-10px, 8px, 0); }
-  }
-  @keyframes starTwinkle {
-    0%, 100% { opacity: 0.18; }
-    50% { opacity: 0.34; }
-  }
   @keyframes industriesMarquee {
     from { transform: translate3d(0, 0, 0); }
     to { transform: translate3d(calc(-50% - 0.5rem), 0, 0); }
@@ -119,11 +131,10 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: #F5F7FA;
+  color: #F4EFE5;
   background:
-    radial-gradient(circle at top, rgba(79, 253, 142, 0.12), transparent 24%),
-    radial-gradient(circle at 20% 20%, rgba(77, 180, 255, 0.08), transparent 20%),
-    linear-gradient(180deg, #050816 0%, #07101d 50%, #04070f 100%);
+    radial-gradient(circle at top, rgba(212, 168, 67, 0.10), transparent 28%),
+    linear-gradient(180deg, #131F38 0%, #101B31 55%, #0B1424 100%);
 }
 
 .site-body {
@@ -153,50 +164,32 @@ body {
   will-change: transform, opacity;
 }
 
+/* Warm brass wash, standing in for the old mint/cyan aurora. */
 .site-aurora--one {
   background:
-    radial-gradient(40% 18% at 10% 8%, rgba(118, 255, 189, 0.18), transparent 72%),
-    radial-gradient(48% 20% at 48% 6%, rgba(109, 194, 255, 0.14), transparent 74%),
-    radial-gradient(36% 16% at 88% 12%, rgba(153, 255, 224, 0.12), transparent 74%);
+    radial-gradient(40% 18% at 10% 8%, rgba(212, 168, 67, 0.16), transparent 72%),
+    radial-gradient(48% 20% at 48% 6%, rgba(227, 194, 122, 0.12), transparent 74%),
+    radial-gradient(36% 16% at 88% 12%, rgba(190, 149, 84, 0.10), transparent 74%);
   animation: auroraSweep 18s ease-in-out infinite;
 }
 
-.site-stars {
-  position: absolute;
-  inset: 0;
-  background-repeat: repeat;
-  pointer-events: none;
-  will-change: transform, opacity;
-}
-
-.site-stars--near {
-  opacity: 0.2;
-  background-image:
-    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.95) 0 1px, transparent 1.6px),
-    radial-gradient(circle at 24% 62%, rgba(203,232,255,0.78) 0 1.1px, transparent 1.8px),
-    radial-gradient(circle at 38% 28%, rgba(255,255,255,0.7) 0 0.9px, transparent 1.6px),
-    radial-gradient(circle at 52% 72%, rgba(171,229,255,0.72) 0 1px, transparent 1.6px),
-    radial-gradient(circle at 66% 22%, rgba(255,255,255,0.88) 0 1px, transparent 1.6px),
-    radial-gradient(circle at 78% 56%, rgba(196,246,255,0.7) 0 1.1px, transparent 1.8px),
-    radial-gradient(circle at 88% 18%, rgba(255,255,255,0.8) 0 1px, transparent 1.6px);
-  background-size: 320px 320px;
-  animation: starDrift 32s linear infinite, starTwinkle 10s ease-in-out infinite;
-}
-
 /* ─── Typography ─── */
+/* Was pointing at --font-sans despite the name, which is why Playfair never
+   appeared anywhere. Serif headlines are the brand's own typography - the
+   wordmark in the product photography is a serif. */
 .heading-serif {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.06;
 }
 .section-label {
   font-family: var(--font-sans);
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: #8effa8;
+  color: #D4A843;
 }
 
 .demo-grid {
@@ -244,7 +237,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .site-aurora--one,
-  .site-stars--near,
   .demo-orbit,
   .demo-orbit-reverse,
   .demo-orbit-slow,
@@ -260,7 +252,7 @@ body {
 /* ─── Nav ─── */
 nav { transition: background-color 0.3s ease, box-shadow 0.3s ease; }
 nav.scrolled {
-  background-color: rgba(4, 7, 15, 0.9);
+  background-color: rgba(11, 20, 36, 0.92);
   box-shadow: 0 10px 40px rgba(0,0,0,0.35);
 }
 
@@ -299,12 +291,12 @@ nav.scrolled {
 }
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(81, 255, 154, 0.28);
+  box-shadow: 0 8px 24px rgba(212, 168, 67, 0.30);
 }
 
 /* ─── Gradient text ─── */
 .gradient-text {
-  background: linear-gradient(135deg, #4F28A0 0%, #7C3AED 100%);
+  background: linear-gradient(135deg, #D4A843 0%, #E3C27A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -314,7 +306,7 @@ nav.scrolled {
 .language-switcher { position: relative; }
 .language-dropdown {
   display: none; position: absolute; top: 100%; right: 0;
-  background: #08101c; border-radius: 12px;
+  background: #16233D; border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.28);
   border: 1px solid rgba(255,255,255,0.08);
   margin-top: 10px; padding: 6px; min-width: 180px; z-index: 1000;
@@ -325,15 +317,15 @@ nav.scrolled {
   transition: background 0.2s ease;
   display: flex; align-items: center; gap: 10px; font-size: 0.875rem;
 }
-.language-option { color: #d4dae6; }
+.language-option { color: #C9C0B1; }
 .language-option:hover { background: rgba(255,255,255,0.06); }
-.language-option.active { background: rgba(142,255,168,0.12); color: #8effa8; font-weight: 600; }
+.language-option.active { background: rgba(212,168,67,0.14); color: #D4A843; font-weight: 600; }
 
 /* ─── Feature cards ─── */
 .feature-card { position: relative; overflow: hidden; }
 .feature-card::before {
   content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(135deg, rgba(79,40,160,0.04), rgba(124,58,237,0.04));
+  background: linear-gradient(135deg, rgba(212,168,67,0.05), rgba(227,194,122,0.04));
   opacity: 0; transition: opacity 0.3s ease;
 }
 @media (hover: hover) { .feature-card:hover::before { opacity: 1; } }
@@ -415,6 +407,7 @@ nav.scrolled {
 .service-card--booking { --card-gradient: linear-gradient(135deg, #059669, #34D399); --card-bg-hover: rgba(5,150,105,0.03); }
 .service-card--bots { --card-gradient: linear-gradient(135deg, #D97706, #FBBF24); --card-bg-hover: rgba(217,119,6,0.03); }
 .service-card--saas { --card-gradient: linear-gradient(135deg, #E11D48, #FB7185); --card-bg-hover: rgba(225,29,72,0.03); }
+.service-card--pos { --card-gradient: linear-gradient(135deg, #12B8A6, #2DD4BF); --card-bg-hover: rgba(18,184,166,0.03); }
 
 /* ─── Service Hub Cards V2 (Dynamic Reveal) ─── */
 .service-card-v2 {
@@ -520,7 +513,7 @@ nav.scrolled {
   left: 50%;
   transform: translateX(-50%);
   background: rgba(8, 14, 26, 0.98);
-  border: 1px solid rgba(142, 255, 168, 0.14);
+  border: 1px solid rgba(212, 168, 67, 0.14);
   border-radius: 24px;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.4);
   padding: 1.5rem;
@@ -533,6 +526,25 @@ nav.scrolled {
   gap: 0.5rem;
   animation: fadeInUp 0.25s ease-out;
 }
+
+/* Group headings separate the product from the studio work. The hierarchy
+   does the positioning: Reserve first, everything else clearly below it. */
+.mega-menu-group {
+  grid-column: 1 / -1;
+  margin: 0 0 0.25rem;
+  padding: 0 16px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #D4A843;
+}
+.mega-menu-group--divided {
+  margin-top: 0.75rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  color: #8b8578;
+}
 .mega-menu-item {
   display: flex;
   align-items: center;
@@ -543,14 +555,14 @@ nav.scrolled {
   text-decoration: none;
   color: inherit;
 }
-.mega-menu-item:hover { background: rgba(142, 255, 168, 0.06); }
+.mega-menu-item:hover { background: rgba(212, 168, 67, 0.06); }
 .mega-menu-icon {
   width: 40px; height: 40px;
   border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.mega-menu-item h4 { font-size: 0.875rem; font-weight: 600; color: #F5F7FA; }
+.mega-menu-item span { display: block; font-size: 0.875rem; font-weight: 600; color: #F5F7FA; }
 .mega-menu-item p { font-size: 0.75rem; color: #8E9AAE; margin-top: 2px; }
 
 /* ─── Service Page Hero Gradients ─── */
@@ -559,6 +571,7 @@ nav.scrolled {
 .service-hero-booking { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 50%, #FAFAF8 100%); }
 .service-hero-bots { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FAFAF8 100%); }
 .service-hero-saas { background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 50%, #FAFAF8 100%); }
+.service-hero-pos { background: linear-gradient(135deg, #ECFEFF 0%, #CCFBF1 50%, #FAFAF8 100%); }
 
 /* ─── Sub-service Cards ─── */
 .sub-service-card {
@@ -608,13 +621,13 @@ nav.scrolled {
 /* ─── Dark sections ─── */
 .section-dark {
   background:
-    radial-gradient(circle at top, rgba(79, 253, 142, 0.16), transparent 24%),
+    radial-gradient(circle at top, rgba(212, 168, 67, 0.16), transparent 24%),
     linear-gradient(180deg, #0d1525 0%, #070c16 100%);
   color: #fafafa;
 }
 .section-dark h2,
 .section-dark h3 { color: #fafafa; }
-.section-dark .section-label { color: #8effa8; }
+.section-dark .section-label { color: #D4A843; }
 
 .reserve-shell {
   position: relative;
@@ -645,18 +658,38 @@ nav.scrolled {
 
 .reserve-panel-dark {
   background:
-    radial-gradient(circle at top, rgba(79, 253, 142, 0.08), transparent 28%),
+    radial-gradient(circle at top, rgba(212, 168, 67, 0.08), transparent 28%),
     linear-gradient(180deg, rgba(12, 20, 36, 0.45) 0%, rgba(7, 11, 21, 0.65) 100%);
-  border: 1px solid rgba(142, 255, 168, 0.12);
+  border: 1px solid rgba(212, 168, 67, 0.12);
   border-radius: 32px;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
 
+/* Framed panel: a brass edge plus a vignette that darkens inward from it, so
+   the block reads as its own surface against the page. Opt-in modifier -
+   plain .reserve-panel is used in 44 places and stays untouched. */
+.reserve-panel.reserve-panel--framed {
+  background:
+    radial-gradient(125% 95% at 50% 50%,
+      rgba(212, 168, 67, 0) 46%,
+      rgba(212, 168, 67, 0.055) 76%,
+      rgba(212, 168, 67, 0.14) 100%),
+    radial-gradient(105% 80% at 50% 44%,
+      rgba(4, 9, 18, 0.86) 0%,
+      rgba(6, 12, 23, 0.74) 58%,
+      rgba(13, 22, 40, 0.58) 100%);
+  border-color: rgba(212, 168, 67, 0.38);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.42),
+    inset 0 0 0 1px rgba(212, 168, 67, 0.10),
+    inset 0 0 100px rgba(0, 0, 0, 0.5);
+}
+
 .reserve-stat-card {
   border-radius: 24px;
-  border: 1px solid rgba(142, 255, 168, 0.16);
+  border: 1px solid rgba(212, 168, 67, 0.16);
   background: rgba(255, 255, 255, 0.02);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(16px);
@@ -668,7 +701,7 @@ nav.scrolled {
   align-items: center;
   gap: 0.5rem;
   border-radius: 999px;
-  border: 1px solid rgba(142, 255, 168, 0.15);
+  border: 1px solid rgba(212, 168, 67, 0.15);
   background: rgba(255, 255, 255, 0.06);
   padding: 0.55rem 0.9rem;
   font-size: 0.8rem;
@@ -749,6 +782,130 @@ nav.scrolled {
     animation: none !important;
   }
 }
+
+/* Skip link: off-screen until focused, then pinned to the top-left. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 12px 0;
+  background: #D4A843;
+  color: #05101b;
+  font-weight: 600;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ─── Homepage: channel strip, loss log, routing fork, product cards ─── */
+
+/* The strip under the hero. Shows the scope of the company in the first
+   screen, so it wraps rather than scrolling out of reach on narrow phones. */
+.channel-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
+  border-top: 1px solid rgba(212, 168, 67, 0.22);
+  border-bottom: 1px solid rgba(212, 168, 67, 0.22);
+  padding: 1rem 0.5rem;
+}
+.channel-strip span {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #C9C0B1;
+  white-space: nowrap;
+}
+
+/* Loss log. Four columns on desktop; each row becomes its own stacked card
+   below 768px, where a five-row table cannot stay readable. */
+.loss-log {
+  border-top: 1px solid rgba(212, 168, 67, 0.22);
+}
+.loss-row {
+  display: grid;
+  grid-template-columns: 5.5rem 9rem 1fr 11rem;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1.15rem 0.25rem;
+  border-bottom: 1px solid rgba(212, 168, 67, 0.22);
+}
+.loss-time {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  color: var(--color-cream);
+  font-weight: 600;
+}
+.loss-channel {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #A8A192;
+}
+.loss-what { color: var(--color-cream-muted); }
+.loss-result {
+  color: var(--color-lost);
+  font-weight: 600;
+}
+.loss-header-row {
+  border-bottom-color: transparent;
+  padding-bottom: 0;
+}
+.loss-head {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #A8A192;
+  padding-bottom: 0.75rem;
+}
+
+@media (max-width: 767px) {
+  .loss-row {
+    grid-template-columns: 5rem 1fr;
+    row-gap: 0.35rem;
+    padding: 1rem 0.25rem;
+  }
+  /* Time keeps its own column; channel, text and outcome stack beside it. */
+  .loss-row > .loss-time { grid-row: span 3; }
+  .loss-head { display: none; }
+  .loss-header-row { display: none; }
+}
+
+/* Routing fork: a gold hairline between the two columns, which becomes a
+   horizontal rule once the columns stack. */
+.routing-fork {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+.routing-col { display: flex; flex-direction: column; }
+.routing-entry {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212, 168, 67, 0.55);
+}
+@media (min-width: 768px) {
+  .routing-fork {
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 3.5rem;
+  }
+  .routing-rule {
+    background: rgba(212, 168, 67, 0.22);
+    width: 1px;
+  }
+}
+.routing-rule { background: rgba(212, 168, 67, 0.22); height: 1px; }
+
 
 /* ─── Mobile ─── */
 @media (max-width: 768px) {

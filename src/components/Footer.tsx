@@ -1,10 +1,9 @@
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import BrandLogo from "@/components/BrandLogo";
 
 export default function Footer() {
   const t = useTranslations("footer");
-  const locale = useLocale();
 
   return (
     <footer className="section-flow-dark text-white">
@@ -12,12 +11,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <div className="reserve-panel flex flex-col items-start justify-between gap-6 px-5 py-7 sm:px-6 md:flex-row md:items-center md:px-8 md:py-10">
           <h2 className="heading-serif text-2xl text-white md:text-3xl">{t("ready")}</h2>
-          <a
-            href={`/${locale}/contact`}
-            className="inline-flex w-full items-center justify-center rounded-lg bg-[#8effa8] px-6 py-3 font-semibold text-[#05101b] transition-colors hover:bg-[#79f69c] sm:w-auto sm:px-8"
+          <Link
+            href="/contact"
+            className="inline-flex w-full items-center justify-center rounded-lg bg-[#D4A843] px-6 py-3 font-semibold text-[#05101b] transition-colors hover:bg-[#E3C27A] sm:w-auto sm:px-8"
           >
             {t("btn")}
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -70,7 +70,7 @@ function IndustryGrid() {
                   {/* Animated accent border */}
                   <div 
                     className="absolute inset-0 rounded-xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{ borderColor: `var(--ind-${industry.slug}-color, #8effa8)` }}
+                    style={{ borderColor: `var(--ind-${industry.slug}-color, #D4A843)` }}
                   />
 
                   {/* Animated glow effect */}

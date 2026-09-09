@@ -147,7 +147,7 @@ function BenefitsSection({ translationKey }: { translationKey: string }) {
     <BenefitShowcase
       title={t("benefits_title")}
       benefits={benefits}
-      accentColor="#8effa8"
+      accentColor="#D4A843"
       backgroundColor="from-white/5 to-white/2"
     />
   );
@@ -169,7 +169,7 @@ function InteractiveDemoSection() {
           </div>
 
           <div className="relative max-w-5xl mx-auto">
-            <div className="absolute -inset-6 rounded-[2.2rem] bg-[radial-gradient(circle_at_center,_rgba(142,255,168,0.10),_transparent_42%)] blur-3xl" />
+            <div className="absolute -inset-6 rounded-[2.2rem] bg-[radial-gradient(circle_at_center,_rgba(212,168,67,0.10),_transparent_42%)] blur-3xl" />
             <HeroDemoGate compact />
           </div>
         </div>

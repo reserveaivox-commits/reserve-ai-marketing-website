@@ -8,7 +8,14 @@ const STORAGE_DIR = process.env.VERCEL
   ? path.join(tmpdir(), "reserve-ai")
   : path.join(process.cwd(), ".data");
 const STORAGE_FILE = path.join(STORAGE_DIR, "contact-inbox.jsonl");
+// Where contact-form submissions are delivered. Cloudflare Email Routing
+// forwards this address on to the team inbox.
 const INBOX_EMAIL = "contact@re-serveai.com";
+
+// The account nodemailer authenticates against. Cloudflare Email Routing is
+// receive-only and cannot send, so outbound still goes through Gmail SMTP.
+// Override with GMAIL_USER once a sending identity exists for the domain.
+const SMTP_FALLBACK_USER = "reserveaivox@gmail.com";
 
 export async function POST(request: Request) {
   try {
@@ -47,7 +54,7 @@ export async function POST(request: Request) {
     await mkdir(STORAGE_DIR, { recursive: true });
     await appendFile(STORAGE_FILE, `${JSON.stringify(entry)}\n`, "utf8");
 
-    const gmailUser = process.env.GMAIL_USER || INBOX_EMAIL;
+    const gmailUser = process.env.GMAIL_USER || SMTP_FALLBACK_USER;
     const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
 
     if (!gmailAppPassword) {

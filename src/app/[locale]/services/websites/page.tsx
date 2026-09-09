@@ -236,7 +236,7 @@ function WebsitesROI() {
               <div className="relative overflow-hidden rounded-2xl border border-service-websites/20 p-6 md:p-8 bg-gradient-to-br from-service-websites/5 to-transparent">
                 <div className="text-4xl md:text-5xl font-bold text-service-websites mb-2">7 days</div>
                 <h3 className="text-lg font-semibold text-white mb-3">Delivery</h3>
-                <p className="text-sm text-zinc-300">From concept to live — template builds</p>
+                <p className="text-sm text-zinc-300">From concept to live, template builds</p>
               </div>
             </ScrollAnimator>
 
@@ -272,8 +272,8 @@ function WebsitesPricing() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {[
-            { name: "Template", price: "€499–€999", time: "7 days", badge: "QUICK START", features: ["Pre-built template", "2 revision rounds", "Mobile optimized", "Basic SEO setup"] },
-            { name: "Custom Site", price: "€2,000–€5,000", time: "14–21 days", badge: "POPULAR", features: ["100% custom design", "Unlimited revisions", "Full SEO optimization", "Analytics setup", "3 months support"] },
+            { name: "Template", price: "€499 to €999", time: "7 days", badge: "QUICK START", features: ["Pre-built template", "2 revision rounds", "Mobile optimized", "Basic SEO setup"] },
+            { name: "Custom Site", price: "€2,000 to €5,000", time: "14 to 21 days", badge: "POPULAR", features: ["100% custom design", "Unlimited revisions", "Full SEO optimization", "Analytics setup", "3 months support"] },
             { name: "Premium App", price: "€5,000+", time: "30+ days", features: ["Complex integrations", "Custom dashboard", "Advanced automation", "Dedicated support", "Ongoing maintenance"] },
           ].map((plan, idx) => (
             <ScrollAnimator key={idx} delay={idx * 0.1}>
@@ -350,10 +350,23 @@ function WebsiteShowcasePreview() {
             </div>
             <Link
               href="/services/websites/showcase"
-              className="inline-flex w-full items-center justify-center rounded-lg bg-[#8effa8] px-6 py-3.5 font-semibold text-[#04101b] transition-colors hover:bg-[#79f69c] sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-lg bg-[#D4A843] px-6 py-3.5 font-semibold text-[#0B1424] transition-colors hover:bg-[#E3C27A] sm:w-auto"
             >
               {t("showcase_link")}
             </Link>
+          </div>
+        </ScrollAnimator>
+
+        <ScrollAnimator>
+          <div className="relative mb-10 aspect-[25/16] w-full overflow-hidden rounded-[1.5rem] border border-white/10">
+            <Image
+              src="/images/scene-onboarding-website.jpg"
+              alt={t("showcase_title")}
+              fill
+              sizes="(max-width: 1024px) 100vw, 1200px"
+              className="object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(11,20,36,0)_55%,rgba(11,20,36,0.55)_100%)]" />
           </div>
         </ScrollAnimator>
 
@@ -362,7 +375,7 @@ function WebsiteShowcasePreview() {
             <ScrollAnimator key={item.slug} delay={index * 0.08}>
               <Link
                 href="/services/websites/showcase"
-                className="group block h-full overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.045] transition-colors hover:border-[#8effa8]/35"
+                className="group block h-full overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.045] transition-colors hover:border-[#D4A843]/35"
               >
                 <div className="relative aspect-[4/5] bg-black/40">
                   <Image

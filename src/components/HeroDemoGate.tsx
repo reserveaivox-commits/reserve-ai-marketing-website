@@ -102,21 +102,21 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
         </div>
       ) : null}
       <div className={`relative isolate overflow-hidden border border-white/10 bg-[#050914] shadow-[0_28px_70px_rgba(0,0,0,0.32)] ${compact ? "rounded-[1.5rem] md:rounded-[2rem]" : "rounded-[1.6rem] md:rounded-[2.4rem]"}`}>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(142,255,168,0.12),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(77,180,255,0.12),_transparent_26%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,168,67,0.12),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(77,180,255,0.12),_transparent_26%)]" />
       {
         <div className={`relative bg-[linear-gradient(180deg,_rgba(11,17,31,0.98),_rgba(5,9,20,1))] ${compact ? "p-3 md:p-4" : "p-4 md:p-5 lg:p-6"}`}>
           <div className="grid gap-4">
             <div className={`relative overflow-hidden border border-white/8 bg-[linear-gradient(180deg,rgba(14,24,41,0.98),rgba(9,16,30,0.98))] ${compact ? "rounded-[1.6rem] p-4 md:p-5" : "rounded-[2rem] p-6 md:p-8"}`}>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(142,255,168,0.05),_transparent_22%),radial-gradient(circle_at_center,_rgba(77,180,255,0.04),_transparent_40%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(212,168,67,0.05),_transparent_22%),radial-gradient(circle_at_center,_rgba(77,180,255,0.04),_transparent_40%)]" />
               <div className="relative z-10">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/48">
                     <span className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/4 px-3 py-2">
-                      <span className="h-2 w-2 rounded-full bg-[#8effa8]" />
+                      <span className="h-2 w-2 rounded-full bg-[#D4A843]" />
                       {t("demo_badge_flow")}
                     </span>
                     <span className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/4 px-3 py-2">
-                      <span className="h-2 w-2 rounded-full bg-cyan-400" />
+                      <span className="h-2 w-2 rounded-full bg-[#E3C27A]" />
                       {t("demo_badge_automation")}
                     </span>
                   </div>
@@ -126,11 +126,11 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
                 </div>
 
                 <div className={`relative mt-5 md:mt-8 ${compact ? "min-h-[18.5rem] sm:min-h-[24rem] md:min-h-[26rem]" : "min-h-[24rem] sm:min-h-[30rem] md:min-h-[38rem]"}`}>
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(142,255,168,0.12),_transparent_12%)] opacity-90" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(212,168,67,0.12),_transparent_12%)] opacity-90" />
 
-                  <div className="absolute left-1/2 top-[44%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8effa8]/10 blur-3xl sm:h-24 sm:w-24 md:h-40 md:w-40" />
+                  <div className="absolute left-1/2 top-[44%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4A843]/10 blur-3xl sm:h-24 sm:w-24 md:h-40 md:w-40" />
                   <div className="absolute left-1/2 top-[44%] h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/18 sm:h-48 sm:w-48 md:h-[18rem] md:w-[18rem]" />
-                  <div className="absolute left-1/2 top-[44%] h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8effa8]/16 sm:h-72 sm:w-72 md:h-[24rem] md:w-[24rem]" />
+                  <div className="absolute left-1/2 top-[44%] h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#D4A843]/16 sm:h-72 sm:w-72 md:h-[24rem] md:w-[24rem]" />
                   <div className="absolute left-1/2 top-[44%] h-[16.5rem] w-[16.5rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 sm:h-[24rem] sm:w-[24rem] md:h-[30rem] md:w-[30rem]" />
 
                   {featurePlanets.map((planet) => {
@@ -161,11 +161,11 @@ export default function HeroDemoGate({ compact = false }: { compact?: boolean })
                     <button
                       type="button"
                       onClick={() => setUnlocked(true)}
-                      className={`group relative isolate overflow-hidden rounded-full border border-[#8effa8]/24 bg-[radial-gradient(circle_at_30%_24%,rgba(31,47,72,0.98),rgba(12,18,31,0.99)_58%,rgba(5,9,18,1))] text-center shadow-[0_30px_120px_rgba(0,0,0,0.5),0_0_60px_rgba(142,255,168,0.10)] transition duration-300 hover:scale-[1.02] hover:border-[#8effa8]/45 ${compact ? "h-28 w-28 p-3 sm:h-40 sm:w-40 sm:p-5 md:h-44 md:w-44" : "h-36 w-36 p-4 sm:h-48 sm:w-48 sm:p-5 md:h-64 md:w-64 md:p-7"}`}
+                      className={`group relative isolate overflow-hidden rounded-full border border-[#D4A843]/24 bg-[radial-gradient(circle_at_30%_24%,rgba(31,47,72,0.98),rgba(12,18,31,0.99)_58%,rgba(5,9,18,1))] text-center shadow-[0_30px_120px_rgba(0,0,0,0.5),0_0_60px_rgba(212,168,67,0.10)] transition duration-300 hover:scale-[1.02] hover:border-[#D4A843]/45 ${compact ? "h-28 w-28 p-3 sm:h-40 sm:w-40 sm:p-5 md:h-44 md:w-44" : "h-36 w-36 p-4 sm:h-48 sm:w-48 sm:p-5 md:h-64 md:w-64 md:p-7"}`}
                     >
                       <div className="absolute inset-[8%] rounded-full border border-white/10 bg-[radial-gradient(circle_at_center,rgba(17,27,44,0.95),rgba(9,14,24,0.98)_72%)]" />
                       <div className="absolute inset-[16%] rounded-full border border-white/7" />
-                      <div className="absolute inset-[18%] rounded-full bg-[radial-gradient(circle,_rgba(142,255,168,0.12),_transparent_70%)] blur-xl transition duration-300 group-hover:scale-110" />
+                      <div className="absolute inset-[18%] rounded-full bg-[radial-gradient(circle,_rgba(212,168,67,0.12),_transparent_70%)] blur-xl transition duration-300 group-hover:scale-110" />
                       <div className={`relative z-10 flex h-full flex-col items-center justify-center ${compact ? "gap-3" : "gap-4"}`}>
                         <div className="mx-auto max-w-[5.5rem] text-center sm:max-w-[8rem] md:max-w-[10rem]">
                           <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/50 md:text-[11px]">

@@ -222,7 +222,7 @@ function AgentsROI() {
                 </div>
                 <div>
                   <p className="text-sm text-zinc-400 mb-1">Time to ROI</p>
-                  <p className="text-2xl font-bold text-service-agents">4–6 weeks</p>
+                  <p className="text-2xl font-bold text-service-agents">4 to 6 weeks</p>
                 </div>
                 <div className="hidden md:block">
                   <p className="text-sm text-zinc-400 mb-1">Customer Satisfaction</p>
@@ -230,7 +230,7 @@ function AgentsROI() {
                 </div>
               </div>
               <p className="mt-6 text-sm text-zinc-300 border-t border-service-agents/10 pt-4">
-                At just €249–€1,290/month with 30+ new bookings, most customers achieve positive ROI in their first billing cycle. Your exact savings depend on booking value and current call volume.
+                At €249 to €1,290 a month with 30+ new bookings, most customers are in profit inside their first billing cycle. Your exact savings depend on booking value and current call volume.
               </p>
             </div>
           </ScrollAnimator>
@@ -374,7 +374,7 @@ function AgentsImplementation() {
               { step: "1", title: "Discovery Call", desc: "15 min to understand your business, hours, and call volume" },
               { step: "2", title: "Configuration", desc: "We set up your phone number, availability, and booking rules" },
               { step: "3", title: "Testing", desc: "We run test calls and make any adjustments needed" },
-              { step: "4", title: "Go Live", desc: "Your AI agent starts answering calls — we monitor 24/7" },
+              { step: "4", title: "Go Live", desc: "Your AI agent starts answering calls. We monitor 24/7" },
             ].map((item, idx) => (
               <ScrollAnimator key={idx} delay={idx * 0.08}>
                 <div className="relative">

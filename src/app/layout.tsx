@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
@@ -19,9 +20,12 @@ export const metadata: Metadata = {
   description:
     "Reserve AI helps restaurants, salons, spas, and service businesses answer calls, manage bookings, and handle customer questions automatically.",
   icons: {
-    icon: "/brand/reserve-ai-mark.svg",
-    shortcut: "/brand/reserve-ai-mark.svg",
-    apple: "/icons/icon-512.png",
+    icon: [
+      { url: "/brand/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/brand/apple-touch-icon.png",
   },
 };
 
@@ -34,13 +38,17 @@ const structuredData = {
   description: "AI phone assistant for bookings, reservations, and customer enquiries."
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Screen readers pick the voice from this. Without it a German page is read
+  // out with an English voice, so it has to track the active locale.
+  const locale = await getLocale();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <script
           type="application/ld+json"
@@ -52,7 +60,6 @@ export default function RootLayout({
       >
         <div className="site-background" aria-hidden="true">
           <div className="site-aurora site-aurora--one" />
-          <div className="site-stars site-stars--near" />
         </div>
         <div className="site-content">{children}</div>
       </body>

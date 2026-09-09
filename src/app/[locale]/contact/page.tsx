@@ -34,7 +34,7 @@ function ContactHero() {
     <section className="section-flow-light relative px-4 pt-28 pb-10 md:px-6 md:pt-36 md:pb-14 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="reserve-panel-dark relative overflow-hidden px-8 py-12 md:px-12 md:py-16">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-52 bg-[radial-gradient(circle_at_top,rgba(142,255,168,0.14),transparent_58%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-52 bg-[radial-gradient(circle_at_top,rgba(212,168,67,0.14),transparent_58%)]" />
           <div className="relative z-10 max-w-3xl">
             <p className="section-label mb-6">{t("badge")}</p>
             <h1 className="heading-serif mb-6 text-4xl text-white md:text-6xl">
@@ -94,12 +94,12 @@ function ContactInfo() {
                 {card.href ? (
                   <a
                     href={card.href}
-                    className="font-semibold text-[#8effa8] transition-colors hover:text-white"
+                    className="font-semibold text-[#D4A843] transition-colors hover:text-white"
                   >
                     {card.value}
                   </a>
                 ) : (
-                  <span className="font-semibold text-[#8effa8]">{card.value}</span>
+                  <span className="font-semibold text-[#D4A843]">{card.value}</span>
                 )}
               </div>
             </ScrollAnimator>
@@ -136,7 +136,7 @@ function ContactFormSection() {
                 <div className="flex items-center justify-between border-b border-white/8 py-3">
                   <span className="text-zinc-300">{t("hours_weekdays")}</span>
                   <span className="font-semibold text-white">
-                    09:00 – 18:00
+                    09:00 bis 18:00
                   </span>
                 </div>
                 <div className="flex items-center justify-between border-b border-white/8 py-3">
@@ -147,7 +147,7 @@ function ContactFormSection() {
                 </div>
               </div>
 
-              <div className="mt-8 rounded-[24px] border border-[#8effa8]/10 bg-white/5 p-6">
+              <div className="mt-8 rounded-[24px] border border-[#D4A843]/10 bg-white/5 p-6">
                 <p className="text-sm leading-relaxed text-zinc-300">{t("privacy")}</p>
               </div>
             </div>

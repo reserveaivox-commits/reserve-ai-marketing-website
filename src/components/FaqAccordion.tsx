@@ -30,7 +30,7 @@ export default function FaqAccordion() {
               {item.question}
             </span>
             <svg
-              className="faq-icon w-5 h-5 text-[#8effa8] flex-shrink-0"
+              className="faq-icon w-5 h-5 text-[#D4A843] flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

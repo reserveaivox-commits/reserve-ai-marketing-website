@@ -130,7 +130,7 @@ export default function ServicesCarousel({ services }: { services: CarouselCard[
             key={i} 
             onClick={() => setActiveIndex(i)}
             className={`transition-all duration-300 rounded-full ${
-              i === activeIndex ? 'w-8 h-2.5 bg-[#8effa8]' : 'w-2.5 h-2.5 bg-zinc-600 hover:bg-zinc-400'
+              i === activeIndex ? 'w-8 h-2.5 bg-[#D4A843]' : 'w-2.5 h-2.5 bg-zinc-600 hover:bg-zinc-400'
             }`}
             aria-label={`Go to slide ${i+1}`}
           />

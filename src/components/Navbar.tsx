@@ -65,11 +65,11 @@ export default function Navbar() {
     setLangOpen(false);
   };
 
-  const serviceItems = [
+  const productItems = [
     {
       key: "agents",
       href: "/services/ai-agents",
-      color: "bg-service-agents/10 text-service-agents",
+      color: "bg-[#D4A843]/12 text-[#D4A843]",
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
@@ -77,9 +77,32 @@ export default function Navbar() {
       ),
     },
     {
+      key: "bots",
+      href: "/services/ai-bots",
+      color: "bg-[#D4A843]/12 text-[#D4A843]",
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><path d="M9 17h6"/>
+        </svg>
+      ),
+    },
+    {
+      key: "pos",
+      href: "/services/pos-system",
+      color: "bg-[#D4A843]/12 text-[#D4A843]",
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="4" width="18" height="16" rx="2" ry="2"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h3"/><path d="M13 14h3"/><path d="M8 17h8"/>
+        </svg>
+      ),
+    },
+  ];
+
+  const studioItems = [
+    {
       key: "websites",
       href: "/services/websites",
-      color: "bg-service-websites/10 text-service-websites",
+      color: "bg-white/8 text-zinc-400",
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
@@ -126,7 +149,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between rounded-full border border-white/8 bg-[#08101c]/78 px-4 py-3 md:h-18 md:px-7 md:py-0 shadow-[0_20px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl">
           {/* Logo */}
           <Link href="/" className="flex items-center" aria-label="Reserve AI home">
-            <BrandLogo />
+            <BrandLogo showMark={false} />
           </Link>
 
           {/* Desktop nav */}
@@ -156,7 +179,8 @@ export default function Navbar() {
               </button>
 
               <div className={`services-mega-menu ${servicesOpen ? "active" : ""}`}>
-                {serviceItems.map((item) => (
+                <p className="mega-menu-group">{t("group_product")}</p>
+                {productItems.map((item) => (
                   <Link
                     key={item.key}
                     href={item.href}
@@ -167,26 +191,31 @@ export default function Navbar() {
                       {item.icon}
                     </div>
                     <div>
-                      <h4>{t(`svc_${item.key}`)}</h4>
+                      <span>{t(`svc_${item.key}`)}</span>
                       <p>{t(`svc_${item.key}_desc`)}</p>
                     </div>
                   </Link>
                 ))}
-                <Link
-                  href="/services"
-                  onClick={() => setServicesOpen(false)}
-                  className="mega-menu-item col-span-2 border-t border-zinc-100 mt-2 pt-2"
-                >
-                  <div className="mega-menu-icon bg-[#8effa8]/10 text-[#8effa8]">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4>{t("view_all_services")}</h4>
-                    <p>{t("view_all_services_desc")}</p>
-                  </div>
-                </Link>
+
+                <p className="mega-menu-group mega-menu-group--divided">
+                  {t("group_also")}
+                </p>
+                {studioItems.map((item) => (
+                  <Link
+                    key={item.key}
+                    href={item.href}
+                    onClick={() => setServicesOpen(false)}
+                    className="mega-menu-item"
+                  >
+                    <div className={`mega-menu-icon ${item.color}`}>
+                      {item.icon}
+                    </div>
+                    <div>
+                      <span>{t(`svc_${item.key}`)}</span>
+                      <p>{t(`svc_${item.key}_desc`)}</p>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
 
@@ -194,7 +223,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${link.href === "/contact" ? "rounded-full bg-[#8effa8] px-4 py-2 text-[#04101b] hover:bg-[#76f494]" : "text-zinc-300 hover:text-white"}`}
+                className={`text-sm font-medium transition-colors ${link.href === "/contact" ? "rounded-full bg-[#D4A843] px-4 py-2 text-[#0B1424] hover:bg-[#C29A38]" : "text-zinc-300 hover:text-white"}`}
               >
                 {link.label}
               </Link>
@@ -273,34 +302,39 @@ export default function Navbar() {
               {t("home")}
             </Link>
 
-            {/* Services section in mobile */}
-            <div className="px-4 py-2">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">
-                {t("services")}
-              </p>
-              <div className="space-y-1 pl-2">
-                {serviceItems.map((item) => (
-                  <Link
-                    key={item.key}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-white/6 hover:text-white transition-colors"
-                  >
-                    <div className={`w-8 h-8 rounded-lg ${item.color} flex items-center justify-center flex-shrink-0`}>
-                      {item.icon}
-                    </div>
-                    <span className="text-sm font-medium">{t(`svc_${item.key}`)}</span>
-                  </Link>
-                ))}
+            {/* Reserve: the product first, the studio work below it */}
+            {[
+              { heading: t("group_product"), items: productItems },
+              { heading: t("group_also"), items: studioItems },
+            ].map((group) => (
+              <div key={group.heading} className="px-4 py-2">
+                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">
+                  {group.heading}
+                </p>
+                <div className="space-y-1 pl-2">
+                  {group.items.map((item) => (
+                    <Link
+                      key={item.key}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-white/6 hover:text-white transition-colors"
+                    >
+                      <div className={`w-8 h-8 rounded-lg ${item.color} flex items-center justify-center flex-shrink-0`}>
+                        {item.icon}
+                      </div>
+                      <span className="text-sm font-medium">{t(`svc_${item.key}`)}</span>
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            ))}
 
             {navLinks.slice(1).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className={`block px-4 py-3 rounded-lg font-medium transition-colors ${link.href === "/contact" ? "bg-[#8effa8] text-[#04101b]" : "text-zinc-300 hover:bg-white/6 hover:text-white"}`}
+                className={`block px-4 py-3 rounded-lg font-medium transition-colors ${link.href === "/contact" ? "bg-[#D4A843] text-[#0B1424]" : "text-zinc-300 hover:bg-white/6 hover:text-white"}`}
               >
                 {link.label}
               </Link>

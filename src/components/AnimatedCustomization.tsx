@@ -17,6 +17,7 @@ interface AnimatedCustomizationProps {
   examples: CustomizationExample[];
   accentColor: string;
   borderColor: string;
+  examplesTitle?: string;
 }
 
 export default function AnimatedCustomization({
@@ -27,6 +28,7 @@ export default function AnimatedCustomization({
   examples,
   accentColor,
   borderColor,
+  examplesTitle = "Industry Examples",
 }: AnimatedCustomizationProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -110,7 +112,7 @@ export default function AnimatedCustomization({
               <div className="rounded-2xl bg-brand-navy p-5 sm:p-8 md:p-10 border" style={{ borderColor }}>
                 {/* Header */}
                 <h3 className="text-sm font-semibold uppercase tracking-wider mb-6" style={{ color: accentColor }}>
-                  Industry Examples
+                  {examplesTitle}
                 </h3>
 
                 {/* Interactive Tabs */}

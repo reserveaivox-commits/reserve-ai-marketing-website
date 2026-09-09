@@ -65,7 +65,7 @@ function WebsiteShowcaseHero() {
 
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <p className="section-label mb-5 text-[#8effa8]">{t("eyebrow")}</p>
+            <p className="section-label mb-5 text-[#D4A843]">{t("eyebrow")}</p>
             <h1 className="heading-serif max-w-4xl text-4xl text-white sm:text-5xl md:text-6xl">
               {t("title")}
             </h1>
@@ -75,7 +75,7 @@ function WebsiteShowcaseHero() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-lg bg-[#8effa8] px-6 py-3.5 font-semibold text-[#04101b] transition-colors hover:bg-[#79f69c]"
+                className="inline-flex items-center justify-center rounded-lg bg-[#D4A843] px-6 py-3.5 font-semibold text-[#0B1424] transition-colors hover:bg-[#E3C27A]"
               >
                 {t("primary_cta")}
               </Link>
@@ -130,7 +130,7 @@ function CategoryNav() {
         <a
           key={category.id}
           href={`#${category.id}`}
-          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-zinc-200 transition-colors hover:border-[#8effa8]/40 hover:bg-[#8effa8]/10 hover:text-white"
+          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-zinc-200 transition-colors hover:border-[#D4A843]/40 hover:bg-[#D4A843]/10 hover:text-white"
         >
           {category.label}
           <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs text-zinc-300">
@@ -186,7 +186,7 @@ function WebsiteShowcaseCard({ item }: { item: WebsiteShowcaseItem }) {
   const t = useTranslations("website_showcase");
 
   return (
-    <article className="group h-full overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.045] shadow-[0_20px_70px_rgba(0,0,0,0.18)] transition-colors hover:border-[#8effa8]/35">
+    <article className="group h-full overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.045] shadow-[0_20px_70px_rgba(0,0,0,0.18)] transition-colors hover:border-[#D4A843]/35">
       <div className="relative aspect-[16/10] bg-black/40">
         <Image
           src={item.image}
@@ -220,16 +220,16 @@ function WebsiteShowcaseCta() {
   return (
     <section className="section-flow-dark pb-16 md:pb-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-[1.5rem] border border-[#8effa8]/20 bg-[#8effa8]/10 px-5 py-8 sm:px-8 md:px-10 md:py-12">
+        <div className="rounded-[1.5rem] border border-[#D4A843]/20 bg-[#D4A843]/10 px-5 py-8 sm:px-8 md:px-10 md:py-12">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
             <div>
-              <p className="section-label mb-3 text-[#8effa8]">{t("cta_badge")}</p>
+              <p className="section-label mb-3 text-[#D4A843]">{t("cta_badge")}</p>
               <h2 className="heading-serif text-3xl text-white md:text-4xl">{t("cta_title")}</h2>
               <p className="mt-3 max-w-2xl text-zinc-300">{t("cta_subtitle")}</p>
             </div>
             <Link
               href="/contact"
-              className="inline-flex w-full items-center justify-center rounded-lg bg-[#8effa8] px-6 py-3.5 font-semibold text-[#04101b] transition-colors hover:bg-[#79f69c] sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-lg bg-[#D4A843] px-6 py-3.5 font-semibold text-[#0B1424] transition-colors hover:bg-[#E3C27A] sm:w-auto"
             >
               {t("cta_button")}
             </Link>

@@ -96,15 +96,15 @@ export default function CaseStudyDashboard({
           </div>
         </div>
 
-        <div className="rounded-[1.5rem] border border-emerald-400/10 bg-[linear-gradient(180deg,rgba(7,42,34,0.38),rgba(11,18,20,0.72))] p-5">
+        <div className="rounded-[1.5rem] border border-[#D4A843]/14 bg-[linear-gradient(180deg,rgba(22,35,61,0.55),rgba(11,20,36,0.78))] p-5">
           <div className="mb-5 flex items-start justify-between gap-3">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300/90">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#E3C27A]/90">
                 {afterTitle}
               </p>
               <p className="mt-2 text-sm text-zinc-400">Confirmed reservations / month</p>
             </div>
-            <div className="shrink-0 rounded-full border border-emerald-400/14 bg-emerald-400/8 px-3 py-1 text-sm font-semibold text-emerald-300">
+            <div className="shrink-0 rounded-full border border-[#D4A843]/20 bg-[#D4A843]/10 px-3 py-1 text-sm font-semibold text-[#E3C27A]">
               +30
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function CaseStudyDashboard({
                 <div key={index} className="flex flex-1 flex-col items-center justify-end gap-3">
                   <div className="flex h-28 w-full items-end">
                     <motion.div
-                      className="w-full rounded-t-[1rem] bg-[linear-gradient(180deg,#8effa8,#33d18f)] shadow-[0_10px_30px_rgba(81,255,154,0.15)]"
+                      className="w-full rounded-t-[1rem] bg-[linear-gradient(180deg,#D4A843,#C29A38)] shadow-[0_10px_30px_rgba(212,168,67,0.15)]"
                       initial={{ height: 8, opacity: 0.55 }}
                       animate={{
                         height: [8, (value / maxReservations) * 112, (value / maxReservations) * 112, 8],
@@ -156,14 +156,14 @@ export default function CaseStudyDashboard({
         </div>
 
         <div className="p-4 sm:p-6">
-          <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300/90">
+          <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#E3C27A]/90">
             {afterTitle}
           </div>
           <div className="space-y-4">
             {afterMetrics.map((metric) => (
               <div key={metric.label} className="flex items-center justify-between gap-4">
                 <span className="text-sm text-zinc-400">{metric.label}</span>
-                <span className="text-xl font-bold text-emerald-400 sm:text-2xl">{metric.value}</span>
+                <span className="text-xl font-bold text-[#D4A843] sm:text-2xl">{metric.value}</span>
               </div>
             ))}
           </div>
